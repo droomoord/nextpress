@@ -71,7 +71,7 @@ const PostsLayout = ({ posts, count, page }) => {
             const dateString = date.toLocaleDateString();
             return (
               <div className="np-post" key={post.id}>
-                {post.featured_media && (
+                {post.featured_media ? (
                   <Image
                     src={image.media_details.sizes[imageSize].source_url}
                     alt={image.alt_text}
@@ -82,7 +82,7 @@ const PostsLayout = ({ posts, count, page }) => {
                     blurDataURL={image.media_details.sizes.thumbnail.source_url}
                     layout="responsive"
                   />
-                )}
+                ) : null}
                 <h2
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                 ></h2>
