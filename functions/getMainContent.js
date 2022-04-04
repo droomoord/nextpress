@@ -11,7 +11,7 @@ const GetMainContent = async (slug, fields) => {
 
   console.log(
     "\n",
-    `${chalk.green(slug.toUpperCase())}: ${chalk.dim(urlString)}`,
+    `PAGE ${chalk.green(slug.toUpperCase())}: ${chalk.dim(urlString)}`,
     "\n"
   );
 
