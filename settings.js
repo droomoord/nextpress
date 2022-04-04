@@ -1,5 +1,9 @@
 const settings = {
   title: "My Page",
+<<<<<<< HEAD
+=======
+  // The URL of the WordPress site: (required)
+>>>>>>> aa4cb67 (first nijverheid commit)
   // The page to use as the home page: (required, case-insensitive)
   homePage: "home",
   // The page to use as the posts page: (optional case-insensitive)
