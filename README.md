@@ -7,7 +7,7 @@ This is a boilerplate for a Next.js app that fetches data from a Wordpress insta
 - Make sure your permalinks are set up in this format: http://localhost:8888/sample-post/ (settings -> permalinks -> common settings)
 - It's best to create an extra security layer by enabling Application Passwords (users -> [username] -> application passwords). After that install the [REST API toolbox](https://wordpress.org/plugins/rest-api-toolbox/) for Wordpress and in the core tab (settings -> REST API Toolbox -> core) enable Auth for all routes.
 
-### Next
+### Next.js
 
 - Open .env.example and change the variables to your Application username and password. Rename the file to .env.local
 - Update settings.js
