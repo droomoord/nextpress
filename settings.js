@@ -1,6 +1,5 @@
 const settings = {
   title: "De Nijverheid",
-  // The URL of the WordPress site: (required)
   // The page to use as the home page: (required, case-insensitive)
   homePage: "home",
   // The page to use as the posts page: (optional case-insensitive)
