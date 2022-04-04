@@ -4,10 +4,16 @@ import getPost from "../../functions/getPost";
 import getNavItems from "../../functions/getNavItems";
 import getPostsPaths from "../../functions/getPostsPaths";
 import PostLayout from "../../components/postLayout";
+import Head from "next/head";
 
 const Post = ({ navItems, post }) => {
   return (
     <>
+      <Head>
+        <title>
+          {settings.title} - {post.title && post.title.rendered}
+        </title>
+      </Head>
       <Navbar navItems={navItems} />
       <PostLayout post={post} />
     </>
