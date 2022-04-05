@@ -6,7 +6,7 @@ const GetEvents = async () => {
   const { username, password, targetURL } = auth();
   const res = await axios({
     method: "get",
-    url: `${targetURL}/wp-json/tribe/events/v1/events`,
+    url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=100`,
     auth: {
       username,
       password,

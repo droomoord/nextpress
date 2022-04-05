@@ -17,19 +17,25 @@ const Navbar = ({ navItems }) => {
         <CgMenu size={"2em"} />
       </button>
       <div className={`np-nav-items ${menuOpen ? "menu-open" : ""}`}>
-        {navItems.map((item) => {
-          const active = path == item.path || path + "/" == item.path;
-          return (
-            <a
-              key={item.id}
-              onClick={(event) => clickedNavItem(item.path, event)}
-              className={active ? "active" : null}
-              href={item.path}
-            >
-              {item.text}
-            </a>
-          );
-        })}
+        {navItems
+          .concat({
+            text: "Events",
+            path: "/events",
+            id: "events",
+          })
+          .map((item) => {
+            const active = path == item.path || path + "/" == item.path;
+            return (
+              <a
+                key={item.id}
+                onClick={(event) => clickedNavItem(item.path, event)}
+                className={active ? "active" : null}
+                href={item.path}
+              >
+                {item.text}
+              </a>
+            );
+          })}
       </div>
     </nav>
   );

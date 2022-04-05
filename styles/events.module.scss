@@ -1,0 +1,32 @@
+.events-wrapper {
+  width: 50vw;
+  position: absolute;
+  left: 30%;
+  padding-bottom: 50vh;
+  .events {
+    display: flex;
+    flex-direction: column;
+    .month {
+      position: sticky;
+      top: 300px;
+      color: red;
+      transform: translateX(-50%);
+      font-size: 3em;
+      text-transform: uppercase;
+    }
+    .event {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      position: relative;
+      .day {
+        white-space: nowrap;
+        position: absolute;
+        color: red;
+        right: calc(100% + 1em);
+        top: 50%;
+        font-size: 2em;
+      }
+    }
+  }
+}

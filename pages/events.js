@@ -2,6 +2,7 @@ import getEvents from "../functions/getEvents";
 import EventsLayout from "../components/eventsLayout";
 import Navbar from "../components/navbar";
 import getNavItems from "../functions/getNavItems";
+import settings from "../settings.js";
 
 const Events = ({ events, navItems }) => {
   return (
@@ -32,6 +33,7 @@ export async function getStaticProps() {
         events,
         navItems,
       },
+      revalidate: settings.revalidationTime,
     };
   } catch (error) {
     console.log(error);
