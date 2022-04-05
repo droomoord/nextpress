@@ -11,6 +11,7 @@ const Navbar = ({ navItems }) => {
     event.stopPropagation();
     router.push(path);
   }
+  console.log("path", path);
   return (
     <nav>
       <button className="np-menu-button" onClick={() => setMenuOpen(!menuOpen)}>
@@ -25,6 +26,8 @@ const Navbar = ({ navItems }) => {
           })
           .map((item) => {
             const active = path == item.path || path + "/" == item.path;
+            console.log("item.path", item.path);
+
             return (
               <a
                 key={item.id}
