@@ -36,7 +36,7 @@ export async function getStaticProps(context) {
         notFound: true,
       };
     }
-    if (settings.postsPage.toLowerCase() == currentPage.toLowerCase()) {
+    if (settings.postsPage?.toLowerCase() == currentPage.toLowerCase()) {
       const { posts, count } = await getPosts(
         [
           "title",
