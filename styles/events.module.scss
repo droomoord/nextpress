@@ -16,9 +16,10 @@
     }
     .event {
       display: flex;
-      flex-direction: column;
-      gap: 1em;
       position: relative;
+      gap: 1em;
+      align-items: center;
+
       .day {
         white-space: nowrap;
         position: absolute;
@@ -26,6 +27,11 @@
         right: calc(100% + 1em);
         top: 50%;
         font-size: 2em;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
       }
     }
   }

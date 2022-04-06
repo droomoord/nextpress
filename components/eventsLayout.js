@@ -1,4 +1,5 @@
 import classes from "../styles/events.module.scss";
+import Image from "next/image";
 const { convert } = require("html-to-text");
 
 const EventsLayout = ({ events }) => {
@@ -78,17 +79,29 @@ const EventsLayout = ({ events }) => {
               <span className={classes.month}>{month.month}</span>
               {month.events.map((event) => {
                 return (
-                  <div key={event.event.id} className={classes.event}>
+                  <div className={classes.event} key={event.event.id}>
                     <span className={classes.day}>
                       {event.dayName} {event.day}
                     </span>
-                    <h2>
-                      <span
-                        dangerouslySetInnerHTML={{ __html: event.event.title }}
-                      ></span>
-                    </h2>
-                    <div>{createSummery(event.event.description)}</div>
-                    <hr />
+                    {event.event.image && (
+                      <Image
+                        src={event.event.image.sizes.thumbnail.url}
+                        alt={event.event.title}
+                        height={event.event.image.height}
+                        width={event.event.image.width}
+                        layout="intrinsic"
+                      ></Image>
+                    )}
+                    <div className={classes.info}>
+                      <h2>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: event.event.title,
+                          }}
+                        ></span>
+                      </h2>
+                      <div>{createSummery(event.event.description)}</div>
+                    </div>
                   </div>
                 );
               })}
