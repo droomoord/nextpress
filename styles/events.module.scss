@@ -1,34 +1,58 @@
+.hidden {
+  visibility: hidden;
+}
 .events-wrapper {
-  width: 50vw;
+  overflow-x: hidden;
+  padding: 1em;
+  min-width: 23em;
+  max-width: 30em;
   position: absolute;
-  left: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   padding-bottom: 50vh;
   .events {
     display: flex;
     flex-direction: column;
     .month {
-      position: sticky;
-      top: 300px;
+      text-align: center;
+      text-decoration: underline;
+      margin-bottom: 1em;
+      // position: sticky;
+      // top: 300px;
       color: red;
-      transform: translateX(-50%);
-      font-size: 3em;
+      // transform: translateX(-50%);
+      font-size: 2em;
       text-transform: uppercase;
     }
     .event {
-      display: flex;
+      border-top: 1px solid black;
+      text-decoration: none;
+      color: black;
+      // flex-direction: column;
       position: relative;
+      // display: flex;
       gap: 1em;
       align-items: center;
-
+      // height: 15em;
+      overflow: hidden;
+      .image {
+        max-height: 10em;
+        overflow: hidden;
+        img {
+        }
+      }
       .day {
         white-space: nowrap;
-        position: absolute;
+        // position: absolute;
         color: red;
-        right: calc(100% + 1em);
-        top: 50%;
-        font-size: 2em;
+        // right: calc(100% + 1em);
+        // top: 50%;
+        font-size: 1.5em;
       }
       .info {
+        .event-title {
+          font-size: 1em;
+        }
         display: flex;
         flex-direction: column;
         gap: 1em;

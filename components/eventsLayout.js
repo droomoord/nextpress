@@ -12,7 +12,7 @@ const EventsLayout = ({ events }) => {
         ? `${string.substring(0, length)}...`
         : string;
     };
-    return shortenString(convert(HTMLstring).replace(/\[.+\]/, ""), 300);
+    return shortenString(convert(HTMLstring).replace(/\[.+\]/, ""), 150);
   };
   const isValidEvent = (event) => {
     return event.title && event.description && event.start_date_details;
@@ -71,7 +71,7 @@ const EventsLayout = ({ events }) => {
   ];
   return (
     <main>
-      <h1 className="np-page-title">Events</h1>
+      <h1 className={classes.hidden}>Events</h1>
       <div className={`${classes["events-wrapper"]}`}>
         {createEventsByMonth(events).map((month) => {
           return (
@@ -79,21 +79,27 @@ const EventsLayout = ({ events }) => {
               <span className={classes.month}>{month.month}</span>
               {month.events.map((event) => {
                 return (
-                  <div className={classes.event} key={event.event.id}>
+                  <a
+                    className={classes.event}
+                    key={event.event.id}
+                    href={`/events/${event.event.id}-${event.event.slug}`}
+                  >
                     <span className={classes.day}>
                       {event.dayName} {event.day}
                     </span>
                     {event.event.image && (
-                      <Image
-                        src={event.event.image.sizes.thumbnail.url}
-                        alt={event.event.title}
-                        height={event.event.image.height}
-                        width={event.event.image.width}
-                        layout="intrinsic"
-                      ></Image>
+                      <div className={classes.image}>
+                        <Image
+                          src={event.event.image.url}
+                          alt={event.event.title}
+                          height={event.event.image.height}
+                          width={event.event.image.width}
+                          layout="responsive"
+                        ></Image>
+                      </div>
                     )}
                     <div className={classes.info}>
-                      <h2>
+                      <h2 className={classes["event-title"]}>
                         <span
                           dangerouslySetInnerHTML={{
                             __html: event.event.title,
@@ -102,7 +108,7 @@ const EventsLayout = ({ events }) => {
                       </h2>
                       <div>{createSummery(event.event.description)}</div>
                     </div>
-                  </div>
+                  </a>
                 );
               })}
             </div>
