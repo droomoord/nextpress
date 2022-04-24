@@ -99,9 +99,9 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const navItems = await getNavItems();
-    const index = navItems.findIndex((item) => item.path == "/");
-    if (index > -1) navItems.splice(index, 1);
+    const navItems = await getNavItems(true);
+    const homeIndex = navItems.findIndex((item) => item.path == "/");
+    if (homeIndex > -1) navItems.splice(homeIndex, 1);
     return {
       paths: navItems.map((item) => {
         return { params: { page: item.path.replace("/", "") } };

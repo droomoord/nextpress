@@ -3,7 +3,7 @@ import axios from "axios";
 import auth from "./auth";
 import { capitalize, makePath } from "./helpers";
 
-const getNavItems = async () => {
+const getNavItems = async (forStaticPaths) => {
   const { username, password, targetURL } = auth();
   const res = await axios({
     method: "GET",
@@ -22,18 +22,22 @@ const getNavItems = async () => {
         id: item.id,
       };
     })
-    .concat([
-      {
-        text: "Agenda",
-        path: "/agenda",
-        id: "agenda",
-      },
-      {
-        text: "Nijveraars",
-        path: "/nijveraars",
-        id: "nijveraars",
-      },
-    ]);
+    .concat(
+      forStaticPaths
+        ? null
+        : [
+            {
+              text: "Agenda",
+              path: "/agenda",
+              id: "agenda",
+            },
+            {
+              text: "Nijveraars",
+              path: "/nijveraars",
+              id: "nijveraars",
+            },
+          ]
+    );
 };
 
 export default getNavItems;
