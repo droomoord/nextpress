@@ -1,0 +1,66 @@
+@import "vars";
+
+.container {
+  .x {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 2em;
+    position: absolute;
+    top: 0.7em;
+    right: 0.4em;
+    cursor: pointer;
+  }
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .wrapper {
+    font-size: 1.5em;
+    font-family: franchise;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+    max-width: 80%;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.426);
+    & > * {
+      color: rgb(227, 227, 227);
+      letter-spacing: 0.05em;
+      transform: translateX(-150%);
+      animation-name: slide-in;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.4, 1, 1, 1);
+    }
+    .active {
+      position: relative;
+      &::before {
+        position: absolute;
+        left: -0.5em;
+        content: "•";
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  to {
+    transform: none;
+  }
+}

@@ -19,10 +19,10 @@ const PageLayout = ({ page }) => {
           />
         ) : null}
       </div>
-      <h1
+      {/* <h1
         className="np-page-title"
         dangerouslySetInnerHTML={{ __html: page.title.rendered }}
-      ></h1>
+      ></h1> */}
       <div
         className="np-main-content"
         dangerouslySetInnerHTML={{ __html: page.content.rendered }}

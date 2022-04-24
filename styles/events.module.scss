@@ -1,3 +1,5 @@
+@import "vars";
+
 .hidden {
   visibility: hidden;
 }
@@ -13,18 +15,22 @@
   .events {
     display: flex;
     flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
     .month {
+      font-family: takraf;
       text-align: center;
       text-decoration: underline;
       margin-bottom: 1em;
       // position: sticky;
       // top: 300px;
-      color: red;
+      color: $primary;
       // transform: translateX(-50%);
       font-size: 2em;
-      text-transform: uppercase;
+      // text-transform: uppercase;
     }
     .event {
+      padding-top: 1em;
       border-top: 1px solid black;
       text-decoration: none;
       color: black;
@@ -42,9 +48,10 @@
         }
       }
       .day {
+        font-family: franchise;
         white-space: nowrap;
         // position: absolute;
-        color: red;
+        color: $primary;
         // right: calc(100% + 1em);
         // top: 50%;
         font-size: 1.5em;

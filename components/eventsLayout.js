@@ -82,7 +82,7 @@ const EventsLayout = ({ events }) => {
                   <a
                     className={classes.event}
                     key={event.event.id}
-                    href={`/events/${event.event.id}-${event.event.slug}`}
+                    href={`/agenda/${event.event.id}-${event.event.slug}`}
                   >
                     <span className={classes.day}>
                       {event.dayName} {event.day}

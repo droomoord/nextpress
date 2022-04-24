@@ -14,13 +14,26 @@ const getNavItems = async () => {
     },
   });
   const navItems = res.data;
-  return navItems.map((item) => {
-    return {
-      text: capitalize(item.title.rendered),
-      path: makePath(item.title.rendered),
-      id: item.id,
-    };
-  });
+  return navItems
+    .map((item) => {
+      return {
+        text: capitalize(item.title.rendered),
+        path: makePath(item.title.rendered),
+        id: item.id,
+      };
+    })
+    .concat([
+      {
+        text: "Agenda",
+        path: "/agenda",
+        id: "agenda",
+      },
+      {
+        text: "Nijveraars",
+        path: "/nijveraars",
+        id: "nijveraars",
+      },
+    ]);
 };
 
 export default getNavItems;

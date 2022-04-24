@@ -3,10 +3,14 @@ import EventsLayout from "../components/eventsLayout";
 import Navbar from "../components/navbar";
 import getNavItems from "../functions/getNavItems";
 import settings from "../settings.js";
+import Head from "next/head";
 
 const Events = ({ events, navItems }) => {
   return (
     <>
+      <Head>
+        <title>{settings.title} - Agenda</title>
+      </Head>
       <Navbar navItems={navItems} />
       <EventsLayout events={events} />
     </>
@@ -23,7 +27,7 @@ export async function getStaticProps() {
       };
     }
     const events = await getEvents();
-    if (!navItems) {
+    if (!events) {
       return {
         notFound: true,
       };

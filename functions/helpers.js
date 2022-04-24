@@ -3,9 +3,26 @@ import settings from "../settings";
 export function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+// export function makePath(title) {
+//   if (title.toLowerCase() == settings.homePage.toLowerCase()) {
+//     return "/";
+//   }
+//   return `/${title}`;
+// }
+
+//create a function that converts a name into a valid slug
 export function makePath(title) {
   if (title.toLowerCase() == settings.homePage.toLowerCase()) {
     return "/";
   }
-  return `/${title}`;
+  const slug = title
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
+
+  return `/${slug}`;
 }
