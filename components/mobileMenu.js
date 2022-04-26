@@ -13,7 +13,7 @@ const MobileMenu = ({ navItems, path, clickedNavItem, closeMenu }) => {
           <a
             onClick={(event) => clickedNavItem(item.path, event)}
             className={active ? classes.active : null}
-            style={{ animationDelay: `${index ? index / 20 : 0}s` }}
+            style={{ animationDelay: `${index ? index / 100 : 0}s` }}
           >
             {item.text}
           </a>

@@ -10,6 +10,18 @@ class MyDocument extends Document {
     return (
       <Html lang="nl">
         <Head>
+          <link
+            rel="preload"
+            href="/assets/fonts/Takraf.otf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/assets/fonts/Franchise-Bold.ttf"
+            as="font"
+            crossOrigin=""
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"

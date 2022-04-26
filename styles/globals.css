@@ -11,12 +11,12 @@ body {
   box-sizing: border-box;
   max-width: 100%;
 }
-p,
+/* p,
 h5 {
   line-height: 2;
   color: rgb(38, 38, 38);
   text-align: left !important;
-}
+} */
 
 a {
   color: rgb(166, 0, 169);
@@ -25,9 +25,7 @@ li {
   list-style-type: square;
   margin-left: 1.5em;
 }
-h1 {
-  text-align: center;
-}
+
 .np-page-title {
   margin-top: 1em;
 }
@@ -46,4 +44,14 @@ h1 {
 .np-featured-image {
   max-height: 50vh;
   overflow: hidden;
+}
+
+@font-face {
+  font-family: takraf;
+  src: url("/assets/fonts/Takraf.otf");
+}
+
+@font-face {
+  font-family: franchise;
+  src: url("/assets/fonts/Franchise-Bold.ttf");
 }
