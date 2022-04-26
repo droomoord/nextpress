@@ -16,11 +16,7 @@ const Page = ({ navItems, page, posts, count }) => {
         </title>
       </Head>
       <Navbar navItems={navItems} />
-      {posts ? (
-        <PostsLayout posts={posts} count={count} page={page} />
-      ) : (
-        <PageLayout page={page} />
-      )}
+      <PageLayout page={page} />
     </>
   );
 };

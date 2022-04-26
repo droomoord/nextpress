@@ -12,7 +12,7 @@ const PostLayout = ({ post }) => {
 
   return (
     <div className="np-main-content">
-      <Link href={"/" + settings.postsPage}>Back to posts</Link>
+      <Link href={"/"}>Terug</Link>
       <div className="np-post">
         <div>
           {post.featured_media && (

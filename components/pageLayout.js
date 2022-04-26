@@ -2,13 +2,14 @@ import Image from "next/image";
 import Head from "next/head";
 import HomeLayout from "./homeLayout";
 
-const PageLayout = ({ page }) => {
+const PageLayout = ({ page, posts }) => {
   const image = page.featured_media
     ? page._embedded["wp:featuredmedia"][0]
     : null;
   const imageSize = "medium_large";
   let render;
-  if (page.title?.rendered == "Home") render = <HomeLayout page={page} />;
+  if (page.title?.rendered == "Home")
+    render = <HomeLayout page={page} posts={posts} />;
   else
     render = (
       <div dangerouslySetInnerHTML={{ __html: page.content.rendered }}></div>

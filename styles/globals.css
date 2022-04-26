@@ -26,8 +26,10 @@ li {
   margin-left: 1.5em;
 }
 
-.np-page-title {
-  margin-top: 1em;
+.np-title {
+  text-align: center;
+  font-family: franchise;
+  font-size: 1.3em;
 }
 .np-main-content {
   width: 800px;

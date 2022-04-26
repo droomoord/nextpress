@@ -1,20 +1,125 @@
 @import "vars";
 
 .logo {
-  width: 50vw;
   margin: auto;
-  //   text-align: center;
-}
-.takraf {
-  font-family: takraf;
-  color: $primary;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  .takraf {
+    position: relative;
+    font-family: takraf;
+    color: $primary;
+    .roll {
+      display: inline-block;
+      transform: rotate(-180deg);
+      transform-origin: 0px -1px;
+      // animation-name: roll;
+      // animation-duration: 1s;
+      // animation-delay: 1s;
+      // animation-fill-mode: forwards;
+      // animation-timing-function: ease-in-out;
+    }
+    h1 {
+      display: inline;
+    }
 
-  h1 {
-    display: inline;
+    & > * {
+      font-size: 1.3em;
+      line-height: 0.95em;
+    }
   }
+}
 
-  & > * {
-    font-size: 1.3em;
-    line-height: 0.95em;
+.subtitle {
+  margin: 0 0.5em;
+  font-family: franchise;
+  text-align: center;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+  color: $primary;
+}
+.panorama {
+  // position: absolute;
+  // left: 0;
+  // overflow: scroll;
+  margin-bottom: 2em;
+  img {
+    width: 2000px;
+  }
+}
+.nieuws {
+  margin: 0 1em;
+  position: relative;
+
+  .left,
+  .right {
+    background-color: transparent;
+    border: none;
+    color: $secondary;
+    width: 2em;
+  }
+  .left {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+  }
+  .right {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+  }
+  .nieuwsitems {
+    // background-color: rgba(255, 255, 0, 0.569);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 40%;
+    gap: 1em;
+    overflow-x: scroll;
+    padding-bottom: 1em;
+    .item {
+      text-decoration: none;
+      // border: 1px solid rgb(218, 218, 218);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.192);
+      // background-color: rgb(137, 137, 137);
+      padding: 0.5em;
+      border-radius: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // background-color: rgba(255, 0, 0, 0.269);
+      h4 {
+        font-weight: normal;
+        text-align: center;
+        font-family: franchise;
+        color: rgb(83, 83, 83);
+      }
+      .image {
+        inline-size: 100%;
+        img {
+          inline-size: 100%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes roll {
+  40% {
+    transform: rotate(-90deg);
+    position: relative;
+    top: 0;
+  }
+  80% {
+    transform: rotate(-90deg);
+    position: relative;
+    top: 0;
+  }
+  100% {
+    transform: rotate(-90deg);
+    position: relative;
+    top: 23px;
   }
 }
