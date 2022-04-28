@@ -17,47 +17,49 @@ const Nijveraars = ({ nijveraars, navItems }) => {
         <title>{settings.title} - Nijveraars</title>
       </Head>
       <Navbar navItems={navItems} />
-      <div className={classes.container}>
-        <div className={classes.wrapper}>
-          {nijveraars.map((nijveraar) => {
-            const imgUrl =
-              nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes
-                ?.thumbnail?.source_url;
-            const title = nijveraar.title.rendered;
-            const beroep = nijveraar.acf.beroep;
-            const slug = nijveraar.slug;
-            return (
-              <Link key={nijveraar.id} href={`/nijveraars/${slug}`}>
-                <a className={classes.nijveraar}>
-                  {imgUrl && (
-                    <img
-                      src={
-                        nijveraar._embedded["wp:featuredmedia"][0].media_details
-                          .sizes.thumbnail.source_url
-                      }
-                      alt={nijveraar.title.rendered}
-                    />
-                  )}
-                  <div>
-                    {title && (
-                      <div
-                        dangerouslySetInnerHTML={{ __html: title }}
-                        className={classes.title}
-                      ></div>
+      <main className="np-main-content">
+        <div className={classes.container}>
+          <div className={classes.wrapper}>
+            {nijveraars.map((nijveraar) => {
+              const imgUrl =
+                nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes
+                  ?.thumbnail?.source_url;
+              const title = nijveraar.title.rendered;
+              const beroep = nijveraar.acf.beroep;
+              const slug = nijveraar.slug;
+              return (
+                <Link key={nijveraar.id} href={`/nijveraars/${slug}`}>
+                  <a className={classes.nijveraar}>
+                    {imgUrl && (
+                      <img
+                        src={
+                          nijveraar._embedded["wp:featuredmedia"][0]
+                            .media_details.sizes.thumbnail.source_url
+                        }
+                        alt={nijveraar.title.rendered}
+                      />
                     )}
-                    {beroep && (
-                      <small
-                        dangerouslySetInnerHTML={{ __html: beroep }}
-                        className={classes.beroep}
-                      ></small>
-                    )}
-                  </div>
-                </a>
-              </Link>
-            );
-          })}
+                    <div>
+                      {title && (
+                        <div
+                          dangerouslySetInnerHTML={{ __html: title }}
+                          className={classes.title}
+                        ></div>
+                      )}
+                      {beroep && (
+                        <small
+                          dangerouslySetInnerHTML={{ __html: beroep }}
+                          className={classes.beroep}
+                        ></small>
+                      )}
+                    </div>
+                  </a>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

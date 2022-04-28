@@ -2,8 +2,11 @@
 
 .hidden {
   visibility: hidden;
+  position: fixed;
 }
 .events-wrapper {
+  // background-color: rgb(232, 232, 232);
+  border-radius: 5px;
   overflow-x: hidden;
   padding: 1em;
   min-width: 23em;
@@ -11,7 +14,6 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  padding-bottom: 50vh;
   .events {
     display: flex;
     flex-direction: column;
@@ -21,17 +23,26 @@
       font-family: takraf;
       text-align: center;
       text-decoration: underline;
-      margin-bottom: 1em;
+      // margin-bottom: 1em;
       // position: sticky;
       // top: 300px;
       color: $primary;
       // transform: translateX(-50%);
       font-size: 2em;
       // text-transform: uppercase;
+      &::before {
+        content: "====";
+      }
+      &::after {
+        content: "====";
+      }
     }
     .event {
-      padding-top: 1em;
-      border-top: 1px solid black;
+      padding: 1em;
+      border-radius: 5px;
+      // border-top: 1px solid black;
+      // background-color: rgb(232, 232, 232);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.21);
       text-decoration: none;
       color: black;
       // flex-direction: column;
@@ -42,10 +53,10 @@
       // height: 15em;
       overflow: hidden;
       .image {
-        max-height: 10em;
-        overflow: hidden;
-        img {
-        }
+        height: 10em;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 1em;
       }
       .day {
         font-family: franchise;

@@ -1,14 +1,25 @@
 import { useRouter } from "next/router";
 import { CgMenu } from "react-icons/cg";
-import { useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import MobileMenu from "./mobileMenu";
 
 import classes from "../styles/navbar.module.scss";
 
-const Navbar = ({ navItems }) => {
+const Navbar = ({ navItems, initiallyHidden }) => {
+  useEffect(() => {
+    if (initiallyHidden === true) {
+      window.addEventListener("scroll", () => {
+        setShowNavbar(true);
+      });
+    }
+  }, [initiallyHidden]);
+
   const [menuOpen, setMenuOpen] = useState(false);
+  // when on the home page:
+  const [showNavbar, setShowNavbar] = useState(false);
+  //
   const router = useRouter();
   const path = router.asPath;
   function clickedNavItem(path, event) {
@@ -33,7 +44,10 @@ const Navbar = ({ navItems }) => {
   });
 
   return (
-    <nav className={classes.navbar}>
+    <nav
+      className={`${classes.navbar} ${initiallyHidden ? classes.hidden : null}`}
+      style={{ top: initiallyHidden && showNavbar ? "0" : null }}
+    >
       {/* <h1 className={classes.title}>de nijverheid</h1> */}
       <Link href="/">
         <a className={classes.logo}>

@@ -26,12 +26,12 @@ const Nijveraar = ({ nijveraar, navItems }) => {
         </title>
       </Head>
       <Navbar navItems={navItems} />
-      <div>
+      <main className="np-main-content">
         <img src={imgUrl} alt={title} />
         <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
         <h2>{beroep}</h2>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>
-      </div>
+      </main>
     </>
   );
 };

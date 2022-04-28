@@ -5,15 +5,16 @@ import PageLayout from "../components/pageLayout";
 import GetMainContent from "../functions/getMainContent";
 import settings from "../settings.js";
 import Navbar from "../components/navbar";
+import getEvents from "../functions/getEvents";
 
-export default function Home({ navItems, page, posts }) {
+export default function Home({ navItems, page, posts, events }) {
   return (
     <>
       <Head>
         <title>{settings.title}</title>
       </Head>
-      <Navbar navItems={navItems} />
-      <PageLayout page={page} posts={posts} />
+      <Navbar navItems={navItems} initiallyHidden />
+      <PageLayout page={page} posts={posts} events={events} />
     </>
   );
 }
@@ -48,8 +49,9 @@ export async function getStaticProps() {
       ],
       1
     );
+    const events = await getEvents(3);
     return {
-      props: { navItems, page, posts, count },
+      props: { navItems, page, posts, count, events },
       ...(settings.revalidationTime && {
         revalidate: settings.revalidationTime,
       }),

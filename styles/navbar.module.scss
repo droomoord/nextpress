@@ -5,7 +5,7 @@
   display: flex;
   align-items: flex-start;
   gap: 2em;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
@@ -68,4 +68,9 @@
     gap: 1.5em;
     flex-wrap: wrap;
   }
+}
+
+.hidden {
+  top: -4em;
+  transition: top 0.3s;
 }

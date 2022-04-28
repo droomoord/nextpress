@@ -1,6 +1,7 @@
 @import "vars";
 
 .logo {
+  position: relative;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -10,18 +11,38 @@
     position: relative;
     font-family: takraf;
     color: $primary;
+    &::after {
+      $shadow-color: rgba(72, 72, 72, 0.097);
+      white-space: pre-wrap;
+      content: "========de\Anijverheid\A==========";
+      font-family: takraf;
+      color: $shadow-color;
+      font-size: 1.3em;
+      line-height: 0.95em;
+      position: absolute;
+      transform: rotatex(0) skew(299deg, 0) scale(1, 0.6);
+      top: 0.5em;
+      left: 1.5em;
+      z-index: -2;
+      box-shadow: 2px -2px 7px $shadow-color;
+    }
+    &::before {
+      content: "";
+      z-index: -1;
+      background-color: rgb(255, 255, 255);
+      width: 13ch;
+      font-family: takraf;
+      height: 100%;
+      position: absolute;
+    }
     .roll {
       display: inline-block;
       transform: rotate(-180deg);
       transform-origin: 0px -1px;
-      // animation-name: roll;
-      // animation-duration: 1s;
-      // animation-delay: 1s;
-      // animation-fill-mode: forwards;
-      // animation-timing-function: ease-in-out;
     }
     h1 {
       display: inline;
+      font-weight: normal;
     }
 
     & > * {
@@ -36,42 +57,43 @@
   font-family: franchise;
   text-align: center;
   font-size: 1.3em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   color: $primary;
 }
 .panorama {
-  // position: absolute;
-  // left: 0;
-  // overflow: scroll;
   margin-bottom: 2em;
+
   img {
     width: 2000px;
   }
 }
 .nieuws {
-  margin: 0 1em;
   position: relative;
-
+  margin-bottom: 2em;
+  padding-bottom: 1em;
   .left,
   .right {
     background-color: transparent;
     border: none;
     color: $secondary;
+    opacity: 0.2;
     width: 2em;
   }
   .left {
     position: absolute;
     top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
+    right: calc(100% - 2em);
+    transform: translateY(-30%);
   }
   .right {
     position: absolute;
     top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
+    left: calc(100% - 2em);
+    transform: translateY(-30%);
   }
   .nieuwsitems {
+    margin: 0 2em;
+    scroll-behavior: smooth;
     // background-color: rgba(255, 255, 0, 0.569);
     display: grid;
     grid-auto-flow: column;
@@ -82,9 +104,10 @@
     .item {
       text-decoration: none;
       // border: 1px solid rgb(218, 218, 218);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.192);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);
       // background-color: rgb(137, 137, 137);
       padding: 0.5em;
+      margin: 0.1em;
       border-radius: 2%;
       display: flex;
       flex-direction: column;
@@ -100,26 +123,56 @@
         inline-size: 100%;
         img {
           inline-size: 100%;
+          border-radius: 2%;
         }
       }
     }
   }
 }
+.agenda {
+  margin-bottom: 1em;
+  .agendaitems {
+    margin: 0 1em;
+    .event {
+      $radius: 5px;
+      display: flex;
+      margin-bottom: 1em;
+      border-radius: $radius;
+      gap: 1em;
+      // background-color: yellow;
+      // border: 1px solid rgb(202, 202, 202);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.111);
+      .imagewrapper {
+        $size: 7em;
+        width: $size;
+        height: $size;
+        background-color: rgb(207, 207, 207);
+        img {
+          border-top-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+        }
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 10em;
 
-@keyframes roll {
-  40% {
-    transform: rotate(-90deg);
-    position: relative;
-    top: 0;
+        h4 {
+          // font-family: franchise;
+          color: rgb(100, 100, 100);
+        }
+        span {
+          color: $primary;
+          font-weight: bold;
+        }
+      }
+    }
   }
-  80% {
-    transform: rotate(-90deg);
-    position: relative;
-    top: 0;
-  }
-  100% {
-    transform: rotate(-90deg);
-    position: relative;
-    top: 23px;
+  .button {
+    background-color: lighten($primary, 30);
+    color: white;
+    margin: auto;
+    border: 3px solid lighten($primary, 20);
   }
 }
