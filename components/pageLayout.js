@@ -1,5 +1,4 @@
 // import Image from "next/image";
-import Head from "next/head";
 import HomeLayout from "./homeLayout";
 
 const PageLayout = ({ page, posts, events }) => {
@@ -16,9 +15,6 @@ const PageLayout = ({ page, posts, events }) => {
     );
   return (
     <>
-      <Head>
-        <title>Nijverheid - {page.title.rendered}</title>
-      </Head>
       <main>
         {/* <div className="np-featured-image">
           {page.featured_media ? (

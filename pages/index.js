@@ -6,6 +6,7 @@ import GetMainContent from "../functions/getMainContent";
 import settings from "../settings.js";
 import Navbar from "../components/navbar";
 import getEvents from "../functions/getEvents";
+import Footer from "../components/footer";
 
 export default function Home({ navItems, page, posts, events }) {
   return (
@@ -15,6 +16,7 @@ export default function Home({ navItems, page, posts, events }) {
       </Head>
       <Navbar navItems={navItems} initiallyHidden />
       <PageLayout page={page} posts={posts} events={events} />
+      <Footer />
     </>
   );
 }
@@ -26,9 +28,9 @@ export async function getStaticProps() {
     const fields = [
       "content",
       "title",
-      "featured_media",
-      "_links.wp:featuredmedia",
-      "_embedded.wp:featuredmedia",
+      // "featured_media",
+      // "_links.wp:featuredmedia",
+      // "_embedded.wp:featuredmedia",
     ];
     const page = await GetMainContent(homePage, fields);
     if (!page || !navItems) {
