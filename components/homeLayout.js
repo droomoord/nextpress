@@ -21,57 +21,56 @@ const HomeLayout = ({ page, posts, events }) => {
   const moveRight = (element) => {
     element.current.scrollLeft = element.current.scrollLeft + amountPerClick;
   };
-  useEffect(() => {
-    // 52.1003491, 5.0835228
-    const map = L.map("map").setView([52.1003491, 5.0835228], 18);
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        maxZoom: 19,
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          "pk.eyJ1IjoiZHJvb21vb3JkIiwiYSI6ImNsMmtuYXowbjE4NTczY3A5MnljanJ0c2oifQ.l5pewtl1ExKV4ENU2E_gew",
-      }
-    ).addTo(map);
-    function tekenBovenlaag() {
-      var linksOnder = [52.09955, 5.082];
-      var rechtsBoven = [52.1008, 5.0855];
-      var imageUrl = "/assets/img/maplayer_master_transparant.gif";
-      var imageBounds = [linksOnder, rechtsBoven];
+  // useEffect(() => {
+  //   const map = L.map("map").setView([52.1003491, 5.0835228], 18);
+  //   L.tileLayer(
+  //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+  //     {
+  //       maxZoom: 19,
+  //       id: "mapbox/streets-v11",
+  //       tileSize: 512,
+  //       zoomOffset: -1,
+  //       accessToken:
+  //         "pk.eyJ1IjoiZHJvb21vb3JkIiwiYSI6ImNsMmtuYXowbjE4NTczY3A5MnljanJ0c2oifQ.l5pewtl1ExKV4ENU2E_gew",
+  //     }
+  //   ).addTo(map);
+  //   function tekenBovenlaag() {
+  //     var linksOnder = [52.09955, 5.082];
+  //     var rechtsBoven = [52.1008, 5.0855];
+  //     var imageUrl = "/assets/img/maplayer_master_transparant.gif";
+  //     var imageBounds = [linksOnder, rechtsBoven];
 
-      var bovenlaag = L.imageOverlay(imageUrl, imageBounds, {
-        interactive: true,
-      })
-        .addTo(map)
-        .setOpacity(1);
+  //     var bovenlaag = L.imageOverlay(imageUrl, imageBounds, {
+  //       interactive: true,
+  //     })
+  //       .addTo(map)
+  //       .setOpacity(1);
 
-      var exboot_linksonder = L.latLng(52.100171, 5.082637);
-      var exboot_rechtsboven = L.latLng(52.100248, 5.083034);
-      var exbootLocation = L.latLngBounds(
-        exboot_linksonder,
-        exboot_rechtsboven
-      );
+  //     var exboot_linksonder = L.latLng(52.100171, 5.082637);
+  //     var exboot_rechtsboven = L.latLng(52.100248, 5.083034);
+  //     var exbootLocation = L.latLngBounds(
+  //       exboot_linksonder,
+  //       exboot_rechtsboven
+  //     );
 
-      bovenlaag.on("click", function (clickOnTheMap) {
-        if (exbootLocation.contains(clickOnTheMap.latlng)) {
-          window.open("https://www.exboot.nl");
-        }
-      });
-    }
-    tekenBovenlaag();
-  }, []);
+  //     bovenlaag.on("click", function (clickOnTheMap) {
+  //       if (exbootLocation.contains(clickOnTheMap.latlng)) {
+  //         window.open("https://www.exboot.nl");
+  //       }
+  //     });
+  //   }
+  //   tekenBovenlaag();
+  // }, []);
 
   return (
     <>
       <Head>
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
           integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
           crossOrigin=""
-        />
+        /> */}
       </Head>
       <div className={classes.container}>
         <div className={`${classes.logo} `}>
@@ -182,13 +181,13 @@ const HomeLayout = ({ page, posts, events }) => {
             ></div>
           </div>
 
-          <div id="map" className={classes.map}></div>
+          {/* <div id="map" className={classes.map}></div> */}
         </section>
-        <script
+        {/* <script
           src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
           integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
           crossOrigin=""
-        ></script>
+        ></script> */}
       </div>
     </>
   );
