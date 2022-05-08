@@ -1,0 +1,30 @@
+@import "vars";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-radius: 5px;
+  //   border: 1px solid rgb(181, 181, 181);
+  margin: 1em 0;
+  padding: 1em;
+  img {
+    margin: auto;
+    max-height: 300px;
+    display: block;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      font-family: franchise;
+      color: $primary;
+    }
+    .date {
+      font-weight: bold;
+    }
+  }
+  .content {
+  }
+}

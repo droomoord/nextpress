@@ -13,8 +13,14 @@ const EventsLayout = ({ events }) => {
     const days = ["zo", "ma", "di", "wo", "do", "vr", "za"];
     return days[date.getDay()];
   };
+  const clickedButton = (website, e) => {
+    e.preventDefault();
+    window.open(website);
+  };
 
   const createEventsByMonth = (events) => {
+    console.log(events);
+
     const eventsByMonth = [];
     events.forEach((event) => {
       if (isValidEvent(event)) {
@@ -57,7 +63,7 @@ const EventsLayout = ({ events }) => {
     "jul",
     "aug",
     "sep",
-    "oct",
+    "okt",
     "nov",
     "dec",
   ];
@@ -90,18 +96,25 @@ const EventsLayout = ({ events }) => {
                       <div
                         className={classes.image}
                         style={{ backgroundImage: `url("${event.image.url}")` }}
-                      >
-                        {/* <img src={event.image.url} alt={event.title}></img> */}
-                      </div>
+                      ></div>
                     )}
-                    <span className={classes.day}>
-                      {e.dayName} {e.day}{" "}
-                      {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
-                      {event.end_date_details &&
-                        !event.all_day &&
-                        startTime != endTime &&
-                        IsOneDayEvent(event) && <span>- {endTime}</span>}
-                    </span>
+
+                    <div className={classes.header}>
+                      <span className={classes.day}>
+                        {e.dayName} {e.day} {e.month}{" "}
+                        {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
+                        {event.end_date_details &&
+                          !event.all_day &&
+                          startTime != endTime &&
+                          IsOneDayEvent(event) && <span>- {endTime}</span>}
+                      </span>
+                      {event.cost && (
+                        <span className={classes.entree}>
+                          Entree:{" "}
+                          {event.cost == "Free" ? "gratis!" : event.cost}
+                        </span>
+                      )}
+                    </div>
 
                     <div className={classes.info}>
                       <h2 className={classes["event-title"]}>
@@ -109,10 +122,21 @@ const EventsLayout = ({ events }) => {
                           dangerouslySetInnerHTML={{
                             __html: event.title,
                           }}
-                        ></span>
+                        ></span>{" "}
                       </h2>
-                      <div>{createSummery(event.description, 150)}</div>
+                      <div className={classes.description}>
+                        {createSummery(event.description, 150)}{" "}
+                        <span className={classes.meer}>meer</span>
+                      </div>
                     </div>
+                    {event.website && (
+                      <button
+                        onClick={(e) => clickedButton(event.website, e)}
+                        className="button"
+                      >
+                        koop kaartjes
+                      </button>
+                    )}
                   </a>
                 );
               })}

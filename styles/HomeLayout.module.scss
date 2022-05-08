@@ -57,11 +57,10 @@
   font-family: franchise;
   text-align: center;
   font-size: 1.3em;
-  margin-bottom: 2em;
   color: $primary;
 }
 .panorama {
-  margin-bottom: 1em;
+  background-color: black;
   width: 200vw;
   max-width: unset;
   position: relative;
@@ -98,7 +97,7 @@
   .right {
     background-color: transparent;
     border: none;
-    color: $secondary;
+    color: darken($primary, 5);
     opacity: 0.2;
     width: 2em;
   }
@@ -146,7 +145,7 @@
   }
 }
 .agenda {
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   .agendaitems {
     margin: 0 1em;
     .event {
@@ -183,10 +182,7 @@
     }
   }
   .button {
-    background-color: lighten($primary, 30);
-    color: white;
     margin: auto;
-    border: 3px solid lighten($primary, 20);
   }
 }
 .info {
@@ -209,10 +205,6 @@
       letter-spacing: 0.05em;
       font-size: 1.1em;
     }
-  }
-  .map {
-    height: 300px;
-    z-index: 0;
   }
 }
 

@@ -1,17 +1,30 @@
 // import Image from "next/image";
 import HomeLayout from "./homeLayout";
+import { useRouter } from "next/router";
+import Map from "./map";
 
 const PageLayout = ({ page, posts, events }) => {
-  const image = page.featured_media
-    ? page._embedded["wp:featuredmedia"][0]
-    : null;
-  const imageSize = "medium_large";
+  const router = useRouter();
+  // const image = page.featured_media
+  //   ? page._embedded["wp:featuredmedia"][0]
+  //   : null;
+  // const imageSize = "medium_large";
   let render;
-  if (page.title?.rendered == "Home")
+  const path = router.asPath;
+  console.log(path);
+  const pageId = path.replace("/", "");
+  if (path == "/")
     render = <HomeLayout page={page} posts={posts} events={events} />;
   else
     render = (
-      <div dangerouslySetInnerHTML={{ __html: page.content.rendered }}></div>
+      <>
+        <div
+          dangerouslySetInnerHTML={{ __html: page.content.rendered }}
+          className="dynamic-page"
+          id={pageId}
+        ></div>
+        {path == "/praktisch" ? <Map /> : null}
+      </>
     );
   return (
     <>

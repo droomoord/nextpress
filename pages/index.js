@@ -24,7 +24,7 @@ export default function Home({ navItems, page, posts, events }) {
 export async function getStaticProps() {
   try {
     const navItems = await getNavItems();
-    const homePage = process.env.NEXT_PUBLIC_HOME || settings.homePage;
+    // const homePage = process.env.NEXT_PUBLIC_HOME || settings.homePage;
     const fields = [
       "content",
       "title",
@@ -32,7 +32,7 @@ export async function getStaticProps() {
       // "_links.wp:featuredmedia",
       // "_embedded.wp:featuredmedia",
     ];
-    const page = await GetMainContent(homePage, fields);
+    const page = await GetMainContent("praktisch", fields);
     if (!page || !navItems) {
       return {
         notFound: true,

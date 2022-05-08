@@ -1,15 +1,14 @@
-/* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @next/next/no-img-element */
-import Head from "next/head";
 import classes from "../styles/HomeLayout.module.scss";
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 import Link from "next/link";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
+import Map from "./map";
 
 const HomeLayout = ({ page, posts, events }) => {
   const router = useRouter();
@@ -21,57 +20,9 @@ const HomeLayout = ({ page, posts, events }) => {
   const moveRight = (element) => {
     element.current.scrollLeft = element.current.scrollLeft + amountPerClick;
   };
-  // useEffect(() => {
-  //   const map = L.map("map").setView([52.1003491, 5.0835228], 18);
-  //   L.tileLayer(
-  //     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-  //     {
-  //       maxZoom: 19,
-  //       id: "mapbox/streets-v11",
-  //       tileSize: 512,
-  //       zoomOffset: -1,
-  //       accessToken:
-  //         "pk.eyJ1IjoiZHJvb21vb3JkIiwiYSI6ImNsMmtuYXowbjE4NTczY3A5MnljanJ0c2oifQ.l5pewtl1ExKV4ENU2E_gew",
-  //     }
-  //   ).addTo(map);
-  //   function tekenBovenlaag() {
-  //     var linksOnder = [52.09955, 5.082];
-  //     var rechtsBoven = [52.1008, 5.0855];
-  //     var imageUrl = "/assets/img/maplayer_master_transparant.gif";
-  //     var imageBounds = [linksOnder, rechtsBoven];
-
-  //     var bovenlaag = L.imageOverlay(imageUrl, imageBounds, {
-  //       interactive: true,
-  //     })
-  //       .addTo(map)
-  //       .setOpacity(1);
-
-  //     var exboot_linksonder = L.latLng(52.100171, 5.082637);
-  //     var exboot_rechtsboven = L.latLng(52.100248, 5.083034);
-  //     var exbootLocation = L.latLngBounds(
-  //       exboot_linksonder,
-  //       exboot_rechtsboven
-  //     );
-
-  //     bovenlaag.on("click", function (clickOnTheMap) {
-  //       if (exbootLocation.contains(clickOnTheMap.latlng)) {
-  //         window.open("https://www.exboot.nl");
-  //       }
-  //     });
-  //   }
-  //   tekenBovenlaag();
-  // }, []);
 
   return (
     <>
-      <Head>
-        {/* <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-          integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-          crossOrigin=""
-        /> */}
-      </Head>
       <div className={classes.container}>
         <div className={`${classes.logo} `}>
           <div className={classes.takraf}>
@@ -113,8 +64,8 @@ const HomeLayout = ({ page, posts, events }) => {
             <div className={classes.nieuwsitems} ref={NewsItemsRef}>
               {posts.map((post) => {
                 const image =
-                  post?._embedded?.["wp:featuredmedia"][0]?.media_details?.sizes
-                    ?.thumbnail?.source_url;
+                  post._embedded?.["wp:featuredmedia"][0]?.media_details?.sizes
+                    ?.thumbnail?.source_url || "/assets/img/icon.jpg";
                 return (
                   <Link key={post.id} href={`/nieuws/${post?.slug}`}>
                     <a className={classes.item}>
@@ -140,6 +91,8 @@ const HomeLayout = ({ page, posts, events }) => {
             <h3 className="np-title">Agenda</h3>
             <div className={classes.agendaitems}>
               {events.map((event) => {
+                const image =
+                  event.image?.sizes?.thumbnail?.url || "/assets/img/icon.jpg";
                 const { year, month, day, hour, minutes } =
                   event.start_date_details;
                 const date = `${day}-${month}-${year}`;
@@ -147,9 +100,7 @@ const HomeLayout = ({ page, posts, events }) => {
                 return (
                   <div className={classes.event} key={event.id}>
                     <div className={classes.imagewrapper}>
-                      {event.image && (
-                        <img src={event.image?.sizes?.thumbnail?.url} alt="" />
-                      )}
+                      <img src={image} alt="" />
                     </div>
                     <div className={classes.info}>
                       <h4
@@ -174,20 +125,14 @@ const HomeLayout = ({ page, posts, events }) => {
           </section>
         )}
         <section className={classes.info}>
-          <h3 className="np-title">info</h3>
+          <h3 className="np-title">Praktisch</h3>
           <div className={classes.wrapper}>
             <div
               dangerouslySetInnerHTML={{ __html: page.content.rendered }}
             ></div>
           </div>
-
-          {/* <div id="map" className={classes.map}></div> */}
+          <Map />
         </section>
-        {/* <script
-          src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-          integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-          crossOrigin=""
-        ></script> */}
       </div>
     </>
   );

@@ -1,4 +1,30 @@
+@import "vars";
+
 .event-wrapper {
   padding: 0 1em;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
+  img {
+    margin: auto;
+    max-height: 300px;
+    display: block;
+  }
+  .title {
+    font-family: franchise;
+    color: $primary;
+  }
+  .entree {
+    font-weight: bold;
+  }
+  .date {
+    font-weight: bold;
+  }
+  .description {
+  }
+  button {
+    margin: auto;
+  }
 }

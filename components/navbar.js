@@ -27,21 +27,23 @@ const Navbar = ({ navItems, initiallyHidden }) => {
     event.stopPropagation();
     router.push(path);
   }
-  const navItemsRendered = navItems.map((item) => {
-    const active = path == item.path || path + "/" == item.path;
-    if (item.path != "/")
-      // dont wanna show the homepage in the navbar in this case
-      return (
-        <Link href={item.path} key={item.id}>
-          <a
-            onClick={(event) => clickedNavItem(item.path, event)}
-            className={active ? classes.active : null}
-          >
-            {item.text}
-          </a>
-        </Link>
-      );
-  });
+  const navItemsRendered = navItems
+    ? navItems.map((item) => {
+        const active = path == item.path || path + "/" == item.path;
+        if (item.path != "/")
+          // dont wanna show the homepage in the navbar in this case
+          return (
+            <Link href={item.path} key={item.id}>
+              <a
+                onClick={(event) => clickedNavItem(item.path, event)}
+                className={active ? classes.active : null}
+              >
+                {item.text}
+              </a>
+            </Link>
+          );
+      })
+    : [];
 
   return (
     <nav

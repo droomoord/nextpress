@@ -1,14 +1,22 @@
 import getEvent from "../../functions/getEvent";
 import EventLayout from "../../components/eventLayout";
+import Navbar from "../../components/navbar";
+import getNavItems from "../../functions/getNavItems";
 
-const Event = ({ event }) => {
-  return <EventLayout event={event} />;
+const Event = ({ event, navItems }) => {
+  return (
+    <>
+      <Navbar navItems={navItems} />
+      <EventLayout event={event} />
+    </>
+  );
 };
 
 export default Event;
 
 export async function getServerSideProps(context) {
   try {
+    const navItems = await getNavItems();
     const slug = context.params.event;
     const regexp = /^\d+/;
     const match = slug.match(regexp);
@@ -25,6 +33,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         event,
+        navItems,
       },
     };
   } catch (error) {

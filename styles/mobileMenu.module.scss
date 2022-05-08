@@ -24,16 +24,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1em;
   .wrapper {
-    font-size: 1.5em;
-    font-family: franchise;
+    font-size: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50vh;
+    height: 70vh;
     max-width: 80%;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.426);
     & > * {
+      font-family: takraf;
       color: rgb(227, 227, 227);
       letter-spacing: 0.05em;
       transform: translateX(-150%);
@@ -43,12 +44,6 @@
       animation-timing-function: cubic-bezier(0.4, 1, 1, 1);
     }
     .active {
-      position: relative;
-      &::before {
-        position: absolute;
-        left: -0.5em;
-        content: "•";
-      }
     }
   }
 }
