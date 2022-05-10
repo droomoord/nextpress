@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import classes from "../styles/events.module.scss";
 import { createSummery } from "../functions/helpers";
+import Link from "next/link";
 
 const EventsLayout = ({ events }) => {
   const createDate = (details) => {
@@ -87,57 +88,58 @@ const EventsLayout = ({ events }) => {
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
                 return (
-                  <a
-                    className={classes.event}
+                  <Link
                     key={event.id}
                     href={`/agenda/${event.id}-${event.slug}`}
                   >
-                    {event.image && (
-                      <div
-                        className={classes.image}
-                        style={{ backgroundImage: `url("${event.image.url}")` }}
-                      ></div>
-                    )}
-
-                    <div className={classes.header}>
-                      <span className={classes.day}>
-                        {e.dayName} {e.day} {e.month}{" "}
-                        {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
-                        {event.end_date_details &&
-                          !event.all_day &&
-                          startTime != endTime &&
-                          IsOneDayEvent(event) && <span>- {endTime}</span>}
-                      </span>
-                      {event.cost && (
-                        <span className={classes.entree}>
-                          Entree:{" "}
-                          {event.cost == "Free" ? "gratis!" : event.cost}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className={classes.info}>
-                      <h2 className={classes["event-title"]}>
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: event.title,
+                    <a className={classes.event} href="">
+                      {event.image && (
+                        <div
+                          className={classes.image}
+                          style={{
+                            backgroundImage: `url("${event.image.url}")`,
                           }}
-                        ></span>{" "}
-                      </h2>
-                      <div className={classes.description}>
-                        {createSummery(event.description, 150)}{" "}
-                        <span className={classes.meer}>meer</span>
+                        ></div>
+                      )}
+                      <div className={classes.header}>
+                        <span className={classes.day}>
+                          {e.dayName} {e.day} {e.month}{" "}
+                          {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
+                          {event.end_date_details &&
+                            !event.all_day &&
+                            startTime != endTime &&
+                            IsOneDayEvent(event) && <span>- {endTime}</span>}
+                        </span>
+                        {event.cost && (
+                          <span className={classes.entree}>
+                            Entree:{" "}
+                            {event.cost == "Free" ? "gratis!" : event.cost}
+                          </span>
+                        )}
                       </div>
-                    </div>
-                    {event.website && (
-                      <button
-                        onClick={(e) => clickedButton(event.website, e)}
-                        className="button"
-                      >
-                        koop kaartjes
-                      </button>
-                    )}
-                  </a>
+                      <div className={classes.info}>
+                        <h2 className={classes["event-title"]}>
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: event.title,
+                            }}
+                          ></span>{" "}
+                        </h2>
+                        <div className={classes.description}>
+                          {createSummery(event.description, 150)}{" "}
+                          <span className={classes.meer}>meer</span>
+                        </div>
+                      </div>
+                      {event.website && (
+                        <button
+                          onClick={(e) => clickedButton(event.website, e)}
+                          className="button"
+                        >
+                          koop kaartjes
+                        </button>
+                      )}
+                    </a>
+                  </Link>
                 );
               })}
             </div>

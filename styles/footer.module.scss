@@ -1,6 +1,21 @@
+@import "vars";
 .wrapper {
-  height: 3em;
+  height: 4em;
   width: 100%;
   background-color: white;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.136);
+  border-top: 1px solid rgb(210, 210, 210);
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  justify-content: center;
+  .social {
+    display: flex;
+    gap: 0.5em;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(0, 0, 90);
+  }
 }

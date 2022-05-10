@@ -8,18 +8,17 @@ import MobileMenu from "./mobileMenu";
 import classes from "../styles/navbar.module.scss";
 
 const Navbar = ({ navItems, initiallyHidden }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
   useEffect(() => {
     if (initiallyHidden === true) {
       window.addEventListener("scroll", () => {
         setShowNavbar(true);
       });
     }
+    return setShowNavbar(false);
   }, [initiallyHidden]);
 
-  const [menuOpen, setMenuOpen] = useState(false);
-  // when on the home page:
-  const [showNavbar, setShowNavbar] = useState(false);
-  //
   const router = useRouter();
   const path = router.asPath;
   function clickedNavItem(path, event) {
@@ -36,7 +35,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
             <Link href={item.path} key={item.id}>
               <a
                 onClick={(event) => clickedNavItem(item.path, event)}
-                className={active ? classes.active : null}
+                className={`${classes.link} ${active ? classes.active : ""}`}
               >
                 {item.text}
               </a>

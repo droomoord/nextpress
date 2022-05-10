@@ -1,0 +1,23 @@
+@import "vars";
+
+.wrapper {
+  margin: 0 1em;
+  margin-bottom: 1em;
+  h1 {
+    color: $primary;
+  }
+  .beroep {
+    margin-bottom: 1em;
+  }
+  .description {
+    color: $font-primary;
+    margin-bottom: 2em;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+}

@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import classes from "../styles/event.module.scss";
+import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/router";
 
 const EventLayout = ({ event }) => {
+  const router = useRouter();
   const monthsOfTheYear = [
     "januari",
     "februari",
@@ -18,13 +21,13 @@ const EventLayout = ({ event }) => {
   ];
   const getDay = (date) => {
     const days = [
-      "zondag",
-      "maandag",
-      "dinsdag",
-      "woensdag",
-      "donderdag",
-      "vrijdag",
-      "zaterdag",
+      "Aondag",
+      "Maandag",
+      "Dinsdag",
+      "Woensdag",
+      "Donderdag",
+      "Vrijdag",
+      "Zaterdag",
     ];
     return days[date.getDay()];
   };
@@ -47,11 +50,21 @@ const EventLayout = ({ event }) => {
         <h2 className={classes.title}>
           <span dangerouslySetInnerHTML={{ __html: event.title }}></span>
         </h2>
-        {event.cost && (
-          <span className={classes.entree}>
-            Entree: {event.cost == "Free" ? "gratis!" : event.cost}
-          </span>
-        )}
+        <div className={classes.flex}>
+          {event.cost && (
+            <span className={classes.entree}>
+              Entree: {event.cost == "Free" ? "gratis!" : event.cost}
+            </span>
+          )}
+          {event.website && (
+            <button
+              onClick={(e) => clickedButton(event.website, e)}
+              className="button"
+            >
+              koop kaartjes
+            </button>
+          )}
+        </div>
         <span className={classes.date}>
           {getDay(new Date(event.start_date) || "")}{" "}
           {event.start_date_details.day}{" "}
@@ -67,14 +80,10 @@ const EventLayout = ({ event }) => {
           className={classes.description}
           dangerouslySetInnerHTML={{ __html: event.description }}
         ></div>
-        {event.website && (
-          <button
-            onClick={(e) => clickedButton(event.website, e)}
-            className="button"
-          >
-            koop kaartjes
-          </button>
-        )}
+        <button className={`button`} onClick={() => router.back()}>
+          <IoIosArrowBack />
+          terug
+        </button>
       </div>
     </div>
   );

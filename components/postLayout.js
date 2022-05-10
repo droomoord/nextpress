@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import classes from "../styles/postLayout.module.scss";
-import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/router";
 
 const PostLayout = ({ post }) => {
-  console.log(post);
+  const router = useRouter();
 
   const date = new Date(post.date);
   const dateString = date?.toLocaleDateString();
@@ -29,7 +30,10 @@ const PostLayout = ({ post }) => {
           className={classes.content}
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         ></div>
-        <Link href={"/"}>Terug</Link>
+        <button className={`button`} onClick={() => router.back()}>
+          <IoIosArrowBack />
+          terug
+        </button>
       </div>
     </div>
   );

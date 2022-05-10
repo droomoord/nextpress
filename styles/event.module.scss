@@ -16,15 +16,20 @@
     font-family: franchise;
     color: $primary;
   }
-  .entree {
-    font-weight: bold;
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .entree {
+      font-weight: bold;
+    }
   }
   .date {
     font-weight: bold;
   }
   .description {
   }
-  button {
-    margin: auto;
-  }
+  // button {
+  //   margin: auto;
+  // }
 }

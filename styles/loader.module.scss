@@ -1,0 +1,54 @@
+@import "vars";
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: delay;
+  animation-duration: 0s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  .loader {
+    $duration: 0.7s;
+    font-family: takraf;
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
+    color: $primary;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    animation-name: turn;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    & > * {
+      animation: turn-left;
+      animation-duration: $duration;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes turn {
+  30% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes turn-left {
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+@keyframes delay {
+  to {
+    opacity: 1;
+  }
+}

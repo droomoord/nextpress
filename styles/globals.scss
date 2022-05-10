@@ -4,7 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
 }
 
@@ -38,8 +38,10 @@ li {
     color: $primary;
     font-family: franchise;
     letter-spacing: 0.05em;
-    font-size: 1.3rem;
+    font-size: 2rem;
     margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-align: center;
   }
   img {
     object-fit: contain;
@@ -48,18 +50,55 @@ li {
     position: relative;
   }
 }
+#kunstcafe {
+  @media only screen and (min-width: 700px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    // align-items: center;
+    row-gap: 1em;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      grid-column-start: span 12;
+    }
+    p:nth-of-type(odd) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
+    figure:nth-of-type(odd) {
+      grid-column-start: 7;
+      grid-column-end: 13;
+      max-width: 300px;
+    }
+    p:nth-of-type(even) {
+      grid-column-start: 7;
+      grid-column-end: 13;
+    }
+    figure:nth-of-type(even) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+      max-width: 300px;
+    }
+  }
+}
 
-#culturele-vrijhaven {
+#praktisch {
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    text-align: center;
+    text-align: left;
   }
 }
+
 .button {
+  font-size: 0.8em;
+  text-transform: uppercase;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -69,10 +108,10 @@ li {
   height: fit-content;
   border-radius: 5px;
   border: none;
-  font-family: franchise;
-  font-size: 1.1em;
-  text-transform: lowercase;
-  letter-spacing: 0.02em;
+  // font-family: franchise;
+  // font-size: 1.1em;
+  // text-transform: lowercase;
+  // letter-spacing: 0.02em;
   background-color: transparent;
   color: $primary;
   border: 1px solid $primary;
@@ -101,6 +140,10 @@ li {
   margin: 0 auto;
   /* padding: 1em; */
   padding-top: 5em;
+  min-height: 90vh;
+  @media only screen and (min-width: 700px) {
+    width: 75vw;
+  }
 }
 
 .np-featured-image {

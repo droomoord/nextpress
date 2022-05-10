@@ -22,7 +22,7 @@ const Post = ({ navItems, post }) => {
 
 export default Post;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   try {
     const navItems = await getNavItems();
     const fields = [
@@ -38,9 +38,6 @@ export async function getStaticProps(context) {
     const post = await getPost(context.params.post, fields);
     return {
       props: { navItems, post },
-      ...(settings.revalidationTime && {
-        revalidate: settings.revalidationTime,
-      }),
     };
   } catch (error) {
     console.log(error);
@@ -50,16 +47,16 @@ export async function getStaticProps(context) {
   }
 }
 
-export async function getStaticPaths() {
-  try {
-    const posts = await getPostsPaths();
-    return {
-      paths: posts.map((post) => {
-        return { params: { post: post.slug } };
-      }),
-      fallback: "blocking",
-    };
-  } catch (error) {
-    console.log(error);
-  }
-}
+// export async function getStaticPaths() {
+//   try {
+//     const posts = await getPostsPaths();
+//     return {
+//       paths: posts.map((post) => {
+//         return { params: { post: post.slug } };
+//       }),
+//       fallback: "blocking",
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }

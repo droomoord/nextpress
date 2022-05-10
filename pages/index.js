@@ -14,7 +14,7 @@ export default function Home({ navItems, page, posts, events }) {
       <Head>
         <title>{settings.title}</title>
       </Head>
-      <Navbar navItems={navItems} initiallyHidden />
+      <Navbar navItems={navItems} />
       <PageLayout page={page} posts={posts} events={events} />
       <Footer />
     </>

@@ -37,9 +37,9 @@ const HomeLayout = ({ page, posts, events }) => {
             </div>
           </div>
         </div>
-        <h2 className={classes.subtitle}>
+        {/* <h2 className={classes.subtitle}>
           Ateliers - Kunstcafe - Exposities - Podiumkunsten
-        </h2>
+        </h2> */}
         <figure className={classes.panorama}>
           <img
             src="/assets/img/panorama.jpg"
@@ -98,21 +98,26 @@ const HomeLayout = ({ page, posts, events }) => {
                 const date = `${day}-${month}-${year}`;
                 const time = `${hour}:${minutes}`;
                 return (
-                  <div className={classes.event} key={event.id}>
-                    <div className={classes.imagewrapper}>
-                      <img src={image} alt="" />
-                    </div>
-                    <div className={classes.info}>
-                      <h4
-                        dangerouslySetInnerHTML={{
-                          __html: createSummery(event.title, 50),
-                        }}
-                      ></h4>
-                      <span>
-                        {date} / {time}
-                      </span>
-                    </div>
-                  </div>
+                  <Link
+                    key={event.id}
+                    href={`/agenda/${event.id}-${event.slug}`}
+                  >
+                    <a className={classes.event}>
+                      <div className={classes.imagewrapper}>
+                        <img src={image} alt="" />
+                      </div>
+                      <div className={classes.info}>
+                        <h4
+                          dangerouslySetInnerHTML={{
+                            __html: createSummery(event.title, 50),
+                          }}
+                        ></h4>
+                        <span>
+                          {date} / {time}
+                        </span>
+                      </div>
+                    </a>
+                  </Link>
                 );
               })}
             </div>

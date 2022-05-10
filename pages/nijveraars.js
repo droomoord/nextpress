@@ -10,8 +10,6 @@ import Link from "next/link";
 import Footer from "../components/footer";
 
 const Nijveraars = ({ nijveraars, navItems }) => {
-  console.log(nijveraars);
-
   return (
     <>
       <Head>

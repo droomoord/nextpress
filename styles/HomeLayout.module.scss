@@ -5,8 +5,8 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   .takraf {
     position: relative;
     font-family: takraf;
@@ -17,12 +17,12 @@
       content: "========de\Anijverheid\A==========";
       font-family: takraf;
       color: $shadow-color;
-      font-size: 1.3em;
+      font-size: 1.5em;
       line-height: 0.95em;
       position: absolute;
-      transform: rotatex(0) skew(299deg, 0) scale(1, 0.6);
+      transform: rotatex(0) skew(310deg, 0) scale(1, 0.6);
       top: 0.5em;
-      left: 1.5em;
+      left: 1em;
       z-index: -2;
       box-shadow: 2px -2px 7px $shadow-color;
     }
@@ -46,22 +46,22 @@
     }
 
     & > * {
-      font-size: 1.3em;
+      font-size: 1.5em;
       line-height: 0.95em;
     }
   }
 }
 
-.subtitle {
-  margin: 0 0.5em;
-  font-family: franchise;
-  text-align: center;
-  font-size: 1.3em;
-  color: $primary;
-}
+// .subtitle {
+//   margin: 0 0.5em;
+//   font-family: franchise;
+//   text-align: center;
+//   font-size: 1.3em;
+//   color: $primary;
+// }
 .panorama {
   background-color: black;
-  width: 200vw;
+  width: 300vw;
   max-width: unset;
   position: relative;
   &::after {
@@ -149,6 +149,7 @@
   .agendaitems {
     margin: 0 1em;
     .event {
+      text-decoration: none;
       $radius: 5px;
       display: flex;
       margin-bottom: 1em;

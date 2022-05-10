@@ -2,11 +2,49 @@
 import "../styles/globals.scss";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Loader from "../components/loader";
+import Navbar from "../components/navbar";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  return (
+  useEffect(() => {
+    const handleStart = (url) => {
+      url !== router.pathname ? setLoading(true) : setLoading(false);
+    };
+    const handleComplete = () => setLoading(false);
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+  }, [router]);
+
+  return loading ? (
+    <>
+      <Navbar
+        navItems={[
+          { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
+          { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
+          { text: "Expo", path: "/expo", id: 85 },
+          { text: "Verhuur", path: "/verhuur", id: 88 },
+          { text: "Praktisch", path: "/praktisch", id: 94 },
+          { text: "Home", path: "/", id: 9 },
+          {
+            text: "Agenda",
+            path: "/agenda",
+            id: "agenda",
+          },
+          {
+            text: "Nijveraars",
+            path: "/nijveraars",
+            id: "nijveraars",
+          },
+        ]}
+      />
+      <Loader />
+    </>
+  ) : (
     <>
       <Head>
         {(router.asPath == "/" || router.asPath == "/praktisch") && (

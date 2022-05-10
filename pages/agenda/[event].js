@@ -2,12 +2,14 @@ import getEvent from "../../functions/getEvent";
 import EventLayout from "../../components/eventLayout";
 import Navbar from "../../components/navbar";
 import getNavItems from "../../functions/getNavItems";
+import Footer from "../../components/footer";
 
 const Event = ({ event, navItems }) => {
   return (
     <>
       <Navbar navItems={navItems} />
       <EventLayout event={event} />
+      <Footer />
     </>
   );
 };

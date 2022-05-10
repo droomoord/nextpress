@@ -34,16 +34,17 @@
     max-width: 80%;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.426);
     & > * {
+      text-transform: lowercase;
+      font-size: 1.3em;
+      letter-spacing: -0.05em;
+      line-height: 0.9em;
       font-family: takraf;
-      color: rgb(227, 227, 227);
-      letter-spacing: 0.05em;
+      color: rgb(220, 220, 220);
       transform: translateX(-150%);
       animation-name: slide-in;
       animation-duration: 0.3s;
       animation-fill-mode: forwards;
       animation-timing-function: cubic-bezier(0.4, 1, 1, 1);
-    }
-    .active {
     }
   }
 }
