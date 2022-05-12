@@ -47,7 +47,7 @@ const getNavItems = async (forStaticPaths) => {
     { text: "Home", path: "/", id: 9 },
   ].concat(
     forStaticPaths
-      ? null
+      ? []
       : [
           {
             text: "Agenda",

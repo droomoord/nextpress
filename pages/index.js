@@ -34,6 +34,9 @@ export async function getStaticProps() {
     ];
     const page = await GetMainContent("praktisch", fields);
     if (!page || !navItems) {
+      if (!page) console.log("NO PAGE", page);
+      if (!navItems) console.log("NO NAVITEMS", navItems);
+
       return {
         notFound: true,
       };
