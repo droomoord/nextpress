@@ -1,16 +1,26 @@
 @import "vars";
-
+.container {
+  @media only screen and (min-width: 700px) {
+    margin-top: 8em;
+  }
+}
 .logo {
   position: relative;
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-top: 2em;
+  margin-top: 4em;
   margin-bottom: 2em;
+  @media only screen and (min-width: 700px) {
+    margin-bottom: 5em;
+  }
   .takraf {
     position: relative;
     font-family: takraf;
     color: $primary;
+    @media only screen and (min-width: 700px) {
+      font-size: 1.7em;
+    }
     &::after {
       $shadow-color: rgba(72, 72, 72, 0.097);
       white-space: pre-wrap;
@@ -30,7 +40,7 @@
       content: "";
       z-index: -1;
       background-color: rgb(255, 255, 255);
-      width: 13ch;
+      width: 100%;
       font-family: takraf;
       height: 100%;
       position: absolute;
@@ -39,6 +49,9 @@
       display: inline-block;
       transform: rotate(-180deg);
       transform-origin: 0px -1px;
+      @media only screen and (min-width: 700px) {
+        transform-origin: 0px -2px;
+      }
     }
     h1 {
       display: inline;
@@ -64,8 +77,11 @@
   width: 300vw;
   max-width: unset;
   position: relative;
+  margin-bottom: 2em;
   @media only screen and (min-width: 700px) {
-    left: -50%;
+    position: absolute;
+    left: 0;
+    right: 0;
   }
   &::after {
     content: "";
@@ -91,7 +107,8 @@
     animation-direction: alternate;
     animation-timing-function: linear;
     @media only screen and (min-width: 700px) {
-      display: none;
+      animation: none;
+      width: 100vw;
     }
   }
 }
@@ -99,6 +116,9 @@
   position: relative;
   margin-bottom: 2em;
   padding-bottom: 1em;
+  @media only screen and (min-width: 700px) {
+    margin-top: 35vw;
+  }
   .left,
   .right {
     background-color: transparent;
@@ -107,18 +127,33 @@
     // color: darken($primary, 5);
     // opacity: 0.2;
     width: 2em;
+    @media only screen and (min-width: 700px) {
+      width: 3em;
+      color: lighten($font-primary, 50);
+      cursor: pointer;
+      transition: color 0.2s;
+      &:hover {
+        color: $font-primary;
+      }
+    }
   }
   .left {
     position: absolute;
     top: 50%;
     right: calc(100% - 2.3em);
     transform: translateY(-30%);
+    @media only screen and (min-width: 700px) {
+      right: calc(100%);
+    }
   }
   .right {
     position: absolute;
     top: 50%;
     left: calc(100% - 2.3em);
     transform: translateY(-30%);
+    @media only screen and (min-width: 700px) {
+      left: calc(100%);
+    }
   }
   .nieuwsitems {
     margin: 0 2em;
@@ -130,6 +165,10 @@
     gap: 1em;
     overflow-x: scroll;
     padding-bottom: 1em;
+    @media only screen and (min-width: 700px) {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);
+      padding-bottom: 0;
+    }
     .item {
       text-decoration: none;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);

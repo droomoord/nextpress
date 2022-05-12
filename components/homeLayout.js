@@ -9,7 +9,6 @@ import { useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
 import Map from "./map";
-import WaterWave from "react-water-wave";
 
 const HomeLayout = ({ page, posts, events }) => {
   const router = useRouter();
@@ -43,7 +42,6 @@ const HomeLayout = ({ page, posts, events }) => {
           Ateliers - Kunstcafe - Exposities - Podiumkunsten
         </h2> */}
         <figure className={classes.panorama}>
-          {/* <WaterWave imageUrl={"/assets/img/panorama.jpg"}></WaterWave> */}
           <img
             src="/assets/img/panorama.jpg"
             alt="de Nijverheid panorama"
