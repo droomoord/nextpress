@@ -64,6 +64,9 @@
   width: 300vw;
   max-width: unset;
   position: relative;
+  @media only screen and (min-width: 700px) {
+    left: -50%;
+  }
   &::after {
     content: "";
     width: 100%;
@@ -87,6 +90,9 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: linear;
+    @media only screen and (min-width: 700px) {
+      display: none;
+    }
   }
 }
 .nieuws {
@@ -97,20 +103,21 @@
   .right {
     background-color: transparent;
     border: none;
-    color: darken($primary, 5);
-    opacity: 0.2;
+    color: $font-primary;
+    // color: darken($primary, 5);
+    // opacity: 0.2;
     width: 2em;
   }
   .left {
     position: absolute;
     top: 50%;
-    right: calc(100% - 2em);
+    right: calc(100% - 2.3em);
     transform: translateY(-30%);
   }
   .right {
     position: absolute;
     top: 50%;
-    left: calc(100% - 2em);
+    left: calc(100% - 2.3em);
     transform: translateY(-30%);
   }
   .nieuwsitems {

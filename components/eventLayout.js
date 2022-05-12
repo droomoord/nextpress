@@ -5,6 +5,10 @@ import { useRouter } from "next/router";
 
 const EventLayout = ({ event }) => {
   const router = useRouter();
+  const clickedButton = (website, e) => {
+    e.preventDefault();
+    window.open(website);
+  };
   const monthsOfTheYear = [
     "januari",
     "februari",

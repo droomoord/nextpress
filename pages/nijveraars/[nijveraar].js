@@ -10,6 +10,8 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 
 const Nijveraar = ({ nijveraar, navItems }) => {
+  console.log(nijveraar);
+
   const router = useRouter();
   const title = nijveraar.title?.rendered;
   const beroep = nijveraar.acf?.beroep;
@@ -32,13 +34,17 @@ const Nijveraar = ({ nijveraar, navItems }) => {
       <Navbar navItems={navItems} />
       <main className="np-main-content">
         <div className={classes.wrapper}>
-          <img src={imgUrl} alt={title} />
-          <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
-          <h2 className={classes.beroep}>{beroep}</h2>
-          <div
-            className={classes.description}
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></div>
+          <div className={classes.info}>
+            <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+            <img src={imgUrl} alt={title} />
+            <div className={classes.right}>
+              <h2 className={classes.beroep}>{beroep}</h2>
+              <div
+                className={classes.description}
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></div>
+            </div>
+          </div>
           <button
             className={`button ${classes.button}`}
             onClick={() => router.back()}

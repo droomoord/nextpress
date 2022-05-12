@@ -93,14 +93,14 @@ const EventsLayout = ({ events }) => {
                     href={`/agenda/${event.id}-${event.slug}`}
                   >
                     <a className={classes.event} href="">
-                      {event.image && (
-                        <div
-                          className={classes.image}
-                          style={{
-                            backgroundImage: `url("${event.image.url}")`,
-                          }}
-                        ></div>
-                      )}
+                      <div
+                        className={classes.image}
+                        style={{
+                          backgroundImage: event.image?.url
+                            ? `url("${event.image.url}")`
+                            : "url(/assets/img/icon.jpg)",
+                        }}
+                      ></div>
                       <div className={classes.header}>
                         <span className={classes.day}>
                           {e.dayName} {e.day} {e.month}{" "}

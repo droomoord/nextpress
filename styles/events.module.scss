@@ -7,25 +7,29 @@
 .events-wrapper {
   // background-color: rgb(232, 232, 232);
   border-radius: 5px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   padding: 1em;
   min-width: 23em;
-  max-width: 30em;
+  // max-width: 30em;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  @media only screen and (min-width: 1000px) {
+    max-width: unset;
+  }
   .events {
     display: flex;
     flex-direction: column;
     gap: 1em;
     margin-bottom: 2em;
+    position: relative;
+
     .month {
       font-family: takraf;
       text-align: center;
       text-decoration: underline;
       // margin-bottom: 1em;
       // position: sticky;
-      // top: 300px;
       color: $primary;
       // transform: translateX(-50%);
       font-size: 2em;
@@ -36,10 +40,17 @@
       &::after {
         content: "====";
       }
+      @media only screen and (min-width: 1000px) {
+        &::before,
+        &::after {
+          content: "=====";
+        }
+      }
     }
     .event {
       padding: 1em;
       border-radius: 5px;
+
       // border-top: 1px solid black;
       // background-color: rgb(232, 232, 232);
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.21);
@@ -52,17 +63,35 @@
       align-items: center;
       // height: 15em;
       overflow: hidden;
+      @media only screen and (min-width: 1000px) {
+        padding: 2em;
+        width: 40em;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        height: 20em;
+      }
       .image {
         height: 10em;
         background-position: center;
         background-size: cover;
         margin-bottom: 1em;
+        @media only screen and (min-width: 1000px) {
+          grid-column-start: span 6;
+          grid-row-start: span 12;
+          height: 100%;
+        }
       }
       .header {
         color: $primary;
         font-weight: bold;
         display: flex;
         justify-content: space-between;
+        @media only screen and (min-width: 1000px) {
+          grid-column-start: span 6;
+          grid-row-start: span 2;
+          flex-direction: column;
+        }
         .day {
           font-family: franchise;
           white-space: nowrap;
@@ -80,6 +109,10 @@
         flex-direction: column;
         gap: 1em;
         margin-bottom: 1em;
+        @media only screen and (min-width: 1000px) {
+          grid-row-start: span 11;
+          grid-column-start: span 6;
+        }
         .event-title {
           font-size: 1.2em;
         }
@@ -97,6 +130,11 @@
       }
       button {
         margin: auto;
+        @media only screen and (min-width: 1000px) {
+          position: absolute;
+          bottom: 1em;
+          left: 3em;
+        }
       }
     }
   }

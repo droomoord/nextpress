@@ -1,10 +1,28 @@
 @import "vars";
 
 .wrapper {
-  margin: 0 1em;
+  margin: 0 2em;
   margin-bottom: 1em;
   h1 {
     color: $primary;
+    @media only screen and (min-width: 700px) {
+      grid-column-start: span 12;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+  }
+  img {
+    border-radius: 5px;
+    margin: auto;
+    display: block;
+    @media only screen and (min-width: 700px) {
+      grid-column-start: span 6;
+    }
+  }
+  .right {
+    @media only screen and (min-width: 700px) {
+      grid-column-start: span 6;
+    }
   }
   .beroep {
     margin-bottom: 1em;
@@ -19,5 +37,16 @@
     font-family: inherit;
     font-size: 0.8em;
     text-transform: uppercase;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    @media only screen and (min-width: 700px) {
+      margin-top: 2em;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 1em;
+    }
   }
 }
