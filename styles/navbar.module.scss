@@ -12,6 +12,9 @@
   height: 4em;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.156);
   background-color: rgba(255, 255, 255, 0.975);
+  // test
+  background-color: darken($primary, 5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.543);
   @media only screen and (min-width: 700px) {
     height: 5em;
     justify-content: space-between;
@@ -26,24 +29,31 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 0.1em;
+    // test
+    color: white;
     @media only screen and (min-width: 700px) {
       font-size: 1.5em;
     }
   }
   .link {
     color: rgb(73, 73, 73);
-    // opacity: 0.8;
     text-decoration: none;
-    // font-weight: bold;
     font-size: 1em;
-    // letter-spacing: -0.05em;
+    // test
+    color: rgb(236, 236, 236);
+    letter-spacing: 0.1em;
   }
   .link:hover,
-  .link.active,
-  .link:focus {
+  .active,
+  .link:focus,
+  .link:active {
     color: black;
+    // test
+    color: rgb(236, 236, 236);
+    text-decoration: underline;
   }
   .np-menu-button {
+    color: white;
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -63,9 +73,9 @@
     margin: 1em 0;
     @media only screen and (min-width: 700px) {
       display: flex;
-      gap: 2em;
+      gap: 3vw;
       // font-family: franchise;
-      font-size: 1em;
+      font-size: 0.9em;
       text-transform: capitalize;
     }
   }

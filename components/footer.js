@@ -27,6 +27,14 @@ const Footer = () => {
           <AiFillLinkedin size={"2em"} />
         </button>
       </div>
+      <a
+        className={classes.login}
+        href={`${process.env.NEXT_PUBLIC_TARGET_URL}/wp-admin`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Login
+      </a>
     </div>
   );
 };

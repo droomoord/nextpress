@@ -2,7 +2,7 @@
 .wrapper {
   height: 4em;
   width: 100%;
-  background-color: white;
+  background-color: rgb(243, 243, 243);
   border-top: 1px solid rgb(210, 210, 210);
   display: flex;
   align-items: center;
@@ -17,5 +17,10 @@
     border: none;
     outline: none;
     color: rgb(0, 0, 90);
+  }
+  .login {
+    position: absolute;
+    right: 1em;
+    color: $font-primary;
   }
 }

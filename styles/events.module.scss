@@ -88,6 +88,7 @@
         display: flex;
         justify-content: space-between;
         @media only screen and (min-width: 1000px) {
+          text-align: right;
           grid-column-start: span 6;
           grid-row-start: span 2;
           flex-direction: column;

@@ -24,6 +24,8 @@ const Navbar = ({ navItems, initiallyHidden }) => {
   function clickedNavItem(path, event) {
     setMenuOpen(false);
     event.stopPropagation();
+    console.log(event.target);
+    event.target.classList.add(classes.active);
     router.push(path);
   }
   const navItemsRendered = navItems
