@@ -4,7 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Saira", sans-serif;
   overflow-x: hidden;
 }
 
@@ -35,12 +35,15 @@ li {
   > h5,
   > h6 {
     color: $primary;
-    font-family: franchise;
-    letter-spacing: 0.05em;
-    font-size: 2rem;
+    font-family: takraf;
+    letter-spacing: -0.05em;
+    // font-size: 2rem;
     margin-top: 1em;
     margin-bottom: 0.5em;
     text-align: center;
+    @media only screen and (min-width: 700px) {
+      font-size: 1.5em;
+    }
   }
   img {
     object-fit: contain;
@@ -110,7 +113,9 @@ li {
   h4,
   h5,
   h6 {
+    letter-spacing: 0;
     text-align: left;
+    font-family: franchise;
   }
 }
 
