@@ -22,18 +22,18 @@ li {
   list-style-type: square;
   margin-left: 1.5em;
 }
+
 .dynamic-page {
   margin: 0 1em;
   p {
     color: $font-primary;
     margin-bottom: 1em;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
     color: $primary;
     font-family: franchise;
     letter-spacing: 0.05em;
