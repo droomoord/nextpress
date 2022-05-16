@@ -28,12 +28,12 @@
       font-family: takraf;
       text-align: center;
       text-decoration: underline;
-      // margin-bottom: 1em;
-      // position: sticky;
       color: $primary;
-      // transform: translateX(-50%);
       font-size: 2em;
-      // text-transform: uppercase;
+      @media only screen and (min-width: 700px) {
+        font-size: 3em;
+        margin-top: 2em;
+      }
       &::before {
         content: "====";
       }

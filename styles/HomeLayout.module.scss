@@ -16,7 +16,7 @@
   }
   .takraf {
     position: relative;
-    font-family: takraf;
+    font-family: takraf !important;
     color: $primary;
     @media only screen and (min-width: 700px) {
       font-size: 1.7em;
@@ -179,6 +179,7 @@
       flex-direction: column;
       h4 {
         color: rgb(83, 83, 83);
+        font-size: 1em;
       }
       .image {
         inline-size: 100%;

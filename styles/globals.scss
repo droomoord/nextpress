@@ -188,9 +188,11 @@ li {
   }
 }
 
-.np-featured-image {
-  max-height: 50vh;
-  overflow: hidden;
+#map {
+  @media only screen and (min-width: 700px) {
+    height: 400px !important;
+    margin: 0 1em;
+  }
 }
 
 @keyframes slide-in {
