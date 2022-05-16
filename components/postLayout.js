@@ -17,8 +17,8 @@ const PostLayout = ({ post }) => {
     <div className="np-main-content">
       <div className={classes.wrapper}>
         <img src={image} alt={post.title?.rendered} />
-        <div>
-          <div className={classes.header}>
+        <div className={classes.info}>
+          <div className={classes.headerWrapper}>
             <h2
               className={classes.title}
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
@@ -30,10 +30,10 @@ const PostLayout = ({ post }) => {
           className={classes.content}
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         ></div>
-        <button className={`button`} onClick={() => router.back()}>
+        {/* <button className={`button`} onClick={() => router.back()}>
           <IoIosArrowBack />
           terug
-        </button>
+        </button> */}
       </div>
     </div>
   );
