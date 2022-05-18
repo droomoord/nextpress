@@ -21,12 +21,14 @@
     margin: auto;
     display: block;
     @media only screen and (min-width: 700px) {
-      grid-column-start: span 6;
+      grid-column-start: span 5;
+      margin: unset;
     }
   }
   .right {
     @media only screen and (min-width: 700px) {
-      grid-column-start: span 6;
+      grid-column-start: 7;
+      grid-column-end: 13;
     }
   }
   .beroep {

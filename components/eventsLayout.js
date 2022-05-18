@@ -8,7 +8,12 @@ const EventsLayout = ({ events }) => {
     return details ? ` ${details.year}-${details.month}-${details.day}` : null;
   };
   const isValidEvent = (event) => {
-    return event.title && event.description && event.start_date_details;
+    return (
+      event.title &&
+      event.description &&
+      event.start_date_details &&
+      event.status == "publish"
+    );
   };
   const getDay = (date) => {
     const days = ["zo", "ma", "di", "wo", "do", "vr", "za"];
