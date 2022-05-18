@@ -6,7 +6,6 @@ import PostsLayout from "../components/postsLayout";
 import settings from "../settings.js";
 import Navbar from "../components/navbar";
 import Head from "next/head";
-import Footer from "../components/footer";
 
 const Page = ({ navItems, page, posts, count }) => {
   return (
@@ -18,7 +17,6 @@ const Page = ({ navItems, page, posts, count }) => {
       </Head>
       <Navbar navItems={navItems} />
       <PageLayout page={page} />
-      <Footer />
     </>
   );
 };

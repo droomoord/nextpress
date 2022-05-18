@@ -4,7 +4,6 @@ import Navbar from "../components/navbar";
 import getNavItems from "../functions/getNavItems";
 import settings from "../settings.js";
 import Head from "next/head";
-// import Footer from "../components/footer";
 
 const Events = ({ events, navItems }) => {
   return (
@@ -14,7 +13,6 @@ const Events = ({ events, navItems }) => {
       </Head>
       <Navbar navItems={navItems} />
       <EventsLayout events={events} />
-      {/* <Footer /> */}
     </>
   );
 };

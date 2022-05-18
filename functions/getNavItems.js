@@ -3,7 +3,7 @@
 // import auth from "./auth";
 // import { capitalize, makePath } from "./helpers";
 
-const getNavItems = async (forStaticPaths) => {
+const getNavItems = (forStaticPaths) => {
   // const { username, password, targetURL } = auth();
   // const res = await axios({
   //   method: "GET",
@@ -38,29 +38,35 @@ const getNavItems = async (forStaticPaths) => {
   //           },
   //         ]
   //   );
-  return [
-    { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
-    { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
-    { text: "Expo", path: "/expo", id: 85 },
-    { text: "Verhuur", path: "/verhuur", id: 88 },
-    { text: "Praktisch", path: "/praktisch", id: 94 },
-    { text: "Home", path: "/", id: 9 },
-  ].concat(
-    forStaticPaths
-      ? []
-      : [
-          {
-            text: "Agenda",
-            path: "/agenda",
-            id: "agenda",
-          },
-          {
-            text: "Nijveraars",
-            path: "/nijveraars",
-            id: "nijveraars",
-          },
-        ]
-  );
+
+  if (forStaticPaths)
+    return [
+      { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
+      { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
+      { text: "Expo", path: "/expo", id: 85 },
+      { text: "Verhuur", path: "/verhuur", id: 88 },
+      { text: "Praktisch", path: "/praktisch", id: 94 },
+      { text: "Home", path: "/", id: 9 },
+    ];
+  else
+    return [
+      { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
+      {
+        text: "Agenda",
+        path: "/agenda",
+        id: 1,
+      },
+      { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
+      { text: "Expo", path: "/expo", id: 85 },
+      {
+        text: "Nijveraars",
+        path: "/nijveraars",
+        id: 2,
+      },
+      { text: "Verhuur", path: "/verhuur", id: 88 },
+      { text: "Praktisch", path: "/praktisch", id: 94 },
+      // { text: "Home", path: "/", id: 9 },
+    ];
 };
 
 export default getNavItems;

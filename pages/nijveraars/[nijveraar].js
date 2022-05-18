@@ -4,7 +4,6 @@ import getNavItems from "../../functions/getNavItems";
 import Navbar from "../../components/navbar";
 import settings from "../../settings";
 import Head from "next/head";
-import Footer from "../../components/footer";
 import classes from "../../styles/nijveraar.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
@@ -54,7 +53,6 @@ const Nijveraar = ({ nijveraar, navItems }) => {
           </button>
         </div>
       </main>
-      <Footer />
     </>
   );
 };

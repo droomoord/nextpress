@@ -5,8 +5,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loader from "../components/loader";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import getNavItems from "../functions/getNavItems";
 
 function MyApp({ Component, pageProps }) {
+  const navItems = getNavItems();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -22,26 +25,7 @@ function MyApp({ Component, pageProps }) {
 
   return loading ? (
     <>
-      <Navbar
-        navItems={[
-          { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
-          { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
-          { text: "Expo", path: "/expo", id: 85 },
-          { text: "Verhuur", path: "/verhuur", id: 88 },
-          { text: "Praktisch", path: "/praktisch", id: 94 },
-          { text: "Home", path: "/", id: 9 },
-          {
-            text: "Agenda",
-            path: "/agenda",
-            id: "agenda",
-          },
-          {
-            text: "Nijveraars",
-            path: "/nijveraars",
-            id: "nijveraars",
-          },
-        ]}
-      />
+      <Navbar navItems={navItems} />
       <Loader />
     </>
   ) : (
@@ -64,6 +48,7 @@ function MyApp({ Component, pageProps }) {
         {/* )} */}
       </Head>
       <Component {...pageProps} />
+      {router.asPath != "/agenda" && <Footer />}
     </>
   );
 }

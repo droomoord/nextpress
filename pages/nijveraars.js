@@ -7,7 +7,6 @@ import classes from "../styles/nijveraars.module.scss";
 import getNavItems from "../functions/getNavItems";
 import getNijveraars from "../functions/getNijveraars";
 import Link from "next/link";
-import Footer from "../components/footer";
 
 const Nijveraars = ({ nijveraars, navItems }) => {
   return (
@@ -59,7 +58,6 @@ const Nijveraars = ({ nijveraars, navItems }) => {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 };
