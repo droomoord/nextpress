@@ -3,6 +3,7 @@ import {
   AiFillFacebook,
   AiFillInstagram,
   AiFillLinkedin,
+  AiFillYoutube,
 } from "react-icons/ai";
 
 const Footer = () => {
@@ -11,20 +12,26 @@ const Footer = () => {
       <div className={classes.social}>
         <button
           onClick={() => window.open("https://www.facebook.com/DENIJVERHEID/")}
+          className={classes.fb}
         >
-          <AiFillFacebook size={"2em"} />
+          <AiFillFacebook size={"2.5em"} />
         </button>
         <button
           onClick={() => window.open("https://www.instagram.com/denijverheid/")}
+          className={classes.insta}
         >
-          <AiFillInstagram size={"2em"} />
+          <AiFillInstagram size={"2.5em"} />
         </button>
         <button
           onClick={() =>
             window.open("https://www.linkedin.com/company/denijverheid/about/")
           }
+          className={classes.li}
         >
-          <AiFillLinkedin size={"2em"} />
+          <AiFillLinkedin size={"2.5em"} />
+        </button>
+        <button onClick={() => window.open("")} className={classes.yt}>
+          <AiFillYoutube size={"2.5em"} />
         </button>
       </div>
       <a
