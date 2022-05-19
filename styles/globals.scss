@@ -24,7 +24,7 @@ li {
 }
 
 .dynamic-page {
-  margin: 0 1em;
+  // margin: 0 1em;
   p {
     color: $font-primary;
     margin-bottom: 1em;
@@ -36,12 +36,13 @@ li {
   > h6 {
     color: $primary;
     font-family: takraf;
-    letter-spacing: -0.05em;
-    // font-size: 2rem;
+    letter-spacing: -0.07em;
+    font-size: 1em;
     margin-top: 1em;
     margin-bottom: 0.5em;
     text-align: center;
     text-transform: lowercase;
+    // position: relative;
     @media only screen and (min-width: 700px) {
       font-size: 1.5em;
     }
@@ -56,6 +57,7 @@ li {
 #kunstcafe,
 #culturele-vrijhaven,
 #verhuur {
+  margin: 0 1em;
   @media only screen and (min-width: 700px) {
     padding-top: 4em;
     padding-bottom: 4em;
@@ -86,8 +88,9 @@ li {
     figure {
       background-color: $background-color;
       img {
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.184);
+        padding-top: 0.5em;
+        // border-radius: 5px;
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.184);
       }
     }
     figure:nth-of-type(2) {
@@ -106,6 +109,7 @@ li {
 }
 
 #praktisch {
+  margin: 0 1em;
   padding-top: 3em;
   h1,
   h2,
@@ -131,7 +135,7 @@ li {
   padding: 7px 10px;
   width: fit-content;
   height: fit-content;
-  border-radius: 5px;
+  border-radius: 3px;
   border: none;
   background-color: transparent;
   color: $primary;

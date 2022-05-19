@@ -22,14 +22,16 @@
       max-width: 5em;
       text-align: center;
       .title {
-        // font-family: franchise;
-        letter-spacing: 0.05em;
-        font-size: 1.2em;
-        color: black;
-        text-transform: lowercase;
+        font-size: 1em;
+        color: $primary;
+        line-height: 1;
+        margin-bottom: 0.5em;
+        font-weight: bold;
       }
       .beroep {
-        color: rgb(129, 129, 129);
+        color: black;
+        line-height: 1;
+        display: block;
       }
       img {
         width: 5em;

@@ -73,7 +73,7 @@
 //   color: $primary;
 // }
 .panorama {
-  background-color: black;
+  // background-color: black;
   width: 300vw;
   max-width: unset;
   position: relative;
@@ -127,11 +127,11 @@
     // color: darken($primary, 5);
     // opacity: 0.2;
     width: 2em;
+    color: lighten($font-primary, 50);
     @media only screen and (min-width: 700px) {
-      width: 3em;
-      color: lighten($font-primary, 50);
       cursor: pointer;
       transition: color 0.2s;
+      width: 3em;
       &:hover {
         color: $font-primary;
       }
@@ -168,6 +168,9 @@
     @media only screen and (min-width: 700px) {
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);
       padding-bottom: 0;
+      gap: 0;
+      padding: 1em;
+      // justify-content: center;
     }
     .item {
       text-decoration: none;
@@ -175,16 +178,27 @@
       padding: 0.5em;
       margin: 0.1em;
       // border-radius: 2%;
+
       display: flex;
       flex-direction: column;
       h4 {
         color: rgb(83, 83, 83);
         font-size: 1em;
+        @media only screen and (min-width: 700px) {
+          text-align: center;
+        }
       }
       .image {
-        inline-size: 100%;
+        // inline-size: 100%;
+        // display: flex;
+        // flex-direction: column;
         img {
           inline-size: 100%;
+          @media only screen and (min-width: 700px) {
+            inline-size: 80%;
+            display: block;
+            margin: auto;
+          }
           // border-radius: 2%;
         }
       }
@@ -197,12 +211,12 @@
     margin: 0 1em;
     .event {
       text-decoration: none;
-      $radius: 5px;
+      $radius: 0px;
       display: flex;
       margin-bottom: 1em;
       border-radius: $radius;
       gap: 1em;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.111);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
       .imagewrapper {
         $size: 7em;
         width: $size;

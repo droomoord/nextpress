@@ -11,7 +11,7 @@
     // letter-spacing: -0.06em;
     // word-spacing: -0.5em;
     margin-top: 1em;
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: 900px) {
       grid-column-start: span 12;
       margin-bottom: 1em;
     }
@@ -20,13 +20,20 @@
     border-radius: 5px;
     margin: auto;
     display: block;
+    width: 100%;
+    @media only screen and (min-width: 500px) {
+      width: 80%;
+      margin: 0;
+    }
     @media only screen and (min-width: 700px) {
       grid-column-start: span 5;
       margin: unset;
+      width: unset;
+      padding-top: 0.5em;
     }
   }
   .right {
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: 900px) {
       grid-column-start: 7;
       grid-column-end: 13;
     }
@@ -49,7 +56,7 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    @media only screen and (min-width: 700px) {
+    @media only screen and (min-width: 900px) {
       margin-top: 2em;
       display: grid;
       grid-template-columns: repeat(12, 1fr);

@@ -9,8 +9,6 @@ import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 
 const Nijveraar = ({ nijveraar, navItems }) => {
-  console.log(nijveraar);
-
   const router = useRouter();
   const title = nijveraar.title?.rendered;
   const beroep = nijveraar.acf?.beroep;
@@ -34,10 +32,12 @@ const Nijveraar = ({ nijveraar, navItems }) => {
       <main className="np-main-content">
         <div className={classes.wrapper}>
           <div className={classes.info}>
-            <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+            <h1
+              dangerouslySetInnerHTML={{ __html: title + " - " + beroep }}
+            ></h1>
             <img src={imgUrl} alt={title} />
             <div className={classes.right}>
-              <h2 className={classes.beroep}>{beroep}</h2>
+              {/* <h2 className={classes.beroep}>{}</h2> */}
               <div
                 className={classes.description}
                 dangerouslySetInnerHTML={{ __html: content }}
