@@ -31,12 +31,9 @@ li {
   }
   .wp-block-columns {
     padding-top: 1em;
+    gap: 1em;
   }
-  figure {
-    @media only screen and (min-width: 700px) {
-      margin: 0em 2em;
-    }
-  }
+
   > h2,
   > h3,
   > h4,
