@@ -2,6 +2,9 @@
 import HomeLayout from "./homeLayout";
 import { useRouter } from "next/router";
 import Map from "./map";
+import "@wordpress/block-library/build-style/common.css";
+import "@wordpress/block-library/build-style/style.css";
+import "@wordpress/block-library/build-style/theme.css";
 
 const PageLayout = ({ page, posts, events }) => {
   const router = useRouter();

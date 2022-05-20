@@ -24,10 +24,20 @@ li {
 }
 
 .dynamic-page {
-  // margin: 0 1em;
+  & > * {
+    // @media only screen and (min-width: 700px) {
+    margin-bottom: 2em !important;
+    // }
+  }
+  margin: 4em 1em;
   p {
     color: $font-primary;
-    margin-bottom: 1em;
+    // margin-bottom: 1em;
+  }
+  figure {
+    @media only screen and (min-width: 700px) {
+      margin: 0em 2em;
+    }
   }
   > h2,
   > h3,
@@ -37,91 +47,92 @@ li {
     color: $primary;
     font-family: takraf;
     letter-spacing: -0.07em;
-    font-size: 1em;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    margin-top: 3em;
+    // margin-bottom: 0.5em;
     text-align: center;
     text-transform: lowercase;
     // position: relative;
     @media only screen and (min-width: 700px) {
       font-size: 1.5em;
+      // margin-bottom: 2em;
     }
   }
   img {
-    object-fit: contain;
-    object-position: top;
-    height: unset;
-    position: relative;
+    // object-fit: contain;
+    // object-position: top;
+    // height: unset;
+    // position: relative;
   }
 }
-#kunstcafe,
-#culturele-vrijhaven,
-#verhuur {
-  margin: 0 1em;
-  @media only screen and (min-width: 700px) {
-    padding-top: 4em;
-    padding-bottom: 4em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: 10em auto;
-    $background-color: rgba(128, 128, 128, 0);
+// #kunstcafe,
+// #culturele-vrijhaven,
+// #verhuur {
+//   margin: 0 1em;
+//   @media only screen and (min-width: 700px) {
+//     padding-top: 4em;
+//     padding-bottom: 4em;
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     // grid-template-rows: 10em auto;
+//     $background-color: rgba(128, 128, 128, 0);
 
-    margin: auto;
-    column-gap: 2em;
-    row-gap: 2em;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0;
-      grid-column-start: span 2;
-      grid-row-start: span 1;
-      align-self: flex-end;
-    }
-    p {
-      background-color: $background-color;
-      line-height: 1.7;
-      // padding: 2em;
-    }
-    figure {
-      background-color: $background-color;
-      img {
-        padding-top: 0.5em;
-        // border-radius: 5px;
-        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.184);
-      }
-    }
-    figure:nth-of-type(2) {
-      grid-column-start: 1;
-      grid-row-start: 4;
-    }
-    figure:nth-of-type(4) {
-      grid-column-start: 1;
-      grid-row-start: 8;
-    }
-    figure:nth-of-type(6) {
-      grid-column-start: 1;
-      grid-row-start: 12;
-    }
-  }
-}
+//     margin: auto;
+//     column-gap: 2em;
+//     row-gap: 2em;
+//     h1,
+//     h2,
+//     h3,
+//     h4,
+//     h5,
+//     h6 {
+//       margin: 0;
+//       grid-column-start: span 2;
+//       grid-row-start: span 1;
+//       align-self: flex-end;
+//     }
+//     p {
+//       background-color: $background-color;
+//       line-height: 1.7;
+//       // padding: 2em;
+//     }
+//     figure {
+//       background-color: $background-color;
+//       img {
+//         padding-top: 0.5em;
+//         // border-radius: 5px;
+//         // box-shadow: 0 0 10px rgba(0, 0, 0, 0.184);
+//       }
+//     }
+//     figure:nth-of-type(2) {
+//       grid-column-start: 1;
+//       grid-row-start: 4;
+//     }
+//     figure:nth-of-type(4) {
+//       grid-column-start: 1;
+//       grid-row-start: 8;
+//     }
+//     figure:nth-of-type(6) {
+//       grid-column-start: 1;
+//       grid-row-start: 12;
+//     }
+//   }
+// }
 
-#praktisch {
-  margin: 0 1em;
-  padding-top: 3em;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    // letter-spacing: 0;
-    text-align: left;
-    // font-family: franchise;
-  }
-}
+// #praktisch {
+//   margin: 0 1em;
+//   padding-top: 3em;
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6 {
+//     // letter-spacing: 0;
+//     text-align: left;
+//     // font-family: franchise;
+//   }
+// }
 
 .button {
   cursor: pointer;
