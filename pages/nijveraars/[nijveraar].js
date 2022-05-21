@@ -7,18 +7,32 @@ import Head from "next/head";
 import classes from "../../styles/nijveraar.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import "@wordpress/block-library/build-style/common.css";
+import "@wordpress/block-library/build-style/style.css";
+import "@wordpress/block-library/build-style/theme.css";
 
 const Nijveraar = ({ nijveraar, navItems }) => {
+  useEffect(() => {
+    const images = document.querySelectorAll(".wp-block-gallery img");
+    images.forEach((image) => {
+      image.addEventListener("click", (e) => {
+        console.log(e.target.src);
+        window.open(e.target.src);
+      });
+    });
+  }, []);
+
   const router = useRouter();
   const title = nijveraar.title?.rendered;
   const beroep = nijveraar.acf?.beroep;
-  const imgUrl =
-    nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.large
-      ?.source_url ||
-    nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.medium
-      ?.source_url ||
-    nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.full
-      ?.source_url;
+  // const imgUrl =
+  //   nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.large
+  //     ?.source_url ||
+  //   nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.medium
+  //     ?.source_url ||
+  //   nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes?.full
+  //     ?.source_url;
   const content = nijveraar.content?.rendered;
 
   return (
@@ -31,27 +45,21 @@ const Nijveraar = ({ nijveraar, navItems }) => {
       <Navbar navItems={navItems} />
       <main className="np-main-content">
         <div className={classes.wrapper}>
-          <div className={classes.info}>
-            <h1
-              dangerouslySetInnerHTML={{ __html: title + " - " + beroep }}
-            ></h1>
-            <img src={imgUrl} alt={title} />
-            <div className={classes.right}>
-              {/* <h2 className={classes.beroep}>{}</h2> */}
-              <div
-                className={classes.description}
-                dangerouslySetInnerHTML={{ __html: content }}
-              ></div>
-            </div>
-          </div>
-          <button
-            className={`button ${classes.button}`}
-            onClick={() => router.back()}
-          >
-            <IoIosArrowBack />
-            <span>Nijveraars</span>
-          </button>
+          <h1 dangerouslySetInnerHTML={{ __html: title + " - " + beroep }}></h1>
+          {/* <img src={imgUrl} alt={title} /> */}
+          {/* <h2 className={classes.beroep}>{}</h2> */}
+          <div
+            className={classes.description}
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></div>
         </div>
+        <button
+          className={`button ${classes.button}`}
+          onClick={() => router.back()}
+        >
+          <IoIosArrowBack />
+          <span>Nijveraars</span>
+        </button>
       </main>
     </>
   );

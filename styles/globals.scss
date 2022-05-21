@@ -22,6 +22,37 @@ li {
   list-style-type: square;
   margin-left: 1.5em;
 }
+.wp-block-gallery {
+  margin: 2em 0em;
+  display: grid;
+  // grid-auto-columns: 30em;
+  grid-template-columns: repeat(auto-fit, 10em);
+  // grid-auto-rows: 10em;
+  gap: 1em;
+  width: 100%;
+  // background-color: yellow;
+  padding: 2em;
+  border-top: 1px solid rgb(230, 230, 230);
+  border-bottom: 1px solid rgb(230, 230, 230);
+  & * {
+    width: 100% !important;
+  }
+  img {
+    @media only screen and (min-width: 700px) {
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+      }
+    }
+  }
+}
+
+iframe {
+  margin: auto;
+  display: block;
+  margin-bottom: 2em;
+}
 
 .dynamic-page {
   margin: 4em 1em;
@@ -53,6 +84,7 @@ li {
       // margin-bottom: 2em;
     }
   }
+
   // img {
   // object-fit: contain;
   // object-position: top;
