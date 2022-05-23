@@ -24,16 +24,23 @@ li {
 }
 .wp-block-gallery {
   margin: 2em 0em;
-  display: grid;
+
   // grid-auto-columns: 30em;
   grid-template-columns: repeat(auto-fit, 10em);
   // grid-auto-rows: 10em;
   gap: 1em;
   width: 100%;
   // background-color: yellow;
-  padding: 2em;
+  padding: 5em 0;
+  margin: 5em 0;
   border-top: 1px solid rgb(230, 230, 230);
   border-bottom: 1px solid rgb(230, 230, 230);
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 500px) {
+    display: grid;
+  }
+
   & * {
     width: 100% !important;
   }
@@ -49,7 +56,7 @@ li {
 }
 
 iframe {
-  margin: auto;
+  // margin: auto;
   display: block;
   margin-bottom: 2em;
 }
@@ -229,8 +236,8 @@ iframe {
   /* padding: 1em; */
   min-height: 101vh;
   padding-top: 5em;
+  padding-bottom: 3em;
   @media only screen and (min-width: 700px) {
-    padding-bottom: 5em;
     width: 75vw;
     max-width: 900px;
   }

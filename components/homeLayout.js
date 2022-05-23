@@ -45,6 +45,7 @@ const HomeLayout = ({ page, posts, events }) => {
           <img
             src="/assets/img/panorama.jpg"
             alt="de Nijverheid panorama"
+            loading="lazy"
           ></img>
         </figure>
         {posts && posts.length > 0 && (

@@ -52,14 +52,14 @@ const Nijveraar = ({ nijveraar, navItems }) => {
             className={classes.description}
             dangerouslySetInnerHTML={{ __html: content }}
           ></div>
+          <button
+            className={`button ${classes.button}`}
+            onClick={() => router.back()}
+          >
+            <IoIosArrowBack />
+            <span>Nijveraars</span>
+          </button>
         </div>
-        <button
-          className={`button ${classes.button}`}
-          onClick={() => router.back()}
-        >
-          <IoIosArrowBack />
-          <span>Nijveraars</span>
-        </button>
       </main>
     </>
   );
