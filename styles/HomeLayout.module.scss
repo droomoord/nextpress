@@ -79,9 +79,11 @@
   position: relative;
   margin-bottom: 2em;
   @media only screen and (min-width: 700px) {
-    position: absolute;
-    left: 0;
-    right: 0;
+    transform: translateX(-12.5vw);
+    width: 100vw;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
   }
   &::after {
     content: "";
@@ -107,6 +109,7 @@
     animation-direction: alternate;
     animation-timing-function: linear;
     @media only screen and (min-width: 700px) {
+      position: static;
       animation: none;
       width: 100vw;
     }
@@ -116,9 +119,7 @@
   position: relative;
   margin-bottom: 2em;
   padding-bottom: 1em;
-  @media only screen and (min-width: 700px) {
-    margin-top: 35vw;
-  }
+
   .left,
   .right {
     background-color: transparent;

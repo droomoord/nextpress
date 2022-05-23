@@ -2,6 +2,7 @@
 import classes from "../styles/events.module.scss";
 import { createSummery } from "../functions/helpers";
 import Link from "next/link";
+import LazyLoad from "./lazyload";
 
 const EventsLayout = ({ events }) => {
   const createDate = (details) => {
@@ -98,14 +99,20 @@ const EventsLayout = ({ events }) => {
                     href={`/agenda/${event.id}-${event.slug}`}
                   >
                     <a className={classes.event} href="">
-                      <div
-                        className={classes.image}
-                        style={{
-                          backgroundImage: event.image?.url
+                      <LazyLoad
+                        // childStyle={{
+                        //   backgroundImage: event.image?.url
+                        //     ? `url("${event.image.url}")`
+                        //     : "url(/assets/img/icon.jpg)",
+                        // }}
+                        childClassName={classes.image}
+                        onLoad={(el) =>
+                          (el.style.backgroundImage = event.image?.url
                             ? `url("${event.image.url}")`
-                            : "url(/assets/img/icon.jpg)",
-                        }}
-                      ></div>
+                            : "url(/assets/img/icon.jpg)")
+                        }
+                      ></LazyLoad>
+
                       <div className={classes.header}>
                         <span className={classes.day}>
                           {e.dayName} {e.day} {e.month}{" "}

@@ -3,7 +3,7 @@ function extractDomain(url) {
 }
 
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: [extractDomain(process.env.NEXT_PUBLIC_TARGET_URL), "localhost"],
   },

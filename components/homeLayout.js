@@ -5,6 +5,7 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
@@ -42,11 +43,12 @@ const HomeLayout = ({ page, posts, events }) => {
           Ateliers - Kunstcafe - Exposities - Podiumkunsten
         </h2> */}
         <figure className={classes.panorama}>
-          <img
+          <Image
             src="/assets/img/panorama.jpg"
             alt="de Nijverheid panorama"
-            loading="lazy"
-          ></img>
+            width={2841}
+            height={750}
+          ></Image>
         </figure>
         {posts && posts.length > 0 && (
           <section className={classes.nieuws}>
@@ -138,6 +140,7 @@ const HomeLayout = ({ page, posts, events }) => {
               dangerouslySetInnerHTML={{ __html: page.content.rendered }}
             ></div>
           </div>
+
           <Map />
         </section>
       </div>

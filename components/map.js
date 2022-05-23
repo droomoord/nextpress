@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { useEffect } from "react";
 // import Head from "next/head";
-
 import createMap from "../functions/createMap";
 
 const Map = () => {

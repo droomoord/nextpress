@@ -7,6 +7,7 @@ import classes from "../styles/nijveraars.module.scss";
 import getNavItems from "../functions/getNavItems";
 import getNijveraars from "../functions/getNijveraars";
 import Link from "next/link";
+import LazyLoad from "../components/lazyload";
 
 const Nijveraars = ({ nijveraars, navItems }) => {
   return (
@@ -29,13 +30,15 @@ const Nijveraars = ({ nijveraars, navItems }) => {
                 <Link key={nijveraar.id} href={`/nijveraars/${slug}`}>
                   <a className={classes.nijveraar}>
                     {imgUrl && (
-                      <img
-                        src={
-                          nijveraar._embedded["wp:featuredmedia"][0]
-                            .media_details.sizes.thumbnail.source_url
-                        }
-                        alt={nijveraar.title.rendered}
-                      />
+                      <LazyLoad>
+                        <img
+                          src={
+                            nijveraar._embedded["wp:featuredmedia"][0]
+                              .media_details.sizes.thumbnail.source_url
+                          }
+                          alt={nijveraar.title.rendered}
+                        />
+                      </LazyLoad>
                     )}
                     <div>
                       {title && (
