@@ -33,7 +33,12 @@ const LazyLoad = (props) => {
     <>
       <div
         ref={lazyLoadRef}
-        style={{ ...props.childStyle, position: "relative" }}
+        style={{
+          ...props.childStyle,
+          width: "100%",
+          position: "relative",
+          minHeight: "5em",
+        }}
         className={props.childClassName}
       >
         {inView && props.children}
@@ -48,8 +53,7 @@ const LazyLoad = (props) => {
             justifyContent: "center",
             alignItems: "center",
             zIndex: "-1",
-            // height: "100%",
-            // width: "100%",
+            backgroundColor: "white",
           }}
         >
           <PulseLoader color={"#af1b19"} />

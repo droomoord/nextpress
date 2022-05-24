@@ -64,7 +64,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
         className={classes["np-menu-button"]}
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        <CgMenu size={"2em"} />
+        <CgMenu size={"2em"} aria-label="open menu" />
       </button>
       <div className={`${classes["np-nav-items"]}`}>{navItemsRendered}</div>
       {menuOpen && (

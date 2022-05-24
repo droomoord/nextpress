@@ -10,6 +10,7 @@ import { useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
 import Map from "./map";
+import LazyLoad from "./lazyload";
 
 const HomeLayout = ({ page, posts, events }) => {
   const router = useRouter();
@@ -73,11 +74,13 @@ const HomeLayout = ({ page, posts, events }) => {
                 return (
                   <Link key={post.id} href={`/nieuws/${post?.slug}`}>
                     <a className={classes.item}>
-                      <div className={classes.image}>
-                        {image ? (
-                          <img src={image} alt={post?.title?.rendered} />
-                        ) : null}
-                      </div>
+                      <LazyLoad>
+                        <div className={classes.image}>
+                          {image ? (
+                            <img src={image} alt={post?.title?.rendered} />
+                          ) : null}
+                        </div>
+                      </LazyLoad>
                       <h4
                         dangerouslySetInnerHTML={{
                           __html: post?.title?.rendered,
@@ -108,7 +111,9 @@ const HomeLayout = ({ page, posts, events }) => {
                   >
                     <a className={classes.event}>
                       <div className={classes.imagewrapper}>
-                        <img src={image} alt="" />
+                        <LazyLoad>
+                          <img src={image} alt="" />
+                        </LazyLoad>
                       </div>
                       <div className={classes.info}>
                         <h4
@@ -141,7 +146,9 @@ const HomeLayout = ({ page, posts, events }) => {
             ></div>
           </div>
 
-          <Map />
+          <LazyLoad>
+            <Map />
+          </LazyLoad>
         </section>
       </div>
     </>

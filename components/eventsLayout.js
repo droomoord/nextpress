@@ -98,7 +98,7 @@ const EventsLayout = ({ events }) => {
                     key={event.id}
                     href={`/agenda/${event.id}-${event.slug}`}
                   >
-                    <a className={classes.event} href="">
+                    <a className={classes.event}>
                       <LazyLoad
                         // childStyle={{
                         //   backgroundImage: event.image?.url
