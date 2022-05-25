@@ -6,7 +6,7 @@ import {
 } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
 import Map from "./map";
@@ -43,7 +43,7 @@ const HomeLayout = ({ page, posts, events }) => {
         {/* <h2 className={classes.subtitle}>
           Ateliers - Kunstcafe - Exposities - Podiumkunsten
         </h2> */}
-        <figure className={classes.panorama}>
+        <figure className={classes.panorama} style={{ minHeight: "50vh" }}>
           <Image
             src="/assets/img/panorama.jpg"
             alt="de Nijverheid panorama"

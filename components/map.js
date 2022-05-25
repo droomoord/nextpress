@@ -12,7 +12,12 @@ const Map = () => {
     <>
       <div
         id="map"
-        style={{ height: "300px", zIndex: "0", marginTop: "1em" }}
+        style={{
+          height: "300px",
+          zIndex: "2",
+          marginTop: "1em",
+          position: "relative",
+        }}
       ></div>
     </>
   );

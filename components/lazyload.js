@@ -16,11 +16,11 @@ const LazyLoad = (props) => {
         if (entry.isIntersecting) {
           // setTimeout(() => {
           setInView(true);
-          if (typeof props.onLoad == "function" && once == false) {
-            props.onLoad(lazyLoadRef.current);
+          if (typeof props.onLoadFunc == "function" && once == false) {
+            props.onLoadFunc(lazyLoadRef.current);
             setOnce(true);
           }
-          // }, 1000);
+          // }, 3000);
         }
       });
     };
@@ -52,8 +52,9 @@ const LazyLoad = (props) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: "-1",
+            zIndex: "1",
             backgroundColor: "white",
+            visibility: once ? "hidden" : "visible",
           }}
         >
           <PulseLoader color={"#af1b19"} />

@@ -100,13 +100,8 @@ const EventsLayout = ({ events }) => {
                   >
                     <a className={classes.event}>
                       <LazyLoad
-                        // childStyle={{
-                        //   backgroundImage: event.image?.url
-                        //     ? `url("${event.image.url}")`
-                        //     : "url(/assets/img/icon.jpg)",
-                        // }}
                         childClassName={classes.image}
-                        onLoad={(el) =>
+                        onLoadFunc={(el) =>
                           (el.style.backgroundImage = event.image?.url
                             ? `url("${event.image.url}")`
                             : "url(/assets/img/icon.jpg)")
