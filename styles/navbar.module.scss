@@ -74,7 +74,7 @@
     margin: 1em 0;
     @supports (-webkit-marquee-repetition: infinite) and (object-fit: fill) {
       & > * + * {
-        margin-left: 1em;
+        margin-left: 3vw;
       }
     }
 
