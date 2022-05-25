@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-family: "Saira", sans-serif;
   overflow-x: hidden;
+  background-color: $bg-color;
 }
 
 * {
@@ -61,18 +62,17 @@ iframe {
   margin-bottom: 2em;
 }
 
+.wp-block-columns {
+  padding-top: 1em;
+  gap: 2em !important;
+}
+
 .dynamic-page {
   margin: 4em 1em;
   p {
     color: $font-primary;
     // margin-bottom: 1em;
   }
-
-  .wp-block-columns {
-    padding-top: 1em;
-    gap: 1em;
-  }
-
   > h2,
   > h3,
   > h4,
@@ -183,12 +183,13 @@ iframe {
   height: fit-content;
   border-radius: 3px;
   border: none;
-  background-color: transparent;
+  background-color: $bg-color-secondary;
   color: $primary;
   border: 1px solid $primary;
   box-shadow: 0 0 5px rgba(42, 1, 1, 0.155);
   position: relative;
   overflow: hidden;
+  z-index: 10;
   &:hover {
     color: rgb(255, 255, 255);
   }
