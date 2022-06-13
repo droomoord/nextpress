@@ -91,6 +91,8 @@ const EventsLayout = ({ events }) => {
               <span className={classes.month}>{month.month}</span>
               {month.events.map((e) => {
                 const { event } = e;
+                console.log(e);
+
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
                 return (
@@ -116,6 +118,19 @@ const EventsLayout = ({ events }) => {
                             !event.all_day &&
                             startTime != endTime &&
                             IsOneDayEvent(event) && <span>- {endTime}</span>}
+                          {event.end_date_details &&
+                            !event.all_day &&
+                            startTime != endTime &&
+                            !IsOneDayEvent(event) && (
+                              <span>
+                                tot{" "}
+                                {`${event.end_date_details.day} ${
+                                  monthsOfTheYear[
+                                    Number(event.end_date_details.month) - 1
+                                  ]
+                                } / ${endTime}`}
+                              </span>
+                            )}
                         </span>
                         {event.cost && (
                           <span className={classes.entree}>

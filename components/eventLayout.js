@@ -78,6 +78,17 @@ const EventLayout = ({ event }) => {
             !event.all_day &&
             startTime != endTime &&
             IsOneDayEvent(event) && <span>- {endTime}</span>}
+          {event.end_date_details &&
+            !event.all_day &&
+            startTime != endTime &&
+            !IsOneDayEvent(event) && (
+              <span>
+                tot{" "}
+                {`${event.end_date_details.day} ${
+                  monthsOfTheYear[Number(event.end_date_details.month) - 1]
+                } / ${endTime}`}
+              </span>
+            )}
         </span>
 
         <div
