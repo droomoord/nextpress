@@ -3,8 +3,10 @@ import classes from "../styles/events.module.scss";
 import { createSummery } from "../functions/helpers";
 import Link from "next/link";
 import LazyLoad from "./lazyload";
+import { useRouter } from "next/router";
 
 const EventsLayout = ({ events }) => {
+  const router = useRouter();
   const createDate = (details) => {
     return details ? ` ${details.year}-${details.month}-${details.day}` : null;
   };
@@ -86,11 +88,16 @@ const EventsLayout = ({ events }) => {
           width: "100vw",
           height: "100vh",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          gap: "1em",
         }}
       >
-        geen events om weer te geven!
+        <div>geen events om weer te geven!</div>
+        <button className={"button"} onClick={() => router.back()}>
+          terug
+        </button>
       </div>
     );
   return (
@@ -106,8 +113,9 @@ const EventsLayout = ({ events }) => {
         }}
       >
         <Link href="/agenda">Alles</Link>
-        <Link href="/agenda?category=expositie">Expo</Link>
+        <Link href="/agenda?category=expositie">Exposities</Link>
         <Link href="/agenda?category=muziek">Muziek</Link>
+        <Link href="/agenda?category=blablabla">Blablabla</Link>
       </div>
       <div className={`${classes["events-wrapper"]}`}>
         {createEventsByMonth(events).map((month) => {
