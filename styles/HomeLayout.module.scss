@@ -237,8 +237,8 @@
         width: $size;
         height: $size;
         overflow: hidden;
+        // safari fix:
         margin-right: 1em;
-        // background-color: rgb(207, 207, 207);
         img {
           border-top-left-radius: $radius;
           border-bottom-left-radius: $radius;

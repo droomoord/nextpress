@@ -103,15 +103,7 @@ const EventsLayout = ({ events }) => {
   return (
     <main className="np-main-content">
       <h1 className={classes.hidden}>Events</h1>
-      <div
-        style={{
-          display: "flex",
-          gap: "1em",
-          marginTop: "1em",
-          width: "100vw",
-          justifyContent: "center",
-        }}
-      >
+      <div className={classes.links}>
         <Link href="/agenda">Alles</Link>
         <Link href="/agenda?category=expositie">Exposities</Link>
         <Link href="/agenda?category=muziek">Muziek</Link>

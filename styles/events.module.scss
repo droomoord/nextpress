@@ -4,6 +4,15 @@
   visibility: hidden;
   position: fixed;
 }
+.links {
+  display: flex;
+  margin-top: 1em;
+  width: 100vw;
+  justify-content: center;
+  & > * {
+    margin-right: 1em;
+  }
+}
 .events-wrapper {
   // background-color: rgb(232, 232, 232);
   border-radius: 5px;
