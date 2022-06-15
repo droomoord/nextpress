@@ -26,8 +26,6 @@ const EventsLayout = ({ events }) => {
   };
 
   const createEventsByMonth = (events) => {
-    console.log(events);
-
     const eventsByMonth = [];
     events.forEach((event) => {
       if (isValidEvent(event)) {
@@ -81,9 +79,36 @@ const EventsLayout = ({ events }) => {
       start_date_details.month == end_date_details.month
     );
   };
+  if (events.length == 0)
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        geen events om weer te geven!
+      </div>
+    );
   return (
     <main className="np-main-content">
       <h1 className={classes.hidden}>Events</h1>
+      <div
+        style={{
+          display: "flex",
+          gap: "1em",
+          marginTop: "1em",
+          width: "100vw",
+          justifyContent: "center",
+        }}
+      >
+        <Link href="/agenda">Alles</Link>
+        <Link href="/agenda?category=expositie">Expo</Link>
+        <Link href="/agenda?category=muziek">Muziek</Link>
+      </div>
       <div className={`${classes["events-wrapper"]}`}>
         {createEventsByMonth(events).map((month) => {
           return (
@@ -91,8 +116,6 @@ const EventsLayout = ({ events }) => {
               <span className={classes.month}>{month.month}</span>
               {month.events.map((e) => {
                 const { event } = e;
-                console.log(e);
-
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
                 return (

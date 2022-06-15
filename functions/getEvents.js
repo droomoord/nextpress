@@ -2,7 +2,9 @@ import axios from "axios";
 
 import auth from "./auth";
 
-const GetEvents = async (perPage) => {
+const GetEvents = async (perPage, category) => {
+  console.log(category);
+
   const { username, password, targetURL } = auth();
   const res = await axios({
     method: "get",
@@ -14,6 +16,11 @@ const GetEvents = async (perPage) => {
       password,
     },
   });
+  if (category) {
+    return res.data.events.filter((event) => {
+      return event.categories[0]?.name == category;
+    });
+  }
   return res.data.events;
 };
 

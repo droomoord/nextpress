@@ -18,15 +18,16 @@ const Events = ({ events, navItems }) => {
 };
 export default Events;
 
-export async function getStaticProps() {
+export async function getServerSideProps(ctx) {
   try {
+    const category = ctx.query ? ctx.query.category : null;
     const navItems = await getNavItems();
     if (!navItems) {
       return {
         notFound: true,
       };
     }
-    const events = await getEvents();
+    const events = await getEvents(null, category);
     if (!events) {
       return {
         notFound: true,
@@ -37,7 +38,7 @@ export async function getStaticProps() {
         events,
         navItems,
       },
-      revalidate: settings.revalidationTime,
+      // revalidate: settings.revalidationTime,
     };
   } catch (error) {
     console.log(error);
