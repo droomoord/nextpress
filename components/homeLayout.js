@@ -6,7 +6,7 @@ import {
 } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { createSummery } from "../functions/helpers";
 import Map from "./map";
@@ -14,7 +14,7 @@ import LazyLoad from "./lazyload";
 
 const HomeLayout = ({ page, posts, events }) => {
   const router = useRouter();
-
+  const [panoramaLoaded, setPanoramaLoaded] = useState(false);
   const NewsItemsRef = useRef(null);
   const amountPerClick = 300;
   const moveLeft = (element) => {
@@ -49,6 +49,8 @@ const HomeLayout = ({ page, posts, events }) => {
             alt="de Nijverheid panorama"
             width={2841}
             height={750}
+            onLoad={() => setPanoramaLoaded(true)}
+            className={panoramaLoaded ? classes.unblur : ""}
           ></Image>
         </figure>
         {posts && posts.length > 0 && (
