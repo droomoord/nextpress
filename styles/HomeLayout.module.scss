@@ -182,6 +182,7 @@
       padding-bottom: 0;
       gap: 0;
       padding: 1em;
+      grid-auto-columns: 15em;
       // justify-content: center;
     }
     .item {
@@ -193,6 +194,9 @@
 
       display: flex;
       flex-direction: column;
+      @media only screen and (min-width: 700px) {
+        width: 20em;
+      }
       h4 {
         color: rgb(83, 83, 83);
         font-size: 1em;
@@ -209,7 +213,7 @@
         img {
           inline-size: 100%;
           @media only screen and (min-width: 700px) {
-            inline-size: 80%;
+            inline-size: 15em;
             display: block;
             margin: auto;
           }

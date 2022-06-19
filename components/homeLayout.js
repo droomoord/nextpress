@@ -16,7 +16,7 @@ const HomeLayout = ({ page, posts, events }) => {
   const router = useRouter();
 
   const NewsItemsRef = useRef(null);
-  const amountPerClick = 200;
+  const amountPerClick = 300;
   const moveLeft = (element) => {
     element.current.scrollLeft = element.current.scrollLeft - amountPerClick;
   };
