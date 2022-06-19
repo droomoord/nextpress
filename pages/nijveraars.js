@@ -14,6 +14,10 @@ const Nijveraars = ({ nijveraars, navItems }) => {
     <>
       <Head>
         <title>{settings.title} - Nijveraars</title>
+        <meta
+          name="description"
+          content="Een lijst van alle kunstenaars die bij de Nijverheid aangesloten zijn. Elke kunstenaar heeft een eigen profiel."
+        />
       </Head>
       <Navbar navItems={navItems} />
       <main className="np-main-content">

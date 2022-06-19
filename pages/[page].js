@@ -8,12 +8,17 @@ import Navbar from "../components/navbar";
 import Head from "next/head";
 
 const Page = ({ navItems, page, posts, count }) => {
+  console.log(page);
+
   return (
     <>
       <Head>
         <title>
           {settings.title} - {page.title && page.title.rendered}
         </title>
+        {page.acf?.meta_description && (
+          <meta name="description" content={page.acf.meta_description} />
+        )}
       </Head>
       <Navbar navItems={navItems} />
       <PageLayout page={page} />
@@ -71,6 +76,7 @@ export async function getStaticProps(context) {
         "featured_media",
         "_links.wp:featuredmedia",
         "_embedded.wp:featuredmedia",
+        "acf",
       ]);
       if (!page) {
         return {
