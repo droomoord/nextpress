@@ -32,16 +32,21 @@
     gap: 1em;
     margin-bottom: 2em;
     position: relative;
-
+    @media only screen and (min-width: 800px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
     .month {
       font-family: takraf;
       text-align: center;
       text-decoration: underline;
       color: $primary;
       font-size: 2em;
-      @media only screen and (min-width: 700px) {
+      @media only screen and (min-width: 800px) {
         font-size: 3em;
         margin-top: 2em;
+        grid-column-start: span 2;
+        text-align: left;
       }
       &::before {
         content: "====";
