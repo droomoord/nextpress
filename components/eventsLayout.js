@@ -5,7 +5,7 @@ import Link from "next/link";
 import LazyLoad from "./lazyload";
 import { useRouter } from "next/router";
 
-const EventsLayout = ({ events }) => {
+const EventsLayout = ({ events, currentCategory }) => {
   const router = useRouter();
   const createDate = (details) => {
     return details ? ` ${details.year}-${details.month}-${details.day}` : null;
@@ -81,6 +81,11 @@ const EventsLayout = ({ events }) => {
       start_date_details.month == end_date_details.month
     );
   };
+  const changedCategory = (category) => {
+    if (!category) router.push(`/agenda`);
+    else router.push(`/agenda?category=${category}`);
+  };
+
   if (events.length == 0)
     return (
       <div
@@ -100,16 +105,71 @@ const EventsLayout = ({ events }) => {
         </button>
       </div>
     );
+  const categories = [
+    {
+      name: "Alles",
+      link: "",
+    },
+    {
+      name: "Exposities",
+      link: "expositie",
+    },
+    {
+      name: "Muziek",
+      link: "muziek",
+    },
+    {
+      name: "Eten",
+      link: "eten",
+    },
+    {
+      name: "Lezingen",
+      link: "lezingen",
+    },
+    {
+      name: "Podiumkunsten",
+      link: "podiumkunsten",
+    },
+    {
+      name: "Films",
+      link: "film",
+    },
+  ];
   return (
     <main className="np-main-content">
       <h1 className={classes.hidden}>Events</h1>
-      <div className={classes.links}>
+      {/* <div className={classes.links}>
         <Link href="/agenda">Alles</Link>
         <Link href="/agenda?category=expositie">Exposities</Link>
         <Link href="/agenda?category=muziek">Muziek</Link>
         <Link href="/agenda?category=blablabla">Blablabla</Link>
-      </div>
+      </div> */}
+
       <div className={`${classes["events-wrapper"]}`}>
+        <div className={classes["select-wrapper"]}>
+          <select
+            name="select category"
+            id=""
+            onChange={(e) => changedCategory(e.target.value)}
+            defaultValue={currentCategory}
+          >
+            {/* <option value="" defaultChecked={category == ""}>Alles</option>
+          <option value="expositie">Exposities</option>
+          <option value="muziek">Muziek</option> */}
+            {categories.map((category) => {
+              console.log(category.link == currentCategory);
+              return (
+                <option
+                  value={category.link}
+                  key={category.link}
+                  // defaultChecked={category.link == currentCategory}
+                >
+                  {category.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
         {createEventsByMonth(events).map((month) => {
           return (
             <div key={month.month} className={classes.events}>

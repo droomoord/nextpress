@@ -5,14 +5,14 @@ import getNavItems from "../functions/getNavItems";
 import settings from "../settings.js";
 import Head from "next/head";
 
-const Events = ({ events, navItems }) => {
+const Events = ({ events, navItems, category }) => {
   return (
     <>
       <Head>
         <title>{settings.title} - Agenda</title>
       </Head>
       <Navbar navItems={navItems} />
-      <EventsLayout events={events} />
+      <EventsLayout events={events} currentCategory={category} />
     </>
   );
 };
@@ -20,7 +20,7 @@ export default Events;
 
 export async function getServerSideProps(ctx) {
   try {
-    const category = ctx.query ? ctx.query.category : null;
+    const category = ctx.query?.category ? ctx.query.category : null;
     const navItems = await getNavItems();
     if (!navItems) {
       return {
@@ -37,6 +37,7 @@ export async function getServerSideProps(ctx) {
       props: {
         events,
         navItems,
+        category,
       },
       // revalidate: settings.revalidationTime,
     };
