@@ -244,6 +244,20 @@ iframe {
     // max-width: 900px;
   }
 }
+figure {
+  width: 100%;
+}
+figure > img {
+  aspect-ratio: 1 / 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  @media only screen and (min-width: 700px) {
+    $size: 35em;
+    width: $size !important;
+    // height: $size !important;
+  }
+}
 
 #map {
   @media only screen and (min-width: 700px) {

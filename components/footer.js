@@ -30,7 +30,14 @@ const Footer = () => {
         >
           <AiFillLinkedin size={"2.5em"} />
         </button>
-        <button onClick={() => window.open("")} className={classes.yt}>
+        <button
+          onClick={() =>
+            window.open(
+              "https://www.youtube.com/channel/UCqvX10ppAQA8h2yGSnQX9Pg"
+            )
+          }
+          className={classes.yt}
+        >
           <AiFillYoutube size={"2.5em"} />
         </button>
       </div>
