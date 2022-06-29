@@ -265,7 +265,9 @@ figure > img {
 }
 
 #expo {
-  margin-top: 9em;
+  @media only screen and (min-width: 700px) {
+    margin-top: 9em;
+  }
 }
 
 @keyframes slide-in {

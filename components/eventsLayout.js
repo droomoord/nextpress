@@ -4,8 +4,10 @@ import { createSummery } from "../functions/helpers";
 import Link from "next/link";
 import LazyLoad from "./lazyload";
 import { useRouter } from "next/router";
+import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { useState, useEffect } from "react";
 
-const EventsLayout = ({ events, currentCategory }) => {
+const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
   const router = useRouter();
   const createDate = (details) => {
     return details ? ` ${details.year}-${details.month}-${details.day}` : null;
@@ -107,7 +109,7 @@ const EventsLayout = ({ events, currentCategory }) => {
     );
   const categories = [
     {
-      name: "Alles",
+      name: "Alle events",
       link: "",
     },
     {
@@ -135,6 +137,55 @@ const EventsLayout = ({ events, currentCategory }) => {
       link: "film",
     },
   ];
+
+  const Filter = () => {
+    const [searchQuery, setSearchQuery] = useState("");
+    useEffect(() => {
+      setSearchQuery(currentSearchQuery || "");
+    }, []);
+
+    const submitQuery = () => {
+      router.push(`/agenda?q=${searchQuery}`);
+    };
+    return (
+      <div className={classes["filter-wrapper"]}>
+        <div className={classes.select}>
+          <select
+            name="select category"
+            onChange={(e) => changedCategory(e.target.value)}
+            defaultValue={currentCategory}
+          >
+            {categories.map((category) => {
+              return (
+                <option value={category.link} key={category.link}>
+                  {category.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div className={classes.search}>
+          <input
+            type="text"
+            placeholder="Zoek events..."
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+            onKeyDown={(e) => (e.key == "Enter" ? submitQuery() : null)}
+          />
+          {searchQuery && (
+            <AiOutlineClose
+              className={classes.remove}
+              onClick={() => setSearchQuery("")}
+            />
+          )}
+          <button type="submit" onClick={submitQuery}>
+            <AiOutlineSearch size={"1.5em"} />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <main className="np-main-content">
       <h1 className={classes.hidden}>Events</h1>
@@ -146,30 +197,7 @@ const EventsLayout = ({ events, currentCategory }) => {
       </div> */}
 
       <div className={`${classes["events-wrapper"]}`}>
-        <div className={classes["select-wrapper"]}>
-          <select
-            name="select category"
-            id=""
-            onChange={(e) => changedCategory(e.target.value)}
-            defaultValue={currentCategory}
-          >
-            {/* <option value="" defaultChecked={category == ""}>Alles</option>
-          <option value="expositie">Exposities</option>
-          <option value="muziek">Muziek</option> */}
-            {categories.map((category) => {
-              console.log(category.link == currentCategory);
-              return (
-                <option
-                  value={category.link}
-                  key={category.link}
-                  // defaultChecked={category.link == currentCategory}
-                >
-                  {category.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+        <Filter />
         {createEventsByMonth(events).map((month) => {
           return (
             <div key={month.month} className={classes.events}>

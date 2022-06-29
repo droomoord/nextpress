@@ -2,15 +2,13 @@ import axios from "axios";
 
 import auth from "./auth";
 
-const GetEvents = async (perPage, category) => {
-  console.log(category);
-
+const GetEvents = async (perPage, category, searchQuery) => {
   const { username, password, targetURL } = auth();
   const res = await axios({
     method: "get",
     url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
       perPage ? perPage : "100"
-    }`,
+    }${searchQuery ? "&search=" + searchQuery : ""}`,
     auth: {
       username,
       password,
