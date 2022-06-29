@@ -13,7 +13,10 @@ const Navbar = ({ navItems, initiallyHidden }) => {
   useEffect(() => {
     if (initiallyHidden === true) {
       window.addEventListener("scroll", () => {
-        setShowNavbar(true);
+        console.log(window.scrollY);
+        if (window && window.scrollY < 30) {
+          setShowNavbar(false);
+        } else setShowNavbar(true);
       });
     }
     return setShowNavbar(false);
@@ -24,7 +27,6 @@ const Navbar = ({ navItems, initiallyHidden }) => {
   function clickedNavItem(path, event) {
     setMenuOpen(false);
     event.stopPropagation();
-    console.log(event.target);
     event.target.classList.add(classes.active);
     router.push(path);
   }
@@ -38,6 +40,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
               <a
                 onClick={(event) => clickedNavItem(item.path, event)}
                 className={`${classes.link} ${active ? classes.active : ""}`}
+                style={{ display: showNavbar ? "none" : "block" }}
               >
                 {item.text}
               </a>
@@ -48,12 +51,17 @@ const Navbar = ({ navItems, initiallyHidden }) => {
 
   return (
     <nav
-      className={`${classes.navbar} ${initiallyHidden ? classes.hidden : null}`}
+      className={`${classes.navbar} ${
+        initiallyHidden ? classes.initial : null
+      } ${showNavbar ? classes.second : null}`}
       style={{ top: initiallyHidden && showNavbar ? "0" : null }}
     >
       {/* <h1 className={classes.title}>de nijverheid</h1> */}
       <Link href="/">
-        <a className={classes.logo}>
+        <a
+          className={classes.logo}
+          // style={{ display: showNavbar ? "grid" : "none" }}
+        >
           <span>=</span>
           <span>d</span>
           <span>n</span>
@@ -62,6 +70,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
       </Link>
       <button
         className={classes["np-menu-button"]}
+        style={{ display: showNavbar ? "block" : "none" }}
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <CgMenu size={"2em"} aria-label="open menu" />

@@ -17,10 +17,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.543);
   // safari:
   @media only screen and (min-width: 700px) {
-    height: 5em;
+    height: 10em;
     justify-content: space-between;
     align-items: center;
     padding: 0 4em 0 1em;
+  }
+  @media only screen and (max-width: 700px) {
+    height: 4em !important;
   }
 
   .logo {
@@ -34,23 +37,25 @@
     color: white;
     @media only screen and (min-width: 700px) {
       font-size: 1.5em;
+      // display: none;
     }
   }
   .link {
     color: rgb(73, 73, 73);
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.2em;
     // test
     color: rgb(236, 236, 236);
+    color: $bg-color;
     letter-spacing: 0.1em;
   }
   .link:hover,
   .active,
   .link:focus,
   .link:active {
-    color: black;
-    // test
-    color: rgb(236, 236, 236);
+    display: block !important;
+
+    color: rgb(215, 215, 215);
     text-decoration: underline;
   }
   .np-menu-button {
@@ -65,21 +70,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // @media only screen and (min-width: 700px) {
-    //   display: none;
-    // }
+    @media only screen and (min-width: 700px) {
+      display: none;
+    }
+    @media only screen and (max-width: 700px) {
+      display: block !important;
+    }
   }
   .np-nav-items {
     display: none;
     margin: 1em 0;
+    font-family: takraf;
+    text-transform: lowercase;
 
-    // @media only screen and (min-width: 700px) {
-    //   display: flex;
-    //   gap: 3vw;
-    //   // font-family: franchise;
-    //   font-size: 0.9em;
-    //   text-transform: capitalize;
-    // }
+    @media only screen and (min-width: 700px) {
+      display: flex;
+      column-gap: 3vw;
+      row-gap: 2vw;
+      font-size: 0.9em;
+      flex-wrap: wrap;
+      width: 70%;
+      margin: auto;
+      justify-content: center;
+    }
   }
   .menu-open {
     display: flex;
@@ -88,7 +101,11 @@
   }
 }
 
-.hidden {
-  top: -4em;
-  transition: top 0.3s;
+.initial {
+  // top: -4em;
+  // transition: top 0.3s;
+  transition: height 0.3s;
+}
+.second {
+  height: 5em;
 }

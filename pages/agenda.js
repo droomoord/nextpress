@@ -11,7 +11,7 @@ const Events = ({ events, navItems, category }) => {
       <Head>
         <title>{settings.title} - Agenda</title>
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <EventsLayout events={events} currentCategory={category} />
     </>
   );

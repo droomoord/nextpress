@@ -14,7 +14,7 @@ const Post = ({ navItems, post }) => {
           {settings.title} - {post.title && post.title.rendered}
         </title>
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <PostLayout post={post} />
     </>
   );

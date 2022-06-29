@@ -19,7 +19,7 @@ const Nijveraars = ({ nijveraars, navItems }) => {
           content="Een lijst van alle kunstenaars die bij de Nijverheid aangesloten zijn. Elke kunstenaar heeft een eigen profiel."
         />
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <main className="np-main-content">
         <div className={classes.container}>
           <div className={classes.wrapper}>

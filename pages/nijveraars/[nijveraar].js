@@ -42,7 +42,7 @@ const Nijveraar = ({ nijveraar, navItems }) => {
           {settings.title} - {title}
         </title>
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <main className="np-main-content">
         <div className={classes.wrapper}>
           <h1 dangerouslySetInnerHTML={{ __html: title + " - " + beroep }}></h1>

@@ -17,7 +17,7 @@ export default function Home({ navItems, page, posts, events }) {
           content="De Nijverheid is een culturele vrijhaven in het Werkspoorkwartier in Utrecht met ateliers en creatieve werkplekken voor ruim 50 autonoom kunstenaars, ontwerpers en creatieve makers. We zijn eind 2017 begonnen als een vrijhaven voor de kunsten: een plek waar kunstenaars kunnen maken en exposeren."
         />
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <PageLayout page={page} posts={posts} events={events} />
     </>
   );

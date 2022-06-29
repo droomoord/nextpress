@@ -53,6 +53,10 @@
   }
 }
 
+.active {
+  color: rgb(215, 215, 215) !important;
+}
+
 @keyframes fade-in {
   to {
     opacity: 1;

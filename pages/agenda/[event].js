@@ -6,7 +6,7 @@ import getNavItems from "../../functions/getNavItems";
 const Event = ({ event, navItems }) => {
   return (
     <>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <EventLayout event={event} />
     </>
   );

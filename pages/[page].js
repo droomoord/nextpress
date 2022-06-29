@@ -20,7 +20,7 @@ const Page = ({ navItems, page, posts, count }) => {
           <meta name="description" content={page.acf.meta_description} />
         )}
       </Head>
-      <Navbar navItems={navItems} />
+      <Navbar navItems={navItems} initiallyHidden={true} />
       <PageLayout page={page} />
     </>
   );
