@@ -41,12 +41,11 @@
     }
   }
   .link {
-    color: rgb(73, 73, 73);
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.4em;
     // test
-    color: rgb(236, 236, 236);
-    color: $bg-color;
+    color: rgb(215, 215, 215);
+
     letter-spacing: 0.1em;
   }
   .link:hover,
@@ -54,8 +53,7 @@
   .link:focus,
   .link:active {
     display: block !important;
-
-    color: rgb(215, 215, 215);
+    color: $bg-color;
     text-decoration: underline;
   }
   .np-menu-button {
@@ -92,6 +90,14 @@
       width: 70%;
       margin: auto;
       justify-content: center;
+      // ---------SAFARI--------------
+      @supports not (aspect-ratio: 1 / 1) {
+        * + * {
+          margin-left: 1.5em;
+        }
+        line-height: 2.5em;
+      }
+      // -----------------------------
     }
   }
   .menu-open {

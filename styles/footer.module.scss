@@ -1,6 +1,6 @@
 @import "vars";
 .wrapper {
-  height: 4em;
+  height: 6em;
   width: 100%;
   background-color: rgb(255, 255, 255);
   border-top: 1px solid rgb(210, 210, 210);
@@ -11,6 +11,13 @@
   .social {
     display: flex;
     gap: 0.5em;
+    // ---------SAFARI--------------
+    @supports not (aspect-ratio: 1 / 1) {
+      * + * {
+        margin-left: 0.5em;
+      }
+    }
+    // -----------------------------
   }
   button {
     background-color: transparent;

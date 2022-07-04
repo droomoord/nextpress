@@ -16,12 +16,20 @@
 .filter-wrapper {
   @media only screen and (min-width: 700px) {
     width: 20em;
+    margin-bottom: 0;
   }
   margin-top: 7em;
   margin-bottom: 3em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  // ---------SAFARI--------------
+  @supports not (aspect-ratio: 1 / 1) {
+    * + * {
+      margin-top: 0.5em;
+    }
+  }
+  // -----------------------------
   .search {
     position: relative;
     width: 100%;
@@ -73,6 +81,7 @@
     }
   }
 }
+
 .events-wrapper {
   // background-color: rgb(232, 232, 232);
   border-radius: 5px;
@@ -85,7 +94,7 @@
   transform: translateX(-50%);
   @media only screen and (min-width: 1000px) {
     max-width: unset;
-    margin-top: 8em;
+    margin-top: 2em;
   }
   .events {
     display: flex;
@@ -93,7 +102,7 @@
     gap: 1em;
     margin-bottom: 2em;
     position: relative;
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 1000px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
@@ -141,7 +150,7 @@
       overflow: hidden;
       @media only screen and (min-width: 1000px) {
         padding: 2em;
-        width: 40em;
+        width: 40vw;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12, 1fr);
@@ -153,7 +162,13 @@
         background-position: center;
         background-size: cover;
         margin-bottom: 1em;
-        aspect-ratio: 1;
+        aspect-ratio: 1 / 1;
+        // ---------SAFARI--------------
+        @supports not (aspect-ratio: 1 / 1) {
+          height: 10em;
+          width: 10em;
+        }
+        // -----------------------------
 
         @media only screen and (min-width: 1000px) {
           grid-column-start: span 6;
@@ -179,6 +194,12 @@
           // right: calc(100% + 1em);
           // top: 50%;
           font-size: 1.5em;
+          // ---------SAFARI--------------
+          @supports not (aspect-ratio: 1 / 1) {
+            font-family: inherit;
+            font-size: 1em;
+          }
+          // -----------------------------
         }
         .entree {
           font-size: 0.9em;
@@ -213,8 +234,8 @@
         margin: auto;
         @media only screen and (min-width: 1000px) {
           position: absolute;
-          bottom: 1em;
-          left: 3em;
+          bottom: 2em;
+          left: 2.5em;
         }
       }
     }
