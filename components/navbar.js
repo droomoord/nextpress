@@ -75,6 +75,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
       >
         <CgMenu size={"2em"} aria-label="open menu" />
       </button>
+
       <div className={`${classes["np-nav-items"]}`}>{navItemsRendered}</div>
       {menuOpen && (
         <MobileMenu

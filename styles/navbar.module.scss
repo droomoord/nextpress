@@ -3,7 +3,7 @@
 .navbar {
   padding: 1em 1em;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 2em;
   position: fixed;
   top: 0;
@@ -41,6 +41,9 @@
     }
   }
   .link {
+    @media only screen and (max-width: 700px) {
+      display: none !important;
+    }
     text-decoration: none;
     font-size: 1.4em;
     // test
@@ -76,13 +79,14 @@
     }
   }
   .np-nav-items {
-    display: none;
-    margin: 1em 0;
+    align-items: center;
+    // margin: 1em 0;
     font-family: takraf;
     text-transform: lowercase;
+    font-size: 0.8em;
 
+    display: flex;
     @media only screen and (min-width: 700px) {
-      display: flex;
       column-gap: 3vw;
       row-gap: 2vw;
       font-size: 0.9em;
@@ -104,6 +108,16 @@
     display: flex;
     gap: 1.5em;
     flex-wrap: wrap;
+  }
+}
+
+.mobile-page-display {
+  font-family: takraf;
+  color: $bg-color;
+  font-size: 1.1em;
+
+  @media only screen and (min-width: 700px) {
+    display: none;
   }
 }
 
