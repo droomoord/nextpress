@@ -76,7 +76,9 @@ iframe {
   // ---------SAFARI--------------
   @supports not (aspect-ratio: 1 / 1) {
     * + * {
-      margin-left: 2em;
+      @media only screen and (min-width: 700px) {
+        margin-left: 2em;
+      }
     }
   }
   // -----------------------------
