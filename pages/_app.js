@@ -36,7 +36,8 @@ function MyApp({ Component, pageProps }) {
         crossOrigin=""
       ></script>
       <Component {...pageProps} />
-      {router.asPath != "/agenda" && <Footer />}
+      {/* {router.asPath != "/agenda" && <Footer />} */}
+      {/\/agenda/.test(router.asPath) == false && <Footer />}
     </>
   );
 }

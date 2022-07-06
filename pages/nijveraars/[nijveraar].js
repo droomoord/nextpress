@@ -17,7 +17,6 @@ const Nijveraar = ({ nijveraar, navItems }) => {
     const images = document.querySelectorAll(".wp-block-gallery img");
     images.forEach((image) => {
       image.addEventListener("click", (e) => {
-        console.log(e.target.src);
         window.open(e.target.src);
       });
     });
@@ -90,8 +89,6 @@ export async function getServerSideProps(context) {
         notFound: true,
       };
     }
-    console.log(nijveraars);
-
     return {
       props: {
         nijveraar: nijveraars[0],

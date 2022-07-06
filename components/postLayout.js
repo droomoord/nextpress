@@ -11,7 +11,6 @@ const PostLayout = ({ post }) => {
   const image = post.featured_media
     ? post._embedded["wp:featuredmedia"][0]?.source_url
     : "/assets/img/icon.jpg";
-  console.log(image);
 
   return (
     <div className="np-main-content">

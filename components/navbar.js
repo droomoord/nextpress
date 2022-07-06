@@ -13,7 +13,6 @@ const Navbar = ({ navItems, initiallyHidden }) => {
   useEffect(() => {
     if (initiallyHidden === true) {
       window.addEventListener("scroll", () => {
-        console.log(window.scrollY);
         if (window && window.scrollY < 5) {
           setShowNavbar(false);
         } else setShowNavbar(true);

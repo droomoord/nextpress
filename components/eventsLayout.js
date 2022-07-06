@@ -199,8 +199,6 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
                 const { event } = e;
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
-                console.log(event.image);
-
                 return (
                   <Link
                     key={event.id}

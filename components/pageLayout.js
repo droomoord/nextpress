@@ -14,7 +14,6 @@ const PageLayout = ({ page, posts, events }) => {
   // const imageSize = "medium_large";
   let render;
   const path = router.asPath;
-  console.log(path);
   const pageId = path.replace("/", "");
   if (path == "/")
     render = <HomeLayout page={page} posts={posts} events={events} />;

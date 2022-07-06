@@ -8,8 +8,6 @@ import Navbar from "../components/navbar";
 import Head from "next/head";
 
 const Page = ({ navItems, page, posts, count }) => {
-  console.log(page);
-
   return (
     <>
       <Head>

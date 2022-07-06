@@ -1,6 +1,4 @@
 const createMap = () => {
-  console.log("MAPMAPMAP");
-
   let map = L.map("map").setView([52.1003491, 5.0835228], 18);
   L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",

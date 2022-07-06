@@ -42,11 +42,8 @@ const EventLayout = ({ event }) => {
       start_date_details.month == end_date_details.month
     );
   };
-  console.log(event);
   const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
   const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
-  console.log(startTime, endTime);
-
   return (
     <div className="np-main-content">
       <div className={classes["event-wrapper"]}>
