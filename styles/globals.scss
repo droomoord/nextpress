@@ -83,7 +83,7 @@ iframe {
 }
 
 .dynamic-page {
-  margin: 4em 1em;
+  margin: 4em 2em;
   p {
     color: $font-primary;
     // margin-bottom: 1em;
@@ -259,12 +259,27 @@ iframe {
 }
 figure {
   width: 100%;
+  @supports not (aspect-ratio: auto) {
+    padding-top: 100% !important;
+    height: 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
 }
 figure > img {
   aspect-ratio: 1 / 1 !important;
   margin: 0 !important;
   padding: 0 !important;
   width: 100% !important;
+  @supports not (aspect-ratio: auto) {
+    position: absolute !important;
+    transform: translate(-50%, -50%) !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
   @media only screen and (min-width: 700px) {
     $size: 35em;
     width: $size !important;

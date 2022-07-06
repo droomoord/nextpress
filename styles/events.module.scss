@@ -170,16 +170,27 @@
       }
       .image {
         // height: 20em;
-        background-position: center;
-        background-size: cover;
         margin-bottom: 1em;
         aspect-ratio: 1 / 1;
-        // ---------SAFARI--------------
-        @supports not (aspect-ratio: 1 / 1) {
-          height: 10em;
-          width: 10em;
+        @supports not (aspect-ratio: auto) {
+          padding-top: 100% !important;
+          height: 0 !important;
+          position: relative !important;
+          overflow: hidden !important;
         }
-        // -----------------------------
+        & > * {
+          background-position: center;
+          background-size: cover;
+          @supports not (aspect-ratio: auto) {
+            position: absolute !important;
+            transform: translate(-50%, -50%) !important;
+            left: 50% !important;
+            top: 50% !important;
+            width: auto !important;
+            max-width: 100% !important;
+            height: auto !important;
+          }
+        }
 
         @media only screen and (min-width: 1000px) {
           grid-column-start: span 6;
