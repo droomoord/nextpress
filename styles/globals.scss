@@ -1,10 +1,18 @@
 @import "vars";
 
+@font-face {
+  font-family: "Saira";
+  src: url("/assets/fonts/Saira.ttf");
+
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Saira", sans-serif;
+  // font-family: "Saira", sans-serif;
+  font-family: "Saira";
   overflow-x: hidden;
   background-color: $bg-color;
 }
