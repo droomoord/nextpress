@@ -41,7 +41,7 @@ const getNavItems = (forStaticPaths) => {
 
   if (forStaticPaths)
     return [
-      { text: "Culturele=Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
+      { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
       { text: "Kunstcafe", path: "/kunstcafe", id: 82 },
       { text: "Expo", path: "/expo", id: 85 },
       { text: "Verhuur", path: "/verhuur", id: 88 },
@@ -50,7 +50,7 @@ const getNavItems = (forStaticPaths) => {
     ];
   else
     return [
-      { text: "Culturele=Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
+      { text: "Culturele Vrijhaven", path: "/culturele-vrijhaven", id: 10 },
       {
         text: "Agenda",
         path: "/agenda",
