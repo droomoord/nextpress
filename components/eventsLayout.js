@@ -199,6 +199,8 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
                 const { event } = e;
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
+                console.log(event.image?.sizes?.thumbnail?.url);
+
                 return (
                   <Link
                     key={event.id}
@@ -208,8 +210,9 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
                       <LazyLoad
                         childClassName={classes.image}
                         onLoadFunc={(el) =>
-                          (el.style.backgroundImage = event.image?.url
-                            ? `url("${event.image.url}")`
+                          (el.style.backgroundImage = event.image?.sizes
+                            ?.thumbnail?.url
+                            ? `url("${event.image?.sizes?.thumbnail?.url}")`
                             : "url(/assets/img/icon.jpg)")
                         }
                       ></LazyLoad>
