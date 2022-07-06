@@ -76,37 +76,7 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
     "nov",
     "dec",
   ];
-  const IsOneDayEvent = (event) => {
-    const { start_date_details, end_date_details } = event;
-    return (
-      start_date_details.day == end_date_details.day &&
-      start_date_details.month == end_date_details.month
-    );
-  };
-  const changedCategory = (category) => {
-    if (!category) router.push(`/agenda`);
-    else router.push(`/agenda?category=${category}`);
-  };
 
-  if (events.length == 0)
-    return (
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "1em",
-        }}
-      >
-        <div>geen events om weer te geven!</div>
-        <button className={"button"} onClick={() => router.back()}>
-          terug
-        </button>
-      </div>
-    );
   const categories = [
     {
       name: "Alle events",
@@ -137,6 +107,17 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
       link: "film",
     },
   ];
+  const IsOneDayEvent = (event) => {
+    const { start_date_details, end_date_details } = event;
+    return (
+      start_date_details.day == end_date_details.day &&
+      start_date_details.month == end_date_details.month
+    );
+  };
+  const changedCategory = (category) => {
+    if (!category) router.push(`/agenda`);
+    else router.push(`/agenda?category=${category}`);
+  };
 
   const Filter = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -186,6 +167,17 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
     );
   };
 
+  const NoEvents = () => {
+    return (
+      <div className={classes["no-events"]}>
+        <div>Geen events om weer te geven! Probeer een andere zoekopdracht</div>
+        {/* <button className={"button"} onClick={() => router.back()}>
+          terug
+        </button> */}
+      </div>
+    );
+  };
+
   return (
     <main className="np-main-content">
       <h1 className={classes.hidden}>Events</h1>
@@ -198,6 +190,7 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
 
       <div className={`${classes["events-wrapper"]}`}>
         <Filter />
+        {events.length == 0 && <NoEvents />}
         {createEventsByMonth(events).map((month) => {
           return (
             <div key={month.month} className={classes.events}>

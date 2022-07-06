@@ -13,6 +13,16 @@
 //     margin-right: 1em;
 //   }
 // }
+
+.no-events {
+  position: absolute;
+  margin-top: 2em;
+  @media only screen and (min-width: 1000px) {
+    left: 25vw;
+    top: 40vh;
+  }
+  // transform: translate(-50%, -50%);
+}
 .filter-wrapper {
   @media only screen and (min-width: 700px) {
     width: 20em;
@@ -94,6 +104,7 @@
   transform: translateX(-50%);
   @media only screen and (min-width: 1000px) {
     max-width: unset;
+    min-width: 80%;
     margin-top: 2em;
   }
   .events {
