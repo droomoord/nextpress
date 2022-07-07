@@ -11,7 +11,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  // font-family: "Saira", sans-serif;
   font-family: "Saira";
   overflow-x: hidden;
   background-color: $bg-color;
@@ -106,6 +105,35 @@ iframe {
     @media only screen and (min-width: 700px) {
       font-size: 2.5em;
       // margin-bottom: 2em;
+    }
+  }
+  figure {
+    width: 100%;
+    @supports not (aspect-ratio: auto) {
+      padding-top: 100% !important;
+      height: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+  }
+  figure img {
+    aspect-ratio: 1 / 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    @supports not (aspect-ratio: auto) {
+      position: absolute !important;
+      transform: translate(-50%, -50%) !important;
+      left: 50% !important;
+      top: 50% !important;
+      width: auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    @media only screen and (min-width: 700px) {
+      $size: 35em;
+      width: $size !important;
+      // height: $size !important;
     }
   }
 
@@ -257,35 +285,6 @@ iframe {
   @media only screen and (min-width: 700px) {
     width: 75vw;
     // max-width: 900px;
-  }
-}
-figure {
-  width: 100%;
-  @supports not (aspect-ratio: auto) {
-    padding-top: 100% !important;
-    height: 0 !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-}
-figure > img {
-  aspect-ratio: 1 / 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  @supports not (aspect-ratio: auto) {
-    position: absolute !important;
-    transform: translate(-50%, -50%) !important;
-    left: 50% !important;
-    top: 50% !important;
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }
-  @media only screen and (min-width: 700px) {
-    $size: 35em;
-    width: $size !important;
-    // height: $size !important;
   }
 }
 
