@@ -46,18 +46,27 @@
     }
     text-decoration: none;
     font-size: 1.4em;
-    // test
     color: rgb(215, 215, 215);
-
     letter-spacing: 0.1em;
+    position: relative;
   }
   .link:hover,
   .active,
   .link:focus,
   .link:active {
     display: block !important;
-    color: $bg-color;
-    text-decoration: underline;
+    color: rgb(255, 255, 255);
+  }
+  .link[data-name="Culturele Vrijhaven"]::after {
+    @media only screen and (min-width: 700px) {
+      content: "=";
+      font-family: inherit;
+      position: absolute;
+      left: 47.4%;
+      top: 0;
+      color: inherit;
+      z-index: 500;
+    }
   }
   .active {
     @media only screen and (max-width: 700px) {
@@ -99,11 +108,12 @@
 
     display: flex;
     @media only screen and (min-width: 700px) {
-      column-gap: 3vw;
-      row-gap: 2vw;
+      column-gap: 4vw;
+      row-gap: 1.5vw;
       font-size: 0.9em;
       flex-wrap: wrap;
-      width: 70%;
+      // width: 70%;
+      width: 50em;
       margin: auto;
       justify-content: center;
       // ---------SAFARI--------------

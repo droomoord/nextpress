@@ -40,6 +40,7 @@ const Navbar = ({ navItems, initiallyHidden }) => {
                 onClick={(event) => clickedNavItem(item.path, event)}
                 className={`${classes.link} ${active ? classes.active : ""}`}
                 style={{ display: showNavbar ? "none" : "block" }}
+                data-name={item.text}
               >
                 {item.text}
               </a>

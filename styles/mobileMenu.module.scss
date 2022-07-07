@@ -1,6 +1,9 @@
 @import "vars";
 
 .container {
+  a {
+    text-decoration: none;
+  }
   .x {
     background-color: transparent;
     outline: none;
