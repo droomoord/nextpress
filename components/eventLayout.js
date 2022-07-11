@@ -25,7 +25,7 @@ const EventLayout = ({ event }) => {
   ];
   const getDay = (date) => {
     const days = [
-      "Aondag",
+      "Zondag",
       "Maandag",
       "Dinsdag",
       "Woensdag",
@@ -69,7 +69,7 @@ const EventLayout = ({ event }) => {
         <span className={classes.date}>
           {getDay(new Date(event.start_date) || "")}{" "}
           {event.start_date_details.day}{" "}
-          {monthsOfTheYear[Number(event.start_date_details?.month)]}{" "}
+          {monthsOfTheYear[Number(event.start_date_details?.month) - 1]}{" "}
           {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
           {event.end_date_details &&
             !event.all_day &&
