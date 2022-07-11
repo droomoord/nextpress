@@ -56,7 +56,7 @@ export async function getStaticProps() {
       ],
       1
     );
-    const events = await getEvents(3);
+    const events = await getEvents(5, undefined, undefined, true);
     return {
       props: { navItems, page, posts, count, events },
       ...(settings.revalidationTime && {
