@@ -83,8 +83,8 @@
   position: relative;
   margin-bottom: 2em;
   @media only screen and (min-width: 700px) {
-    transform: translateX(-12.5vw);
-    width: 150vw;
+    transform: translateX(-35.5vw);
+    width: 134vw;
     // position: absolute;
     // left: 0;
     // right: 0;
@@ -230,7 +230,7 @@
   margin-bottom: 3em;
   .agendaitems {
     margin: 0 1em;
-    max-width: 50em;
+    max-width: 60em;
     @media only screen and (min-width: 700px) {
       margin: 0 auto;
     }
@@ -239,7 +239,7 @@
       text-decoration: none;
       $radius: 0px;
       display: flex;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
       border-radius: $radius;
       padding: 0.5em;
       // gap: 1em;
@@ -250,7 +250,9 @@
         height: $size;
         overflow: hidden;
         // safari fix:
-        margin-right: 1em;
+        @media only screen and (min-width: 700px) {
+          margin-right: 4em;
+        }
         img {
           border-top-left-radius: $radius;
           border-bottom-left-radius: $radius;
@@ -277,6 +279,7 @@
   }
   .button {
     margin: auto;
+    margin-top: 3em;
   }
 }
 .info {
