@@ -181,6 +181,8 @@
     overflow-x: scroll;
     padding-bottom: 1em;
     @media only screen and (min-width: 700px) {
+      margin: 0 auto;
+      max-width: 65vw;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);
       padding-bottom: 0;
       gap: 0;
@@ -230,9 +232,9 @@
   margin-bottom: 3em;
   .agendaitems {
     margin: 0 1em;
-    max-width: 60em;
     @media only screen and (min-width: 700px) {
       margin: 0 auto;
+      max-width: 65vw;
     }
     .event {
       background-color: $bg-color-secondary;
