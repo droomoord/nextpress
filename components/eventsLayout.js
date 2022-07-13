@@ -196,10 +196,11 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
             <div key={month.month} className={classes.events}>
               <span className={classes.month}>{month.month}</span>
               {month.events.map((e) => {
+                console.log(e);
+
                 const { event } = e;
                 const startTime = `${event.start_date_details?.hour}:${event.start_date_details?.minutes}`;
                 const endTime = `${event.end_date_details?.hour}:${event.end_date_details?.minutes}`;
-                console.log(event.image?.sizes?.thumbnail?.url);
 
                 return (
                   <Link
@@ -220,7 +221,8 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
                       <div className={classes.header}>
                         <span className={classes.day}>
                           {e.dayName} {e.day} {e.month}{" "}
-                          {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
+                          {/* {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "} */}
+                          {event.all_day ? "" : `/ ${startTime}`}{" "}
                           {event.end_date_details &&
                             !event.all_day &&
                             startTime != endTime &&
@@ -238,6 +240,14 @@ const EventsLayout = ({ events, currentCategory, currentSearchQuery }) => {
                                 } / ${endTime}`}
                               </span>
                             )}
+                          {new Date(event.end_date).toDateString() !==
+                            new Date(event.start_date).toDateString() &&
+                            event.all_day &&
+                            `- ${event.end_date_details.day} ${
+                              monthsOfTheYear[
+                                Number(event.end_date_details.month) - 1
+                              ]
+                            }`}
                         </span>
                         {event.cost && (
                           <span className={classes.entree}>

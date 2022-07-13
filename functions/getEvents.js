@@ -4,6 +4,21 @@ import auth from "./auth";
 
 const GetEvents = async (perPage, category, searchQuery, startingNow) => {
   const { username, password, targetURL } = auth();
+  const today = new Date();
+  const month = today.getUTCMonth() + 1;
+  const day = today.getUTCDate();
+  const year = today.getUTCFullYear();
+  const startDate = new Date(`${month - 2}-${day}-${year}`)
+    .toISOString()
+    .substring(0, 10);
+  console.log(
+    "URLURLURLURL",
+    `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
+      perPage ? perPage : "100"
+    }${searchQuery ? "&search=" + searchQuery : ""}
+    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}`
+  );
+
   const res = await axios({
     method: "get",
     // url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
@@ -12,11 +27,7 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
       perPage ? perPage : "100"
     }${searchQuery ? "&search=" + searchQuery : ""}
-    ${
-      !startingNow
-        ? "&end_date=2022-08-11&start_date=2022-06-11&status=publish"
-        : ""
-    }`,
+    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}`,
     auth: {
       username,
       password,
@@ -27,11 +38,18 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
       return event.categories[0]?.name == category;
     });
   }
-  console.log(
-    res.data.events.map((event) => `${event.title} - ${event.start_date}`)
-  );
-
-  return res.data.events;
+  function filterOutOldEvents(events) {
+    return events.filter((event) => {
+      console.log(new Date(event.end_date));
+      console.log(today);
+      if (event.end_date && new Date(event.end_date) > today) return true;
+      // else if (event.start_date && new Date(event.start_date >= today))
+      //   return true;
+      else return false;
+    });
+  }
+  return filterOutOldEvents(res.data.events);
+  // return res.data.events;
 };
 
 export default GetEvents;

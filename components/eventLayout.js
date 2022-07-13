@@ -70,7 +70,14 @@ const EventLayout = ({ event }) => {
           {getDay(new Date(event.start_date) || "")}{" "}
           {event.start_date_details.day}{" "}
           {monthsOfTheYear[Number(event.start_date_details?.month) - 1]}{" "}
-          {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "}
+          {/* {event.all_day ? "/ (de hele dag)" : `/ ${startTime}`}{" "} */}
+          {event.all_day ? "" : `/ ${startTime}`}{" "}
+          {new Date(event.end_date).toDateString() !==
+            new Date(event.start_date).toDateString() &&
+            event.all_day &&
+            `- ${event.end_date_details.day} ${
+              monthsOfTheYear[Number(event.end_date_details.month) - 1]
+            }`}
           {event.end_date_details &&
             !event.all_day &&
             startTime != endTime &&
