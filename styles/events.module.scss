@@ -181,6 +181,10 @@
           grid-row-start: span 12;
           // height: 100%;
         }
+        @supports not (aspect-ratio: 1 / 1) {
+          height: 13em;
+          width: 13em !important;
+        }
       }
       .header {
         color: $primary;
