@@ -25,6 +25,7 @@ const Nijveraars = ({ nijveraars, navItems }) => {
           <div className={classes.wrapper}>
             {nijveraars.map((nijveraar) => {
               const imgUrl =
+                nijveraar._embedded &&
                 nijveraar._embedded["wp:featuredmedia"][0]?.media_details?.sizes
                   ?.thumbnail?.source_url;
               const title = nijveraar.title.rendered;

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import classes from "../styles/footer.module.scss";
 import {
   AiFillFacebook,
@@ -9,6 +10,20 @@ import {
 const Footer = () => {
   return (
     <div className={classes.wrapper}>
+      <button
+        className={classes["icon-www"]}
+        onClick={() => window.open("https://www.krisheijnen.dev")}
+      >
+        <img src="/assets/img/logo-www.png" alt="" className={classes.logo} />
+        <div>
+          <small>made by</small>
+          <img
+            src="/assets/img/logo-www-text.png"
+            alt=""
+            className={classes.text}
+          />
+        </div>
+      </button>
       <div className={classes.social}>
         <button
           onClick={() => window.open("https://www.facebook.com/DENIJVERHEID/")}
