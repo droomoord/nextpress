@@ -25,9 +25,10 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     //   perPage ? perPage : "100"
     // }${searchQuery ? "&search=" + searchQuery : ""}`,
     url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
-      perPage ? perPage : "100"
+      perPage ? perPage : "300"
     }${searchQuery ? "&search=" + searchQuery : ""}
-    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}`,
+    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}
+    `,
     auth: {
       username,
       password,
@@ -40,8 +41,6 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
   }
   function filterOutOldEvents(events) {
     return events.filter((event) => {
-      console.log(new Date(event.end_date));
-      console.log(today);
       if (event.end_date && new Date(event.end_date) > today) return true;
       // else if (event.start_date && new Date(event.start_date >= today))
       //   return true;
@@ -49,6 +48,7 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     });
   }
   return filterOutOldEvents(res.data.events);
+
   // return res.data.events;
 };
 

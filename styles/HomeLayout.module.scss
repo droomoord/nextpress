@@ -231,7 +231,7 @@
 .agenda {
   margin-bottom: 3em;
   .agendaitems {
-    margin: 0 1em;
+    margin: 0 2em;
     @media only screen and (min-width: 700px) {
       margin: 0 auto;
       max-width: 65vw;
@@ -244,7 +244,7 @@
       margin-bottom: 0.5em;
       border-radius: $radius;
       padding: 0.5em;
-      // gap: 1em;
+      gap: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
       .imagewrapper {
         $size: 7em;
