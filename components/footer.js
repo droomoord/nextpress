@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <div className={classes.wrapper}>
-      <button
+      {/* <button
         className={classes["icon-www"]}
         onClick={() => window.open("https://www.krisheijnen.dev")}
       >
@@ -23,7 +23,7 @@ const Footer = () => {
             className={classes.text}
           />
         </div>
-      </button>
+      </button> */}
       <div className={classes.social}>
         <button
           onClick={() => window.open("https://www.facebook.com/DENIJVERHEID/")}

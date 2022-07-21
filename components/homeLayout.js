@@ -53,6 +53,41 @@ const HomeLayout = ({ page, posts, events }) => {
             className={panoramaLoaded ? classes.unblur : ""}
           ></Image>
         </figure>
+        <section className={classes["culturele-vrijhaven"]}>
+          <h3 className="np-title">
+            Culturele
+            <br />
+            Vrijhaven
+          </h3>
+          <p>
+            De Nijverheid is een culturele vrijhaven in het Werkspoorkwartier in
+            Utrecht met ateliers en creatieve werkplekken voor ruim 50 autonoom
+            kunstenaars, ontwerpers en{" "}
+            <Link href="/nijveraars">
+              <a>creatieve makers</a>
+            </Link>
+            . Een rauwe plek waar kunstenaars kunnen maken, experimenteren en
+            exposeren. De Nijverheid biedt podium aan beeldende en
+            podiumkunsten, voor iedere maker of artiest die snakt naar
+            rafelranden, experiment en cross-overs [check de{" "}
+            <Link href="/agenda">
+              <a>agenda</a>
+            </Link>
+            ]. Naast de ateliers zijn er verschillende{" "}
+            <Link href="/expo">
+              <a>expositieplekken</a>
+            </Link>{" "}
+            binnen en buiten, een{" "}
+            <Link href="/kunstcafe">
+              <a>kunstcafé</a>
+            </Link>
+            , een terras aan het water en is er wekelijks{" "}
+            <Link href="/agenda">
+              <a>culturele programmering</a>
+            </Link>
+            .
+          </p>
+        </section>
         {posts && posts.length > 0 && (
           <section className={classes.nieuws}>
             <h3 className="np-title">Nieuws</h3>

@@ -8,15 +8,18 @@
     flex-wrap: wrap;
     gap: 1em;
     justify-content: center;
+    margin-top: 2em;
     @supports not (aspect-ratio: 1 / 1) {
       * + * {
         margin-left: 1em;
       }
     }
     @media only screen and (min-width: 1000px) {
-      margin-top: 7em;
       display: grid;
       grid-template-columns: repeat(8, 1fr);
+    }
+    @media only screen and (min-width: 700px) {
+      margin-top: 7em;
     }
     .nijveraar {
       display: flex;
@@ -41,7 +44,6 @@
       img {
         width: 5em;
         height: 100%;
-        // border-radius: 50%;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.195);
         position: relative;
         z-index: 2;

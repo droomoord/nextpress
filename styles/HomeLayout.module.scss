@@ -128,6 +128,20 @@
     animation-fill-mode: forwards;
   }
 }
+.culturele-vrijhaven {
+  h3 {
+    line-height: 1;
+  }
+  p {
+    padding: 2em;
+    background-color: $bg-color-secondary;
+  }
+  margin: 0 2em;
+  @media only screen and (min-width: 700px) {
+    margin: 2em 4em 6em 4em;
+    line-height: 1.9;
+  }
+}
 .nieuws {
   position: relative;
   margin-bottom: 2em;
@@ -300,13 +314,15 @@
 .info {
   .wrapper {
     margin: 0 2em;
+    background-color: $bg-color-secondary;
+    padding: 2em;
     @media only screen and (min-width: 700px) {
       margin: 0 4.5em;
+      margin-bottom: 6em;
     }
 
     p {
       color: $font-primary;
-      margin-bottom: 1em;
     }
     strong,
     h1,
