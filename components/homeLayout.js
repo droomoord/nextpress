@@ -127,6 +127,12 @@ const HomeLayout = ({ page, posts, events }) => {
                           {date} / {time}
                         </span>
                       </div>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: createSummery(event.description, 170),
+                        }}
+                        className={classes.description}
+                      ></div>
                     </a>
                   </Link>
                 );

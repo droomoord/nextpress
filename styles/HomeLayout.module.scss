@@ -246,16 +246,20 @@
       padding: 0.5em;
       gap: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
+      // max-height: 10em;
+      align-items: center;
       .imagewrapper {
-        $size: 7em;
+        $size: 8em;
         width: $size;
-        height: $size;
+        // height: $size;
+        height: 100%;
         overflow: hidden;
         // safari fix:
         @media only screen and (min-width: 700px) {
           margin-right: 4em;
         }
         img {
+          height: 100%;
           border-top-left-radius: $radius;
           border-bottom-left-radius: $radius;
           position: relative;
@@ -277,6 +281,15 @@
           font-weight: bold;
         }
       }
+      .description {
+        display: none;
+        @media only screen and (min-width: 1100px) {
+          // max-width: 20em;
+          display: block;
+          color: $font-primary;
+          max-width: 50%;
+        }
+      }
     }
   }
   .button {
@@ -286,7 +299,10 @@
 }
 .info {
   .wrapper {
-    margin: 0 1em;
+    margin: 0 2em;
+    @media only screen and (min-width: 700px) {
+      margin: 0 4.5em;
+    }
 
     p {
       color: $font-primary;
