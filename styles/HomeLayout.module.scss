@@ -39,16 +39,16 @@
       z-index: -2;
       box-shadow: 2px -2px 7px $shadow-color;
     }
-    &::before {
-      content: "";
-      z-index: -1;
-      background-color: $bg-color;
-      width: 100%;
-      font-family: takraf;
-      height: 70%;
-      bottom: 0;
-      position: absolute;
-    }
+    // &::before {
+    //   content: "";
+    //   z-index: -1;
+    //   background-color: $bg-color;
+    //   width: 100%;
+    //   font-family: takraf;
+    //   height: 70%;
+    //   bottom: 0;
+    //   position: absolute;
+    // }
     .roll {
       display: inline-block;
       transform: rotate(-180deg);
@@ -129,16 +129,20 @@
   }
 }
 .culturele-vrijhaven {
+  margin: 0 2em 4em 2em;
   h3 {
     line-height: 1;
   }
   p {
-    padding: 2em;
+    @media only screen and (min-width: 700px) {
+      // padding-top: 1em;
+      padding: 2em 2em 5em 2em;
+    }
+    padding: 1em 1em 4em 1em;
     background-color: $bg-color-secondary;
   }
-  margin: 0 2em;
   @media only screen and (min-width: 700px) {
-    margin: 2em 4em 6em 4em;
+    margin: 2em 4em 5em 4em;
     line-height: 1.9;
   }
 }
@@ -288,7 +292,10 @@
         width: 13em;
 
         h4 {
-          color: rgb(100, 100, 100);
+          color: rgb(0, 0, 0);
+          @media only screen and (min-width: 1100px) {
+            text-transform: uppercase;
+          }
         }
         span {
           color: $primary;
@@ -323,6 +330,7 @@
 
     p {
       color: $font-primary;
+      margin-bottom: 0.5em;
     }
     strong,
     h1,
@@ -335,6 +343,7 @@
       // font-family: franchise;
       letter-spacing: 0.05em;
       font-size: 1.1em;
+      margin-bottom: 0.5em;
     }
   }
 }

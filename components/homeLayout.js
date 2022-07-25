@@ -67,7 +67,7 @@ const HomeLayout = ({ page, posts, events }) => {
               <a>creatieve makers</a>
             </Link>
             . Een rauwe plek waar kunstenaars kunnen maken, experimenteren en
-            exposeren. De Nijverheid biedt podium aan beeldende en
+            exposeren. <br /> De Nijverheid biedt podium aan beeldende en
             podiumkunsten, voor iedere maker of artiest die snakt naar
             rafelranden, experiment en cross-overs [check de{" "}
             <Link href="/agenda">

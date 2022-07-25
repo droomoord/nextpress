@@ -8,7 +8,9 @@
   gap: 1em;
   margin-bottom: 1em;
   @media only screen and (min-width: 700px) {
+    background-color: $bg-color-secondary;
     margin-top: 7em;
+    padding: 2em;
   }
   img {
     margin: auto;
