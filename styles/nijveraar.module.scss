@@ -6,20 +6,11 @@
   @media only screen and (min-width: 700px) {
     margin-top: 8em;
   }
-
-  h1 {
-    // color: darken($primary, 10);
+  .header {
     text-align: center;
-    // font-family: takraf;
+  }
+  h1 {
     color: $primary;
-    // text-transform: lowercase;
-    // letter-spacing: -0.06em;
-    // word-spacing: -0.5em;
-    margin: 1em 0;
-    // @media only screen and (min-width: 900px) {
-    //   grid-column-start: span 12;
-    //   margin-bottom: 1em;
-    // }
   }
   & > * {
     margin-bottom: 1em;

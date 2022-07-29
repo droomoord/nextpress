@@ -266,6 +266,9 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
       // max-height: 10em;
       align-items: center;
+      @media only screen and (min-width: 700px) {
+        padding: 1.5em;
+      }
       .imagewrapper {
         $size: 8em;
         width: $size;

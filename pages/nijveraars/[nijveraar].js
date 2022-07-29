@@ -44,7 +44,10 @@ const Nijveraar = ({ nijveraar, navItems }) => {
       <Navbar navItems={navItems} initiallyHidden={true} />
       <main className="np-main-content">
         <div className={classes.wrapper}>
-          <h1 dangerouslySetInnerHTML={{ __html: title + " - " + beroep }}></h1>
+          <div className={classes.header}>
+            <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+            <h2>{beroep}</h2>
+          </div>
           {/* <img src={imgUrl} alt={title} /> */}
           {/* <h2 className={classes.beroep}>{}</h2> */}
           <div
