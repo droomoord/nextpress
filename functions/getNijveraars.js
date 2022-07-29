@@ -8,7 +8,7 @@ const getNijveraars = async (fields, nijveraar) => {
     method: "get",
     url: `${targetURL}/wp-json/wp/v2/nijveraars/?_fields=${fields.join(
       ","
-    )}&_embed&slug=${nijveraar ? nijveraar : ""}`,
+    )}&_embed&slug=${nijveraar ? nijveraar : ""}&per_page=100`,
     auth: {
       username,
       password,
