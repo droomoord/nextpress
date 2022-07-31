@@ -198,20 +198,19 @@ iframe {
 //   }
 // }
 
-// #praktisch {
-//   margin: 0 1em;
-//   padding-top: 3em;
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5,
-//   h6 {
-//     // letter-spacing: 0;
-//     text-align: left;
-//     // font-family: franchise;
-//   }
-// }
+#praktisch {
+  @media only screen and (min-width: 700px) {
+    margin-top: 10em;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2em;
+  }
+}
 
 .button {
   cursor: pointer;

@@ -1,6 +1,9 @@
 @import "vars";
 .wrapper {
-  height: 6em;
+  height: 4.5em;
+  @media only screen and (min-width: 700px) {
+    height: 6em;
+  }
   width: 100%;
   background-color: rgb(228, 228, 228);
   border-top: 2px solid rgb(223, 223, 223);

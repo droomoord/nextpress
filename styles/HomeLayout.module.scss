@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   margin-top: 4em;
-  margin-bottom: 2em;
+  margin-bottom: 5em;
 
   @media only screen and (min-width: 700px) {
     margin-bottom: 2em;
@@ -39,16 +39,7 @@
       z-index: -2;
       box-shadow: 2px -2px 7px $shadow-color;
     }
-    // &::before {
-    //   content: "";
-    //   z-index: -1;
-    //   background-color: $bg-color;
-    //   width: 100%;
-    //   font-family: takraf;
-    //   height: 70%;
-    //   bottom: 0;
-    //   position: absolute;
-    // }
+
     .roll {
       display: inline-block;
       transform: rotate(-180deg);
@@ -69,15 +60,7 @@
   }
 }
 
-// .subtitle {
-//   margin: 0 0.5em;
-//   font-family: franchise;
-//   text-align: center;
-//   font-size: 1.3em;
-//   color: $primary;
-// }
 .panorama {
-  // background-color: black;
   width: 300vw;
   max-width: unset;
   position: relative;
@@ -85,9 +68,6 @@
   @media only screen and (min-width: 700px) {
     transform: translateX(-35.5vw);
     width: 134vw;
-    // position: absolute;
-    // left: 0;
-    // right: 0;
   }
   &::after {
     content: "";
@@ -110,15 +90,10 @@
     position: relative;
     right: 0%;
     opacity: 0.1;
-    // animation-name: panorama-initial-slide;
-    // animation-duration: 120s;
-    // animation-iteration-count: infinite;
-    // animation-direction: alternate;
-    // animation-timing-function: linear;
 
     @media only screen and (min-width: 700px) {
       position: static;
-      // animation: none;
+
       width: 100vw;
     }
   }
@@ -135,10 +110,9 @@
   }
   p {
     @media only screen and (min-width: 700px) {
-      // padding-top: 1em;
       padding: 2em 2em 5em 2em;
     }
-    padding: 1em 1em 4em 1em;
+    padding: 1em 1em 2em 1em;
     background-color: $bg-color-secondary;
   }
   @media only screen and (min-width: 700px) {
@@ -156,8 +130,6 @@
     background-color: transparent;
     border: none;
     color: $font-primary;
-    // color: darken($primary, 5);
-    // opacity: 0.2;
     width: 2em;
     color: lighten($font-primary, 50);
     @media only screen and (min-width: 700px) {
@@ -191,7 +163,6 @@
     background-color: $bg-color-secondary;
     margin: 0 2em;
     scroll-behavior: smooth;
-    // background-color: rgba(255, 255, 0, 0.569);
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 40%;
@@ -206,14 +177,12 @@
       gap: 0;
       padding: 1em;
       grid-auto-columns: 15em;
-      // justify-content: center;
     }
     .item {
       text-decoration: none;
-      // box-shadow: 0 0 5px rgba(0, 0, 0, 0.074);
+
       padding: 0.5em;
       margin: 0.1em;
-      // border-radius: 2%;
 
       display: flex;
       flex-direction: column;
@@ -230,9 +199,7 @@
       .image {
         position: relative;
         z-index: 2;
-        // inline-size: 100%;
-        // display: flex;
-        // flex-direction: column;
+
         img {
           inline-size: 100%;
           @media only screen and (min-width: 700px) {
@@ -240,7 +207,6 @@
             display: block;
             margin: auto;
           }
-          // border-radius: 2%;
         }
       }
     }
@@ -264,7 +230,7 @@
       padding: 0.5em;
       gap: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
-      // max-height: 10em;
+
       align-items: center;
       @media only screen and (min-width: 700px) {
         padding: 1.5em;
@@ -272,10 +238,10 @@
       .imagewrapper {
         $size: 8em;
         width: $size;
-        // height: $size;
+
         height: 100%;
         overflow: hidden;
-        // safari fix:
+
         @media only screen and (min-width: 700px) {
           margin-right: 4em;
         }
@@ -308,11 +274,13 @@
       .description {
         display: none;
         @media only screen and (min-width: 1100px) {
-          // max-width: 20em;
           display: block;
           color: $font-primary;
           max-width: 50%;
         }
+      }
+      &:hover {
+        background-color: darken($bg-color-secondary, 2);
       }
     }
   }
@@ -343,7 +311,7 @@
     h5,
     h6 {
       color: $primary;
-      // font-family: franchise;
+
       letter-spacing: 0.05em;
       font-size: 1.1em;
       margin-bottom: 0.5em;
