@@ -35,9 +35,11 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     },
   });
   if (category) {
-    return res.data.events.filter((event) => {
-      return event.categories[0]?.name == category;
-    });
+    return filterOutOldEvents(
+      res.data.events.filter((event) => {
+        return event.categories[0]?.name == category;
+      })
+    );
   }
   function filterOutOldEvents(events) {
     return events.filter((event) => {
