@@ -10,6 +10,10 @@ const Events = ({ events, navItems, category, searchQuery }) => {
     <>
       <Head>
         <title>{settings.title} - Agenda</title>
+        <meta
+          name="description"
+          content="De agenda van de Nijverheid. Kijk hier voor alle events op het gebied van muziek, exposities, podiumkunsten en meer."
+        />
       </Head>
       <Navbar navItems={navItems} initiallyHidden={true} />
       <EventsLayout
