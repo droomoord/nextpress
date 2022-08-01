@@ -24,7 +24,7 @@
   // transform: translate(-50%, -50%);
 }
 .filter-wrapper {
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 800px) {
     width: 20em;
     margin-bottom: 0;
   }
@@ -126,8 +126,9 @@
       @media only screen and (min-width: 800px) {
         font-size: 3em;
         margin-top: 2em;
+        margin-bottom: 0.5em;
         grid-column-start: span 2;
-        text-align: left;
+        // text-align: left;
       }
       &::before {
         content: "====";
