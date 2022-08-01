@@ -14,7 +14,7 @@ export default function Home({ navItems, page, posts, events }) {
         <title>{settings.title}</title>
         <meta
           name="description"
-          content="De Nijverheid is een culturele vrijhaven in het Werkspoorkwartier in Utrecht met ateliers en creatieve werkplekken voor ruim 50 autonoom kunstenaars, ontwerpers en creatieve makers. Een rauwe plek waar kunstenaars kunnen maken, experimenteren en exposeren. De Nijverheid biedt podium aan beeldende en podiumkunsten, voor iedere maker of artiest die snakt naar rafelranden, experiment en cross-overs. Naast de ateliers zijn er verschillende expositieplekken binnen en buiten, een kunstcafé, een terras aan het water en is er wekelijks culturele programmering."
+          content="De Nijverheid is een culturele vrijhaven in het Werkspoorkwartier in Utrecht met ateliers en creatieve werkplekken voor ruim 50 autonoom kunstenaars, ontwerpers en creatieve makers."
         />
       </Head>
       <Navbar navItems={navItems} initiallyHidden={true} />
