@@ -7,18 +7,30 @@
   flex-direction: column;
   gap: 1em;
   margin-bottom: 1em;
+  p {
+    margin-bottom: 1em;
+  }
   @media only screen and (min-width: 700px) {
     background-color: $bg-color-secondary;
-    margin-top: 7em;
+    margin-top: 15em;
+    margin-bottom: 15em;
     padding: 2em;
   }
-  img {
-    margin: auto;
-    max-height: 300px;
-    display: block;
-    @media only screen and (min-width: 700px) {
-      align-self: flex-start;
-      margin: 0;
+  .img-wrapper {
+    img {
+      margin: auto;
+      max-height: 30em;
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      @media only screen and (min-width: 700px) {
+        height: 40em;
+        max-height: 40em;
+        align-self: flex-start;
+        margin: 0;
+        object-fit: cover;
+        // object-position: 0 10%;
+      }
     }
   }
   .title {

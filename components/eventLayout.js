@@ -2,8 +2,24 @@
 import classes from "../styles/event.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const EventLayout = ({ event }) => {
+  const [imgPos, setImgPos] = useState(0);
+  const [scrollHeight, setScrollHeight] = useState(0);
+  useEffect(() => {
+    setScrollHeight(document.body.scrollHeight);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      console.log(scrollHeight);
+      if (window && window.scrollY && scrollHeight > 0) {
+        setImgPos(Math.round((window.scrollY / scrollHeight) * 250));
+      }
+    });
+  }, [scrollHeight]);
+
   const router = useRouter();
   const clickedButton = (website, e) => {
     e.preventDefault();
@@ -47,7 +63,15 @@ const EventLayout = ({ event }) => {
   return (
     <div className="np-main-content">
       <div className={classes["event-wrapper"]}>
-        {event.image && <img src={event.image.url} alt={event.title} />}
+        {event.image && (
+          <div className={classes["img-wrapper"]}>
+            <img
+              src={event.image.url}
+              alt={event.title}
+              style={{ objectPosition: `0 ${imgPos}%` }}
+            />
+          </div>
+        )}
         <h2 className={classes.title}>
           <span dangerouslySetInnerHTML={{ __html: event.title }}></span>
         </h2>
