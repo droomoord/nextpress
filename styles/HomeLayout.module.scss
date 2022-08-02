@@ -230,7 +230,6 @@
       padding: 0.5em;
       gap: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.069);
-
       align-items: center;
       @media only screen and (min-width: 700px) {
         padding: 1.5em;
@@ -238,15 +237,15 @@
       .imagewrapper {
         $size: 8em;
         width: $size;
-
-        height: 100%;
+        height: $size;
         overflow: hidden;
 
-        @media only screen and (min-width: 700px) {
-          margin-right: 4em;
+        @supports not (aspect-ratio: 1 / 1) {
+          margin-right: 2em;
         }
         img {
           height: 100%;
+          width: 100%;
           border-top-left-radius: $radius;
           border-bottom-left-radius: $radius;
           position: relative;
@@ -259,6 +258,9 @@
         flex-direction: column;
         justify-content: center;
         width: 13em;
+        @supports not (aspect-ratio: 1 / 1) {
+          margin-right: 2em;
+        }
 
         h4 {
           color: rgb(0, 0, 0);
