@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import "@wordpress/block-library/build-style/common.css";
 import "@wordpress/block-library/build-style/style.css";
 import "@wordpress/block-library/build-style/theme.css";
+import { Social } from "../../components/social";
 
 const Nijveraar = ({ nijveraar, navItems }) => {
   useEffect(() => {
@@ -47,6 +48,7 @@ const Nijveraar = ({ nijveraar, navItems }) => {
           <div className={classes.header}>
             <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
             <h2>{beroep}</h2>
+            <Social />
           </div>
           {/* <img src={imgUrl} alt={title} /> */}
           {/* <h2 className={classes.beroep}>{}</h2> */}

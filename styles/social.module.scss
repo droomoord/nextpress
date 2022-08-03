@@ -1,0 +1,51 @@
+@import "vars";
+
+@media only screen and (max-width: 700px) {
+}
+.wrapper {
+  .icons-wrapper {
+    position: absolute;
+    @media only screen and (max-width: 700px) {
+      position: fixed;
+      // background-color: $bg-color-secondary;
+      top: 4.5em;
+      right: 0.5em;
+      // box-shadow: 0 0 5px rgba(57, 57, 57, 0.407);
+    }
+    right: 1em;
+    bottom: 1em;
+    // width: 3em;
+    height: 3em;
+    border-radius: 10px;
+    padding: 0 1em 0 0;
+    background-color: $bg-color-secondary;
+    box-shadow: 0 0 5px rgba(107, 107, 107, 0.407);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg:nth-of-type(1) {
+      color: #4267b2;
+    }
+    svg:nth-of-type(2) {
+      color: #0072b1;
+    }
+    svg:nth-of-type(3) {
+      color: rgb(171, 162, 162);
+    }
+    svg:last-of-type {
+      color: $primary;
+    }
+    svg {
+      $size: 1.6em;
+      width: $size;
+      height: $size;
+      margin-left: 1em;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.1s linear;
+      }
+    }
+  }
+}

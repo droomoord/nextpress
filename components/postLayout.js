@@ -2,6 +2,7 @@
 import classes from "../styles/postLayout.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
+import { Social } from "./social";
 
 const PostLayout = ({ post }) => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const PostLayout = ({ post }) => {
     <div className="np-main-content">
       <div className={classes.wrapper}>
         <div className={classes["img-wrapper"]}>
+          <Social />
           <img src={image} alt={post.title?.rendered} />
         </div>
         <div className={classes.info}>

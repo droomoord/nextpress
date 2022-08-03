@@ -3,6 +3,7 @@ import classes from "../styles/event.module.scss";
 import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Social } from "./social";
 
 const EventLayout = ({ event }) => {
   const [imgPos, setImgPos] = useState(0);
@@ -65,6 +66,7 @@ const EventLayout = ({ event }) => {
       <div className={classes["event-wrapper"]}>
         {event.image && (
           <div className={classes["img-wrapper"]}>
+            <Social />
             <img
               src={event.image.url}
               alt={event.title}
