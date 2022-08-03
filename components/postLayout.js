@@ -15,7 +15,9 @@ const PostLayout = ({ post }) => {
   return (
     <div className="np-main-content">
       <div className={classes.wrapper}>
-        <img src={image} alt={post.title?.rendered} />
+        <div className={classes["img-wrapper"]}>
+          <img src={image} alt={post.title?.rendered} />
+        </div>
         <div className={classes.info}>
           <div className={classes.headerWrapper}>
             <h2
