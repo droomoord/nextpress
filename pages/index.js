@@ -39,9 +39,9 @@ export async function getStaticProps() {
       if (!page) console.log("NO PAGE", page);
       if (!navItems) console.log("NO NAVITEMS", navItems);
 
-      return {
-        notFound: true,
-      };
+      // return {
+      //   notFound: true,
+      // };
     }
     const { posts, count } = await getPosts(
       [
@@ -66,8 +66,8 @@ export async function getStaticProps() {
   } catch (error) {
     if (error.response?.data?.message) console.log(error.response.data.message);
     else console.log(error);
-    return {
-      notFound: true,
-    };
+    // return {
+    //   notFound: true,
+    // };
   }
 }
