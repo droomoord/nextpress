@@ -15,8 +15,9 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     "URLURLURLURL",
     `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
       perPage ? perPage : "100"
-    }${searchQuery ? "&search=" + searchQuery : ""}
-    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}`
+    }${searchQuery ? "&search=" + searchQuery : ""}${
+      !startingNow ? `&start_date=${startDate}&status=publish` : ""
+    }`
   );
 
   const res = await axios({
@@ -25,10 +26,7 @@ const GetEvents = async (perPage, category, searchQuery, startingNow) => {
     //   perPage ? perPage : "100"
     // }${searchQuery ? "&search=" + searchQuery : ""}`,
     url: `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
-      perPage ? perPage : "300"
-    }${searchQuery ? "&search=" + searchQuery : ""}
-    ${!startingNow ? `&start_date=${startDate}&status=publish` : ""}
-    `,
+      perPage ? perPage : "300"}${searchQuery ? "&search=" + searchQuery : ""}${!startingNow ? `&start_date=${startDate}&status=publish` : ""}`,
     auth: {
       username,
       password,

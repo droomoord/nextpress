@@ -89,7 +89,7 @@ export async function getStaticProps() {
     }
     return {
       props: {
-        nijveraars,
+        nijveraars: nijveraars.sort((a, b) => (a.title.rendered > b.title.rendered) ? 1 : -1),
         navItems,
       },
       revalidate: settings.revalidationTime,
