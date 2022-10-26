@@ -13,7 +13,7 @@ const GetPosts = async () => {
     },
   });
 
-  return res.data;
+  return res.data.filter((_, index) => index < 5)
 };
 
-export default GetPosts;
+export default GetPosts

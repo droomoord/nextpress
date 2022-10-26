@@ -29,11 +29,11 @@ export async function getStaticProps() {
       "_embedded.wp:featuredmedia",
     ];
     const page = await GetMainContent(homePage, fields);
-    if (!page || !navItems) {
-      return {
-        notFound: true,
-      };
-    }
+    // if (!page || !navItems) {
+    //   return {
+    //     notFound: true,
+    //   };
+    // }
     return {
       props: { navItems, page },
       ...(settings.revalidationTime && {
