@@ -4,7 +4,7 @@ import auth from "./auth";
 
 const GetEvents = async (perPage, category, searchQuery, startingNow) => {
   const { username, password, targetURL } = auth();
-  // const today = new Date();
+  const today = new Date();
   // const month = today.getUTCMonth() + 1;
   // const day = today.getUTCDate();
   // const year = today.getUTCFullYear();
