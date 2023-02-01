@@ -4,13 +4,13 @@ import auth from "./auth";
 
 const GetEvents = async (perPage, category, searchQuery, startingNow) => {
   const { username, password, targetURL } = auth();
-  const today = new Date();
-  const month = today.getUTCMonth() + 1;
-  const day = today.getUTCDate();
-  const year = today.getUTCFullYear();
-  const startDate = new Date(`${month - 2}-${day}-${year}`)
-    .toISOString()
-    .substring(0, 10);
+  // const today = new Date();
+  // const month = today.getUTCMonth() + 1;
+  // const day = today.getUTCDate();
+  // const year = today.getUTCFullYear();
+  // let startDate = new Date(`${month - 2}-${day}-${year}`);
+  // startDate = startDate.toISOString().substring(0, 10);
+  const startDate = new Date().toISOString().substring(0, 10);
   console.log(
     "URLURLURLURL",
     `${targetURL}/wp-json/tribe/events/v1/events?per_page=${
