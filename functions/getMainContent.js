@@ -15,15 +15,26 @@ const GetMainContent = async (slug, fields) => {
     "\n"
   );
 
-  const response = await axios({
-    method: "GET",
-    url: urlString,
-    auth: {
-      username,
-      password,
-    },
-  });
-  return response.data[0];
+  let attempt = 5;
+  let data;
+
+  while (attempt > 0 && !data) {
+    const response = await axios({
+      method: "GET",
+      url: urlString,
+      auth: {
+        username,
+        password,
+      },
+    });
+    if (response.status > 199 && response.status < 300) {
+      data = response.data[0];
+    } else {
+      console.log(`attempt ${attempt}`);
+      attempt--;
+    }
+  }
+  return data;
 };
 
 export default GetMainContent;
